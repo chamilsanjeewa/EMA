@@ -1,0 +1,155 @@
+/**
+ * Color themes (DEMO): picked with the swatches in the option switcher.
+ * Each theme only overrides tokens from tokens.css. Without a data-theme
+ * attribute the option's default palette (rose) is used.
+ * Drupal: keep the chosen palette in tokens.css and delete this file.
+ */
+:root[data-theme="rose"] {
+  --color-primary: #b84667;
+  --color-primary-dark: #8f3150;
+  --color-heading: #4a2633;
+  --color-link: #8f3150;
+  --color-link-hover: #4a2633;
+  --color-eyebrow: #8f3150;
+  --color-surface-alt: #fdeee6;
+  --color-hero-bg: #fdeee6;
+  --color-page-header-bg: #fdeee6;
+  --color-pastel-1: #fdeee6;
+  --color-border: #f1d9cf;
+  --color-border-strong: #e2bfb3;
+  --color-utility-bg: #b84667;
+  --color-icon-fg: #8f3150;
+  --color-tag-text: #4a2633;
+  --color-cta-bg: #b84667;
+  --color-footer-bg: #4a2633;
+  --color-footer-muted: #e6c9d2;
+  --color-focus-light: #4a2633;
+  --shadow-sm: 0 6px 20px -10px rgba(143, 49, 80, 0.28);
+  --shadow-md: 0 16px 40px -16px rgba(143, 49, 80, 0.38);
+  --shadow-button: 0 8px 18px -10px rgba(143, 49, 80, 0.7);
+}
+
+:root[data-theme="sage"] {
+  --color-primary: #4f6b4f;
+  --color-primary-dark: #3c533c;
+  --color-heading: #2b3a2b;
+  --color-link: #3c533c;
+  --color-link-hover: #2b3a2b;
+  --color-eyebrow: #3c533c;
+  --color-surface-alt: #ecf1e8;
+  --color-hero-bg: #ecf1e8;
+  --color-page-header-bg: #ecf1e8;
+  --color-pastel-1: #ecf1e8;
+  --color-border: #d8e2d2;
+  --color-border-strong: #b9c9b0;
+  --color-utility-bg: #4f6b4f;
+  --color-icon-fg: #3c533c;
+  --color-tag-text: #2b3a2b;
+  --color-cta-bg: #4f6b4f;
+  --color-footer-bg: #2b3a2b;
+  --color-footer-muted: #cddbc6;
+  --color-focus-light: #2b3a2b;
+  --shadow-sm: 0 6px 20px -10px rgba(60, 83, 60, 0.28);
+  --shadow-md: 0 16px 40px -16px rgba(60, 83, 60, 0.38);
+  --shadow-button: 0 8px 18px -10px rgba(60, 83, 60, 0.7);
+}
+
+:root[data-theme="ocean"] {
+  --color-primary: #2f5f8a;
+  --color-primary-dark: #234a6d;
+  --color-heading: #1c3550;
+  --color-link: #234a6d;
+  --color-link-hover: #1c3550;
+  --color-eyebrow: #234a6d;
+  --color-surface-alt: #e8f0f7;
+  --color-hero-bg: #e8f0f7;
+  --color-page-header-bg: #e8f0f7;
+  --color-pastel-1: #e8f0f7;
+  --color-border: #d3e1ee;
+  --color-border-strong: #b3c9de;
+  --color-utility-bg: #2f5f8a;
+  --color-icon-fg: #234a6d;
+  --color-tag-text: #1c3550;
+  --color-cta-bg: #2f5f8a;
+  --color-footer-bg: #1c3550;
+  --color-footer-muted: #c9d9e8;
+  --color-focus-light: #1c3550;
+  --shadow-sm: 0 6px 20px -10px rgba(35, 74, 109, 0.28);
+  --shadow-md: 0 16px 40px -16px rgba(35, 74, 109, 0.38);
+  --shadow-button: 0 8px 18px -10px rgba(35, 74, 109, 0.7);
+}
+
+:root[data-theme="terracotta"] {
+  --color-primary: #b0502a;
+  --color-primary-dark: #8c3d1f;
+  --color-heading: #4a2618;
+  --color-link: #8c3d1f;
+  --color-link-hover: #4a2618;
+  --color-eyebrow: #8c3d1f;
+  --color-surface-alt: #fbeee6;
+  --color-hero-bg: #fbeee6;
+  --color-page-header-bg: #fbeee6;
+  --color-pastel-1: #fbeee6;
+  --color-border: #f0dccf;
+  --color-border-strong: #e0bfaa;
+  --color-utility-bg: #b0502a;
+  --color-icon-fg: #8c3d1f;
+  --color-tag-text: #4a2618;
+  --color-cta-bg: #b0502a;
+  --color-footer-bg: #4a2618;
+  --color-footer-muted: #ecd0c0;
+  --color-focus-light: #4a2618;
+  --shadow-sm: 0 6px 20px -10px rgba(140, 61, 31, 0.28);
+  --shadow-md: 0 16px 40px -16px rgba(140, 61, 31, 0.38);
+  --shadow-button: 0 8px 18px -10px rgba(140, 61, 31, 0.7);
+}
+
+:root[data-theme="navy"] {
+  --color-primary: #004b87;
+  --color-primary-dark: #003866;
+  --color-heading: #0f2a44;
+  --color-link: #003866;
+  --color-link-hover: #0f2a44;
+  --color-eyebrow: #003866;
+  --color-surface-alt: #e6eff7;
+  --color-hero-bg: #e6eff7;
+  --color-page-header-bg: #e6eff7;
+  --color-pastel-1: #e6eff7;
+  --color-border: #d0e0ee;
+  --color-border-strong: #a9c4dc;
+  --color-utility-bg: #004b87;
+  --color-icon-fg: #003866;
+  --color-tag-text: #0f2a44;
+  --color-cta-bg: #004b87;
+  --color-footer-bg: #0f2a44;
+  --color-footer-muted: #c3d6e8;
+  --color-focus-light: #0f2a44;
+  --shadow-sm: 0 6px 20px -10px rgba(0, 56, 102, 0.28);
+  --shadow-md: 0 16px 40px -16px rgba(0, 56, 102, 0.38);
+  --shadow-button: 0 8px 18px -10px rgba(0, 56, 102, 0.7);
+}
+
+:root[data-theme="plum"] {
+  --color-primary: #6d3f8c;
+  --color-primary-dark: #552f6e;
+  --color-heading: #34203f;
+  --color-link: #552f6e;
+  --color-link-hover: #34203f;
+  --color-eyebrow: #552f6e;
+  --color-surface-alt: #f3ecf7;
+  --color-hero-bg: #f3ecf7;
+  --color-page-header-bg: #f3ecf7;
+  --color-pastel-1: #f3ecf7;
+  --color-border: #e4d8ec;
+  --color-border-strong: #cdb8dc;
+  --color-utility-bg: #6d3f8c;
+  --color-icon-fg: #552f6e;
+  --color-tag-text: #34203f;
+  --color-cta-bg: #6d3f8c;
+  --color-footer-bg: #34203f;
+  --color-footer-muted: #d9c8e6;
+  --color-focus-light: #34203f;
+  --shadow-sm: 0 6px 20px -10px rgba(85, 47, 110, 0.28);
+  --shadow-md: 0 16px 40px -16px rgba(85, 47, 110, 0.38);
+  --shadow-button: 0 8px 18px -10px rgba(85, 47, 110, 0.7);
+}

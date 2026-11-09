@@ -1,0 +1,91 @@
+/**
+ * Component: media-text
+ * Drupal SDC: components/media-text/media-text.css
+ */
+.media-text__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 var(--space-s);
+  color: var(--color-eyebrow);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: var(--eyebrow-letter-spacing);
+  text-transform: var(--eyebrow-transform);
+}
+
+.media-text {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 48em) {
+  .media-text {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-2xl);
+  }
+
+  .media-text--reverse .media-text__media {
+    order: 2;
+  }
+}
+
+.media-text__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.media-text__title {
+  font-size: var(--step-4);
+}
+
+.media-text__body {
+  font-size: var(--step-1);
+}
+
+.media-text__list {
+  display: grid;
+  gap: var(--space-xs);
+  margin: var(--space-m) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.media-text__list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: 600;
+}
+
+.media-text__list-item .icon {
+  padding: 0.2em;
+  border-radius: 50%;
+  background: var(--color-icon-bg);
+  color: var(--color-icon-fg);
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.media-text__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-top: var(--space-l);
+}
+
+.media-text__eyebrow {
+  padding: 0.4em 1em;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Option A styles */
+.media-text__image {
+  border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
+  box-shadow: var(--shadow-md);
+}

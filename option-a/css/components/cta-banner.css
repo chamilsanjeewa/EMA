@@ -1,0 +1,55 @@
+/**
+ * Component: cta-banner
+ * Drupal SDC: components/cta-banner/cta-banner.css
+ */
+.cta-banner {
+  --color-focus: var(--color-focus-inverse);
+  padding-block: var(--space-2xl);
+  background: var(--color-cta-bg);
+  color: var(--color-on-primary);
+}
+
+.cta-banner__inner {
+  display: grid;
+  gap: var(--space-l);
+  align-items: center;
+}
+
+@media (min-width: 52em) {
+  .cta-banner__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.cta-banner__title {
+  margin-bottom: var(--space-2xs);
+  color: inherit;
+  font-size: var(--step-4);
+}
+
+.cta-banner__text {
+  max-width: 38rem;
+  margin: 0;
+  font-size: var(--step-1);
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+/* Option A styles */
+.cta-banner {
+  padding-block: var(--space-xl);
+  background: transparent;
+}
+
+.cta-banner__inner {
+  padding: var(--space-xl) clamp(1.5rem, 4vw, 3.5rem);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.14) 0 9rem, transparent 9.05rem),
+    radial-gradient(circle at 0% 100%, rgba(246, 195, 68, 0.28) 0 7rem, transparent 7.05rem),
+    var(--color-cta-bg);
+}

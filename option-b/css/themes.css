@@ -1,0 +1,59 @@
+/**
+ * Color themes (DEMO): picked with the swatches in the option switcher.
+ * Each theme only overrides tokens from tokens.css. Without a data-theme
+ * attribute the option's default palette (rose) is used.
+ * Drupal: keep the chosen palette in tokens.css and delete this file.
+ */
+:root[data-theme="rose"] {
+  --color-primary: #b84667;
+  --color-primary-dark: #8f3150;
+  --color-link: #8f3150;
+  --color-eyebrow: #8f3150;
+  --color-icon-fg: #b84667;
+  --color-cta-bg: #b84667;
+}
+
+:root[data-theme="sage"] {
+  --color-primary: #4f6b4f;
+  --color-primary-dark: #3c533c;
+  --color-link: #3c533c;
+  --color-eyebrow: #3c533c;
+  --color-icon-fg: #4f6b4f;
+  --color-cta-bg: #4f6b4f;
+}
+
+:root[data-theme="ocean"] {
+  --color-primary: #2f5f8a;
+  --color-primary-dark: #234a6d;
+  --color-link: #234a6d;
+  --color-eyebrow: #234a6d;
+  --color-icon-fg: #2f5f8a;
+  --color-cta-bg: #2f5f8a;
+}
+
+:root[data-theme="terracotta"] {
+  --color-primary: #b0502a;
+  --color-primary-dark: #8c3d1f;
+  --color-link: #8c3d1f;
+  --color-eyebrow: #8c3d1f;
+  --color-icon-fg: #b0502a;
+  --color-cta-bg: #b0502a;
+}
+
+:root[data-theme="navy"] {
+  --color-primary: #004b87;
+  --color-primary-dark: #003866;
+  --color-link: #003866;
+  --color-eyebrow: #003866;
+  --color-icon-fg: #004b87;
+  --color-cta-bg: #004b87;
+}
+
+:root[data-theme="plum"] {
+  --color-primary: #6d3f8c;
+  --color-primary-dark: #552f6e;
+  --color-link: #552f6e;
+  --color-eyebrow: #552f6e;
+  --color-icon-fg: #6d3f8c;
+  --color-cta-bg: #6d3f8c;
+}

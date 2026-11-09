@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700">
+  <title>Hero image (1600 × 700): Children learning together</title>
+  <defs>
+    <pattern id="stripes" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="36" height="36" fill="#eef0f3"/>
+      <rect width="18" height="36" fill="#e6e9ed"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="700" fill="url(#stripes)"/>
+  <rect x="14" y="14" width="1572" height="672" fill="none" stroke="#4a515c" stroke-opacity="0.3" stroke-width="4" stroke-dasharray="21 14"/>
+  <rect x="448" y="124" width="705" height="374" rx="32" fill="#ffffff" fill-opacity="0.72"/>
+  <g transform="translate(742 161) scale(4.875)" fill="none" stroke="#4a515c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="3" width="20" height="18" rx="2"/>
+    <circle cx="8.5" cy="9" r="2"/>
+    <polyline points="21 16 15.5 10.5 5 21"/>
+  </g>
+  <text x="800" y="350" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="53" font-weight="700" fill="#4a515c">Hero image</text>
+  <text x="800" y="405" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="38" fill="#4a515c">1600 × 700</text>
+  <text x="800" y="454" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="32" font-style="italic" fill="#4a515c">Children learning together</text>
+</svg>

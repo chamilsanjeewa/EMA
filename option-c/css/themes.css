@@ -1,0 +1,89 @@
+/**
+ * Color themes (DEMO): picked with the swatches in the option switcher.
+ * Each theme only overrides tokens from tokens.css. Without a data-theme
+ * attribute the option's default palette (sage) is used.
+ * Drupal: keep the chosen palette in tokens.css and delete this file.
+ */
+:root[data-theme="rose"] {
+  --color-primary: #b84667;
+  --color-primary-dark: #8f3150;
+  --color-link-hover: #8f3150;
+  --color-utility-bg: #b84667;
+  --color-cta-bg: #b84667;
+  --color-icon-fg: #8f3150;
+  --color-icon-bg: #fdeee6;
+  --color-tag-bg: #fdeee6;
+  --color-tag-text: #4a2633;
+  --color-focus-light: #4a2633;
+  --color-leaf: #d58aa0;
+}
+
+:root[data-theme="sage"] {
+  --color-primary: #4f6b4f;
+  --color-primary-dark: #3c533c;
+  --color-link-hover: #3c533c;
+  --color-utility-bg: #4f6b4f;
+  --color-cta-bg: #4f6b4f;
+  --color-icon-fg: #3c533c;
+  --color-icon-bg: #ecf1e8;
+  --color-tag-bg: #ecf1e8;
+  --color-tag-text: #2b3a2b;
+  --color-focus-light: #2b3a2b;
+  --color-leaf: #8aa37f;
+}
+
+:root[data-theme="ocean"] {
+  --color-primary: #2f5f8a;
+  --color-primary-dark: #234a6d;
+  --color-link-hover: #234a6d;
+  --color-utility-bg: #2f5f8a;
+  --color-cta-bg: #2f5f8a;
+  --color-icon-fg: #234a6d;
+  --color-icon-bg: #e8f0f7;
+  --color-tag-bg: #e8f0f7;
+  --color-tag-text: #1c3550;
+  --color-focus-light: #1c3550;
+  --color-leaf: #7fa3c4;
+}
+
+:root[data-theme="terracotta"] {
+  --color-primary: #b0502a;
+  --color-primary-dark: #8c3d1f;
+  --color-link-hover: #8c3d1f;
+  --color-utility-bg: #b0502a;
+  --color-cta-bg: #b0502a;
+  --color-icon-fg: #8c3d1f;
+  --color-icon-bg: #fbeee6;
+  --color-tag-bg: #fbeee6;
+  --color-tag-text: #4a2618;
+  --color-focus-light: #4a2618;
+  --color-leaf: #d49a7c;
+}
+
+:root[data-theme="navy"] {
+  --color-primary: #004b87;
+  --color-primary-dark: #003866;
+  --color-link-hover: #003866;
+  --color-utility-bg: #004b87;
+  --color-cta-bg: #004b87;
+  --color-icon-fg: #003866;
+  --color-icon-bg: #e6eff7;
+  --color-tag-bg: #e6eff7;
+  --color-tag-text: #0f2a44;
+  --color-focus-light: #0f2a44;
+  --color-leaf: #8fbf4d;
+}
+
+:root[data-theme="plum"] {
+  --color-primary: #6d3f8c;
+  --color-primary-dark: #552f6e;
+  --color-link-hover: #552f6e;
+  --color-utility-bg: #6d3f8c;
+  --color-cta-bg: #6d3f8c;
+  --color-icon-fg: #552f6e;
+  --color-icon-bg: #f3ecf7;
+  --color-tag-bg: #f3ecf7;
+  --color-tag-text: #34203f;
+  --color-focus-light: #34203f;
+  --color-leaf: #a98bc0;
+}

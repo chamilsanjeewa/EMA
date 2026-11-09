@@ -1,0 +1,120 @@
+/**
+ * Component: program-card
+ * Drupal SDC: components/program-card/program-card.css
+ */
+.program-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.program-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.program-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.program-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-m) var(--space-m) var(--space-l);
+}
+
+.program-card__title {
+  margin: 0;
+  font-size: var(--step-2);
+}
+
+/* The whole card is clickable through the title link. */
+.program-card__link {
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+.program-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+@supports selector(:has(*)) {
+  .program-card__link:focus-visible {
+    outline: none;
+  }
+
+  .program-card:has(.program-card__link:focus-visible) {
+    outline: var(--focus-width) solid var(--color-focus);
+    outline-offset: var(--focus-offset);
+  }
+}
+
+/* Shown above the title, but read after it. */
+.program-card__age {
+  order: -1;
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0;
+  padding: 0.25em 0.75em;
+  border-radius: var(--radius-pill);
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+
+.program-card__age .icon {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.program-card__text {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.program-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: auto;
+  padding-top: var(--space-xs);
+  color: var(--color-link);
+  font-weight: 700;
+}
+
+.program-card:hover .program-card__more .icon {
+  transform: translateX(4px);
+}
+
+/* Option C styles */
+.program-card {
+  padding: var(--space-s) var(--space-s) 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.program-card:hover {
+  box-shadow: var(--shadow-sm), var(--shadow-md);
+}
+
+.program-card__image {
+  border-radius: 50% 50% var(--radius-sm) var(--radius-sm) / 38% 38% var(--radius-sm) var(--radius-sm);
+}
+
+.program-card__body {
+  padding-inline: var(--space-2xs);
+}

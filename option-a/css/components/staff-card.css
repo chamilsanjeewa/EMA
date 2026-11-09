@@ -1,0 +1,45 @@
+/**
+ * Component: staff-card
+ * Drupal SDC: components/staff-card/staff-card.css
+ */
+.staff-card {
+  height: 100%;
+  padding: var(--space-l) var(--space-m);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.staff-card__photo {
+  width: min(10rem, 70%);
+  aspect-ratio: 1;
+  margin: 0 auto var(--space-m);
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.staff-card__name {
+  margin-bottom: 0.15em;
+  font-size: var(--step-2);
+}
+
+.staff-card__role {
+  margin-bottom: var(--space-xs);
+  color: var(--color-eyebrow);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.staff-card__bio {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+/* Option A styles */
+.staff-card__photo {
+  border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
+  border: 6px solid var(--color-pastel-4);
+}

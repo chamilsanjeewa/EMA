@@ -1,0 +1,87 @@
+/**
+ * Component: section-heading
+ * Drupal SDC: components/section-heading/section-heading.css
+ */
+.section-heading__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 var(--space-s);
+  color: var(--color-eyebrow);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: var(--eyebrow-letter-spacing);
+  text-transform: var(--eyebrow-transform);
+}
+
+.section-heading {
+  max-width: 46rem;
+  margin-bottom: var(--space-xl);
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading__title {
+  margin-bottom: var(--space-s);
+  font-size: var(--step-4);
+}
+
+.section-heading__text {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--step-1);
+}
+
+.section-heading__eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 2px;
+  background: currentColor;
+}
+
+/* Option B styles */
+/* Numbered sections: 01, 02, 03 ... */
+.section-heading__eyebrow::before {
+  counter-increment: section;
+  content: counter(section, decimal-leading-zero);
+  content: counter(section, decimal-leading-zero) / "";
+  width: auto;
+  height: auto;
+  background: none;
+  padding-right: 0.75em;
+  border-right: 1px solid var(--color-border-strong);
+  color: var(--color-heading);
+}
+
+.section-heading,
+.section-heading--center {
+  max-width: none;
+  margin-inline: 0;
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--color-heading);
+  text-align: left;
+}
+
+@media (min-width: 56em) {
+  .section-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: var(--space-2xl);
+    align-items: end;
+  }
+
+  .section-heading__eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .section-heading__title {
+    margin: 0;
+  }
+
+  .section-heading__text {
+    max-width: 36rem;
+  }
+}

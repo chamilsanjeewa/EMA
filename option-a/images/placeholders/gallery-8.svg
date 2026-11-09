@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <title>Gallery photo (800 × 600): Puzzles and games</title>
+  <defs>
+    <pattern id="stripes" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="36" height="36" fill="#fde8dc"/>
+      <rect width="18" height="36" fill="#fbdccd"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#stripes)"/>
+  <rect x="12" y="12" width="776" height="576" fill="none" stroke="#8f3150" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="18 12"/>
+  <rect x="189" y="108" width="423" height="316" rx="27" fill="#ffffff" fill-opacity="0.72"/>
+  <g transform="translate(351 140) scale(4.125)" fill="none" stroke="#8f3150" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="3" width="20" height="18" rx="2"/>
+    <circle cx="8.5" cy="9" r="2"/>
+    <polyline points="21 16 15.5 10.5 5 21"/>
+  </g>
+  <text x="400" y="300" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="45" font-weight="700" fill="#8f3150">Gallery photo</text>
+  <text x="400" y="346" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="32" fill="#8f3150">800 × 600</text>
+  <text x="400" y="388" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="27" font-style="italic" fill="#8f3150">Puzzles and games</text>
+</svg>

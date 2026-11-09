@@ -1,0 +1,94 @@
+/**
+ * Component: contact-info
+ * Drupal SDC: components/contact-info/contact-info.css
+ */
+.contact-info {
+  padding: var(--space-l);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-info__title {
+  font-size: var(--step-3);
+}
+
+.contact-info__list {
+  margin: 0 0 var(--space-m);
+}
+
+.contact-info__row {
+  padding-block: var(--space-s);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contact-info__row:last-child {
+  border-bottom: 0;
+}
+
+.contact-info__label {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  color: var(--color-heading);
+  font-weight: 700;
+}
+
+.contact-info__icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--color-icon-bg);
+  color: var(--color-icon-fg);
+}
+
+.contact-info__icon .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.contact-info__value {
+  margin: 0.15em 0 0;
+  padding-left: calc(2.25rem + 0.75em);
+}
+
+.contact-info__value address {
+  font-style: normal;
+}
+
+.contact-info__social-label {
+  margin-bottom: var(--space-xs);
+  color: var(--color-heading);
+  font-weight: 700;
+}
+
+.contact-info__actions {
+  margin-top: var(--space-s);
+}
+
+.contact-info--compact {
+  padding: var(--space-m);
+}
+
+.contact-info--compact .contact-info__title {
+  font-size: var(--step-2);
+}
+
+/* Option B styles */
+.contact-info {
+  background: var(--color-surface-alt);
+  box-shadow: none;
+}
+
+.contact-info__icon {
+  width: auto;
+  justify-content: flex-start;
+}
+
+.contact-info__value {
+  padding-left: calc(1.1rem + 0.75em);
+}

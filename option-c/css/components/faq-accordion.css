@@ -1,0 +1,73 @@
+/**
+ * Component: faq-accordion
+ * Drupal SDC: components/faq-accordion/faq-accordion.css
+ */
+.faq-accordion {
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.faq-accordion__item {
+  border-bottom: 1px solid var(--color-border-strong);
+}
+
+.faq-accordion__heading {
+  margin: 0;
+  font-size: var(--step-1);
+}
+
+.faq-accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  width: 100%;
+  padding: var(--space-m) var(--space-2xs);
+  border: 0;
+  background: none;
+  color: var(--color-heading);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-accordion__trigger:hover {
+  color: var(--color-primary-dark);
+}
+
+.faq-accordion__icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-icon-bg);
+  color: var(--color-icon-fg);
+}
+
+.faq-accordion__trigger[aria-expanded="true"] .faq-accordion__icon .icon {
+  transform: rotate(180deg);
+}
+
+.faq-accordion__panel {
+  padding: 0 var(--space-2xs) var(--space-m);
+}
+
+.faq-accordion__panel[hidden] {
+  display: none;
+}
+
+.faq-accordion__answer {
+  max-width: 44rem;
+}
+
+.faq-accordion__answer > :last-child {
+  margin-bottom: 0;
+}
+
+/* Option C styles */
+.faq-accordion__heading {
+  font-family: var(--font-body);
+}

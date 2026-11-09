@@ -1,0 +1,120 @@
+/**
+ * DEMO ONLY: floating design switcher for the client meeting.
+ * Not part of the Drupal theme. Delete this file and the markup when building the theme.
+ */
+.option-switcher {
+  position: fixed;
+  bottom: 0.75rem;
+  left: 50%;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.3rem;
+  border-radius: 999px;
+  background: #1f1f24;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  font: 600 0.8125rem/1 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  transform: translateX(-50%);
+}
+
+.option-switcher__designs,
+.option-switcher__themes {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.option-switcher__themes {
+  gap: 0.3rem;
+  padding: 0 0.35rem 0 0.15rem;
+}
+
+.option-switcher__divider {
+  width: 1px;
+  height: 1.5rem;
+  margin: 0 0.3rem;
+  background: #52525b;
+}
+
+.option-switcher__swatch {
+  width: 1.625rem;
+  height: 1.625rem;
+  padding: 0;
+  border: 2px solid #1f1f24;
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: 0 0 0 1px #71717a;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.option-switcher__swatch:hover {
+  transform: scale(1.12);
+}
+
+.option-switcher__swatch[aria-pressed="true"] {
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+.option-switcher__swatch:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.option-switcher__all-short {
+  display: none;
+}
+
+@media (max-width: 26em) {
+  .option-switcher__all-long {
+    display: none;
+  }
+
+  .option-switcher__all-short {
+    display: inline;
+  }
+}
+
+.option-switcher__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.65rem;
+  border-radius: 999px;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.option-switcher__link:hover {
+  background: #3f3f46;
+  color: #ffffff;
+}
+
+.option-switcher__link[aria-current="true"] {
+  background: #ffffff;
+  color: #1f1f24;
+}
+
+.option-switcher__link--all {
+  margin-right: 0.2rem;
+  color: #e4e4e7;
+}
+
+.option-switcher__link:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.site-footer {
+  padding-bottom: 3.75rem;
+}
+
+@media print {
+  .option-switcher {
+    display: none;
+  }
+}

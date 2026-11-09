@@ -1,0 +1,50 @@
+/**
+ * Component: page-header
+ * Drupal SDC: components/page-header/page-header.css
+ */
+.page-header {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-xl) var(--space-2xl);
+  background: var(--color-page-header-bg);
+}
+
+.page-header__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header__title {
+  margin: var(--space-m) 0 var(--space-s);
+  font-size: var(--step-5);
+}
+
+.page-header__lead {
+  max-width: 42rem;
+  margin: 0;
+  font-size: var(--step-1);
+}
+
+/* Option A styles */
+.page-header::before,
+.page-header::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.page-header::before {
+  top: -5rem;
+  right: -3rem;
+  width: 16rem;
+  height: 16rem;
+  background: var(--color-accent-soft);
+}
+
+.page-header::after {
+  right: 12rem;
+  bottom: -4rem;
+  width: 7rem;
+  height: 7rem;
+  background: var(--color-pastel-2);
+}

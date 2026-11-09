@@ -1,0 +1,23 @@
+/**
+ * Component: breadcrumb
+ * Drupal SDC: components/breadcrumb/breadcrumb.css
+ */
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-muted);
+  font-size: var(--step--1);
+  list-style: none;
+}
+
+.breadcrumb__item + .breadcrumb__item::before {
+  content: "/";
+  content: "/" / "";
+  margin-inline: 0.5em;
+}
+
+.breadcrumb__link {
+  color: var(--color-link);
+}

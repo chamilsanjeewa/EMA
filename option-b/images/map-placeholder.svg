@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450">
+  <title>Map placeholder (1200 × 450): our schools in Eagan and Inver Grove Heights</title>
+  <rect width="1200" height="450" fill="#eef0f3"/>
+  <g fill="#e6e9ed">
+    <rect x="40" y="40" width="260" height="140" rx="10"/>
+    <rect x="340" y="40" width="300" height="140" rx="10"/>
+    <rect x="40" y="250" width="300" height="160" rx="10"/>
+    <rect x="760" y="250" width="180" height="160" rx="10"/>
+    <rect x="980" y="250" width="180" height="160" rx="10"/>
+  </g>
+  <path d="M0 215 H1200" stroke="#ffffff" stroke-width="30"/>
+  <path d="M700 0 V450" stroke="#ffffff" stroke-width="24"/>
+  <path d="M120 450 C 300 330, 480 300, 700 215" fill="none" stroke="#ffffff" stroke-width="16"/>
+  <text x="712" y="30" font-family="system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" fill="#4a515c">I-494</text>
+  <text x="712" y="440" font-family="system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" fill="#4a515c">I-35E</text>
+  <g transform="translate(960 140)">
+    <circle r="40" fill="#4a515c" fill-opacity="0.14"/>
+    <path d="M0 0 C -6 -14, -24 -26, -24 -46 A 24 24 0 1 1 24 -46 C 24 -26, 6 -14, 0 0 Z" fill="#b84667" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="0" cy="-46" r="8" fill="#ffffff"/>
+    <rect x="-118" y="12" width="236" height="34" rx="17" fill="#ffffff" fill-opacity="0.92"/>
+    <text x="0" y="35" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#4a515c">Amazing Beginnings · IGH</text>
+  </g>
+  <g transform="translate(420 330)">
+    <circle r="40" fill="#4a515c" fill-opacity="0.14"/>
+    <path d="M0 0 C -6 -14, -24 -26, -24 -46 A 24 24 0 1 1 24 -46 C 24 -26, 6 -14, 0 0 Z" fill="#b84667" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="0" cy="-46" r="8" fill="#ffffff"/>
+    <rect x="-118" y="12" width="236" height="34" rx="17" fill="#ffffff" fill-opacity="0.92"/>
+    <text x="0" y="35" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#4a515c">EMA South · Eagan</text>
+  </g>
+  <rect x="770" y="300" width="400" height="112" rx="14" fill="#ffffff" fill-opacity="0.88"/>
+  <text x="970" y="345" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#4a515c">Map placeholder</text>
+  <text x="970" y="374" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="17" fill="#4a515c">1200 × 450 · two locations</text>
+  <text x="970" y="398" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-style="italic" fill="#4a515c">Embed an interactive map here</text>
+</svg>

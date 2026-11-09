@@ -1,0 +1,69 @@
+/**
+ * Component: feature-list
+ * Drupal SDC: components/feature-list/feature-list.css
+ */
+.feature-list {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-list__item {
+  padding: var(--space-l) var(--space-m);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.feature-list__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: var(--space-s);
+  border-radius: var(--radius-pill);
+  background: var(--color-icon-bg);
+  color: var(--color-icon-fg);
+}
+
+.feature-list__icon .icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.feature-list__title {
+  margin-bottom: var(--space-2xs);
+  font-size: var(--step-2);
+}
+
+.feature-list__text {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.feature-list--compact .feature-list__item {
+  padding: var(--space-m);
+}
+
+.feature-list--compact .feature-list__title {
+  font-size: var(--step-1);
+}
+
+/* Option B styles */
+.feature-list__item {
+  padding: var(--space-m) 0 0;
+  border-top: 2px solid var(--color-heading);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.feature-list__icon {
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+}

@@ -1,0 +1,56 @@
+/**
+ * Component: page-header
+ * Drupal SDC: components/page-header/page-header.css
+ */
+.page-header {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-xl) var(--space-2xl);
+  background: var(--color-page-header-bg);
+}
+
+.page-header__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header__title {
+  margin: var(--space-m) 0 var(--space-s);
+  font-size: var(--step-5);
+}
+
+.page-header__lead {
+  max-width: 42rem;
+  margin: 0;
+  font-size: var(--step-1);
+}
+
+/* Option C styles */
+.page-header {
+  background-image: radial-gradient(rgba(59, 47, 37, 0.05) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+.page-header::after {
+  content: "";
+  position: absolute;
+  display: none;
+  right: max(2rem, 8vw);
+  bottom: -2px;
+  width: 11rem;
+  height: 14rem;
+  border: 2px solid var(--color-leaf);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  opacity: 0.8;
+}
+
+@media (min-width: 56em) {
+  .page-header::after {
+    display: block;
+  }
+}
+
+.page-header__title {
+  font-weight: 500;
+}

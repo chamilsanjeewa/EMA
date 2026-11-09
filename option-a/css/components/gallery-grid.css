@@ -1,0 +1,131 @@
+/**
+ * Component: gallery-grid
+ * Drupal SDC: components/gallery-grid/gallery-grid.css
+ */
+.gallery-grid__list {
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery-grid__figure {
+  margin: 0;
+}
+
+.gallery-grid__link {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.gallery-grid__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid__link:hover .gallery-grid__image {
+  transform: scale(1.04);
+}
+
+.gallery-grid__caption {
+  margin-top: var(--space-2xs);
+  color: var(--color-text-muted);
+  font-size: var(--step--1);
+}
+
+/* Lightbox (native <dialog>: focus trap and Escape are built in). */
+.gallery-grid__dialog {
+  width: min(64rem, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-grid__dialog::backdrop {
+  background: rgba(20, 16, 16, 0.82);
+}
+
+.gallery-grid__dialog-inner {
+  display: grid;
+  grid-template-areas:
+    "close close close"
+    "prev view next"
+    "count count count";
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-s);
+}
+
+.gallery-grid__close {
+  grid-area: close;
+  justify-self: end;
+}
+
+.gallery-grid__prev {
+  grid-area: prev;
+}
+
+.gallery-grid__next {
+  grid-area: next;
+}
+
+.gallery-grid__viewer {
+  grid-area: view;
+  min-width: 0;
+  margin: 0;
+}
+
+.gallery-grid__viewer-image {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.gallery-grid__viewer-caption {
+  margin-top: var(--space-xs);
+  color: var(--color-heading);
+  font-weight: 700;
+  text-align: center;
+}
+
+.gallery-grid__counter {
+  grid-area: count;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--step--1);
+  text-align: center;
+}
+
+.gallery-grid__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-heading);
+  cursor: pointer;
+}
+
+.gallery-grid__control:hover {
+  background: var(--color-surface-alt);
+}
+
+/* Option A styles */
+.gallery-grid__link {
+  border-radius: var(--radius-lg);
+}

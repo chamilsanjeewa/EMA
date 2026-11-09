@@ -1,0 +1,106 @@
+/**
+ * Design tokens: Option B (Clean & Modern)
+ * Change brand colors, fonts and spacing here, in one place.
+ * Drupal: load first in the theme's global library.
+ */
+:root {
+  /* Brand */
+  --color-primary: #b84667;
+  --color-primary-dark: #93344f;
+  --color-on-primary: #ffffff;
+  --color-accent: #111418;
+  --color-on-accent: #ffffff;
+  --color-accent-soft: #f5f6f8;
+
+  /* Neutrals */
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f6f8;
+  --color-text: #1f242b;
+  --color-text-muted: #5a6270;
+  --color-heading: #111418;
+  --color-border: #e4e6ea;
+  --color-border-strong: #c9cdd3;
+  --color-input-border: #8a919c;
+
+  /* Roles */
+  --color-link: #93344f;
+  --color-link-hover: #111418;
+  --color-eyebrow: #93344f;
+  --color-header-bg: #ffffff;
+  --color-hero-bg: #ffffff;
+  --color-page-header-bg: #ffffff;
+  --color-utility-bg: #111418;
+  --color-utility-text: #e9ebee;
+  --color-icon-bg: transparent;
+  --color-icon-fg: #b84667;
+  --color-tag-bg: transparent;
+  --color-tag-text: #5a6270;
+  --color-cta-bg: #b84667;
+  --color-footer-bg: #111418;
+  --color-footer-text: #e9ebee;
+  --color-footer-muted: #a9b0bb;
+  --color-footer-heading: #ffffff;
+  --color-footer-border: rgba(255, 255, 255, 0.14);
+  --color-focus-light: #111418;
+  --color-focus-inverse: #ffffff;
+
+  /* Fonts (system stacks: work offline) */
+  --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-button: var(--font-body);
+  --font-weight-heading: 700;
+  --line-height-body: 1.6;
+  --line-height-heading: 1.08;
+  --letter-spacing-heading: -0.025em;
+  --eyebrow-transform: uppercase;
+  --eyebrow-letter-spacing: 0.12em;
+
+  /* Type scale (fluid) */
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: clamp(1.125rem, 1.07rem + 0.25vw, 1.25rem);
+  --step-2: clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
+  --step-3: clamp(1.55rem, 1.35rem + 1vw, 2.1rem);
+  --step-4: clamp(1.9rem, 1.55rem + 1.75vw, 2.85rem);
+  --step-5: clamp(2.3rem, 1.75rem + 2.75vw, 4.5rem);
+
+  /* Shape */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-pill: 999px;
+  --radius-button: 2px;
+  --radius-input: 2px;
+  --shadow-sm: 0 0 0 1px var(--color-border);
+  --shadow-md: 0 12px 32px -12px rgba(17, 20, 24, 0.22);
+
+  /* Layout */
+  --container-max: 80rem;
+
+  /* Spacing scale */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --section-pad: clamp(3rem, 2rem + 5vw, 6rem);
+  --grid-gap: clamp(1rem, 0.75rem + 1vw, 2rem);
+  --container-pad: clamp(1rem, 4vw, 2rem);
+
+  /* Focus */
+  --focus-width: 3px;
+  --focus-offset: 3px;
+  --color-focus: var(--color-focus-light);
+
+  /* Feedback colors */
+  --color-error: #b3261e;
+  --color-error-bg: #fdecea;
+  --color-success-text: #1e5631;
+  --color-success-bg: #e6f4ea;
+}

@@ -1,0 +1,97 @@
+/**
+ * Component: location-card
+ * Drupal SDC: components/location-card/location-card.css
+ */
+.location-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.location-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.location-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-m) var(--space-m) var(--space-l);
+}
+
+.location-card__title {
+  margin: 0;
+  font-size: var(--step-3);
+}
+
+/* Shown above the title, read after it. */
+.location-card__badge {
+  order: -1;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.25em 0.75em;
+  border-radius: var(--radius-pill);
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+
+.location-card__address,
+.location-card__phone {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0;
+  font-weight: 600;
+}
+
+.location-card__address .icon,
+.location-card__phone .icon {
+  color: var(--color-icon-fg);
+}
+
+.location-card__text {
+  margin: var(--space-2xs) 0 0;
+  color: var(--color-text-muted);
+}
+
+.location-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-s);
+}
+
+/* Option B styles */
+.location-card {
+  border-top: 2px solid var(--color-heading);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.location-card__image {
+  margin-top: var(--space-m);
+  border-radius: var(--radius-sm);
+}
+
+.location-card__body {
+  padding-inline: 0;
+}
+
+.location-card__badge {
+  padding: 0;
+  background: none;
+  color: var(--color-eyebrow);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

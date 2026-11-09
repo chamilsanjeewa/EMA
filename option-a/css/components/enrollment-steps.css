@@ -1,0 +1,62 @@
+/**
+ * Component: enrollment-steps
+ * Drupal SDC: components/enrollment-steps/enrollment-steps.css
+ */
+.enrollment-steps {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.enrollment-steps__item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-l) var(--space-m);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.enrollment-steps__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-s);
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-heading);
+  font-size: var(--step-2);
+  font-weight: 700;
+}
+
+.enrollment-steps__title {
+  margin-bottom: var(--space-2xs);
+  font-size: var(--step-2);
+}
+
+.enrollment-steps__text {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.enrollment-steps__action {
+  margin: auto 0 0;
+  padding-top: var(--space-m);
+}
+
+/* Option A styles */
+.enrollment-steps__item {
+  border-radius: var(--radius-xl);
+}
+
+.enrollment-steps__number {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: var(--step-3);
+}

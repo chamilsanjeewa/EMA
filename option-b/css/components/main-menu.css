@@ -1,0 +1,243 @@
+/**
+ * Component: main-menu
+ * Drupal SDC: components/main-menu/main-menu.css
+ */
+/* Mobile first: a toggle button opens the menu panel. */
+.main-menu__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.9rem;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-button);
+  background: var(--color-surface);
+  color: var(--color-heading);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.main-menu__toggle-icon {
+  display: inline-flex;
+}
+
+.main-menu__toggle-icon--close,
+.main-menu.is-open .main-menu__toggle-icon--open {
+  display: none;
+}
+
+.main-menu.is-open .main-menu__toggle-icon--close {
+  display: inline-flex;
+}
+
+.no-js .main-menu__toggle {
+  display: none;
+}
+
+.js .main-menu__panel {
+  display: none;
+}
+
+.js .main-menu.is-open .main-menu__panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  display: block;
+  max-height: calc(100vh - 7.5rem);
+  overflow-y: auto;
+  padding: var(--space-xs) var(--container-pad) var(--space-l);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-header-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.main-menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-menu__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.main-menu__parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-menu__link {
+  display: block;
+  flex: 1;
+  padding: 0.85rem 0.25rem;
+  color: var(--color-heading);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main-menu__link:hover {
+  color: var(--color-primary-dark);
+}
+
+.main-menu__link[aria-current="page"],
+.main-menu__item.is-active-trail > .main-menu__parent .main-menu__link {
+  color: var(--color-primary-dark);
+}
+
+.main-menu__submenu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-heading);
+  cursor: pointer;
+}
+
+.main-menu__submenu-toggle:hover {
+  background: var(--color-surface-alt);
+}
+
+.main-menu__submenu-toggle[aria-expanded="true"] .icon {
+  transform: rotate(180deg);
+}
+
+.no-js .main-menu__submenu-toggle {
+  display: none;
+}
+
+.main-menu__submenu {
+  margin: 0 0 var(--space-xs);
+  padding: 0 0 0 var(--space-s);
+  list-style: none;
+}
+
+.main-menu__submenu[hidden] {
+  display: none;
+}
+
+.main-menu__sublink {
+  display: block;
+  padding: 0.6rem 0.5rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.main-menu__sublink:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-heading);
+}
+
+.main-menu__sublink[aria-current="page"] {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+.main-menu__cta {
+  width: 100%;
+  margin-top: var(--space-m);
+}
+
+/* Desktop: horizontal menu with dropdown. Keep in sync with main-menu.js. */
+@media (min-width: 75em) {
+  .main-menu__toggle {
+    display: none;
+  }
+
+  .main-menu__panel,
+  .js .main-menu__panel,
+  .js .main-menu.is-open .main-menu__panel {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .main-menu__list {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+  }
+
+  .main-menu__item {
+    position: relative;
+    border: 0;
+  }
+
+  .main-menu__link,
+  .main-menu__cta {
+    white-space: nowrap;
+  }
+
+  .site-branding__name {
+    white-space: nowrap;
+  }
+
+  .main-menu__link {
+    padding: 0.55rem 0.7rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.975rem;
+  }
+
+  .main-menu__item--has-children .main-menu__link {
+    padding-right: 0.2rem;
+  }
+
+  .main-menu__submenu-toggle {
+    width: 1.75rem;
+    height: 2.25rem;
+  }
+
+  .main-menu__submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 70;
+    min-width: 16rem;
+    margin: 0;
+    padding: var(--space-2xs);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+  }
+
+  .no-js .main-menu__submenu {
+    display: none;
+  }
+
+  .no-js .main-menu__item--has-children:hover .main-menu__submenu,
+  .no-js .main-menu__item--has-children:focus-within .main-menu__submenu {
+    display: block;
+  }
+
+  .main-menu__cta {
+    width: auto;
+    margin: 0 0 0 var(--space-2xs);
+  }
+}
+
+/* Option B styles */
+@media (min-width: 70em) {
+  .main-menu__link[aria-current="page"],
+  .main-menu__item.is-active-trail > .main-menu__parent .main-menu__link {
+    color: var(--color-heading);
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.5em;
+  }
+}
