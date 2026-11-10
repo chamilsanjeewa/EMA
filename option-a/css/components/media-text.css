@@ -14,6 +14,7 @@
   text-transform: var(--eyebrow-transform);
 }
 
+
 .media-text {
   display: grid;
   gap: var(--space-xl);

@@ -82,7 +82,8 @@
 }
 
 .main-menu__link[aria-current="page"],
-.main-menu__item.is-active-trail > .main-menu__parent .main-menu__link {
+.main-menu__item.is-active-trail > .main-menu__parent .main-menu__link,
+.main-menu__item.is-active-trail > .main-menu__link {
   color: var(--color-primary-dark);
 }
 
@@ -241,7 +242,8 @@
   }
 
   .main-menu__link[aria-current="page"],
-  .main-menu__item.is-active-trail > .main-menu__parent .main-menu__link {
+  .main-menu__item.is-active-trail > .main-menu__parent .main-menu__link,
+  .main-menu__item.is-active-trail > .main-menu__link {
     background: var(--color-surface-alt);
   }
 }

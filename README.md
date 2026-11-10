@@ -58,6 +58,8 @@ option-a/ | option-b/ | option-c/
   about.html                  History + staff
   gallery.html
   faq.html
+  news.html                   News / blog listing with category filter
+  news-<slug>.html            One page per post (6 sample posts, with sidebar)
   contact.html                Form, map placeholder, hours, address
   css/
     tokens.css                All colors, fonts, spacing, radius, shadows. Rebrand here.
@@ -95,6 +97,8 @@ Class names follow BEM (`.program-card__title`, `.hero--split`). Each component 
 | `feature-list` | Icon + title + text list (highlights, program extras, special classes) | | Home, Programs, program pages, About |
 | `media-text` | Image + text + check list + actions | | Home, Enrollment, About |
 | `program-card` | Program teaser (whole card is clickable) | | Home, Programs |
+| `news-card` | News post teaser: photo, category, date, summary (whole card is clickable; follows each option's program-card look) | | Home (latest 3), News |
+| `news-listing` | All posts + category filter buttons (All, Announcements, Events, In the classroom, Parent tips). Without JS the filter is hidden and every post shows | ✓ | News |
 | `testimonial` | Parent quote | | Home, About |
 | `history-timeline` | Year-by-year history | | About |
 | `staff-card` | Staff photo, name, role, bio (real staff names use labeled placeholder portraits, not stock faces) | | About |
@@ -103,15 +107,15 @@ Class names follow BEM (`.program-card__title`, `.hero--split`). Each component 
 | `gallery-grid` | Photo grid + `<dialog>` lightbox | ✓ | Home (6 photos), Gallery (12) |
 | `faq-accordion` | Accessible accordion | ✓ | Program pages, Enrollment, FAQ |
 | `contact-form` | Demo contact form with inline validation | ✓ | Contact |
-| `contact-info` | Hours + both schools (address, phone, email, directions) + social (`--compact` variant for the sidebar) | | Program pages (sidebar), Contact |
+| `contact-info` | Hours + both schools (address, phone, email, directions) + social (`--compact` variant for the sidebar) | | Program pages and news posts (sidebar), Contact |
 | `map-placeholder` | Map image + caption + Google Maps link | | Contact |
-| `sidebar-nav` | Program list in the sidebar | | Program pages |
+| `sidebar-nav` | Link list in the sidebar (programs, or recent news) | | Program pages, news posts |
 | `social-links` | Instagram + Facebook icons | | All pages (footer), Contact |
 | `cta-banner` | "Apply Now / Schedule a tour" banner | | All pages (footer_top region) |
 | `footer` | Footer columns + bottom bar | | All pages |
 | `option-switcher` | **Demo only.** Floating A · B · C design switcher + color theme swatches. Do not port it. | ✓ | All pages |
 
-Page-level helpers in `layout.css`, which are not components: `.container`, `.section`, `.section--alt`, `.grid--3/4`, `.layout--with-sidebar`, `.prose`, `.program-detail`, `.contact-layout`, `.faq-wrap`.
+Page-level helpers in `layout.css`, which are not components: `.container`, `.section`, `.section--alt`, `.grid--3/4`, `.layout--with-sidebar`, `.prose`, `.program-detail`, `.news-article`, `.contact-layout`, `.faq-wrap`.
 
 ---
 
@@ -187,6 +191,8 @@ Component CSS/JS is **not** listed here. Each SDC loads its own files automatica
 | `program-card` | Content type **Program** → `node--program--teaser.html.twig` → `ema:program-card` |
 | Program detail | `node--program--full.html.twig` (`.program-detail`) |
 | Programs grid / sidebar-nav | Views of Program nodes (grid display and a block display for the sidebar) |
+| `news-card` / News post | Content type **Article** (or **News**) with a **Category** taxonomy and a School field → `node--article--teaser.html.twig` → `ema:news-card`; full display `node--article--full.html.twig` (`.news-article`) |
+| `news-listing` | View of Article nodes, sorted newest first, with a pager. Use a Views exposed filter for categories instead of the demo script. Block displays for "Latest 3" on the home page and "Recent news" in the sidebar |
 | `staff-card` | Content type or paragraph **Staff** → View on About page |
 | `location-card` | Content type **Location** (address, phone, email, map link, "now enrolling" text) → View, reused in footer and contact-info |
 | `testimonial` | Content type or paragraph **Testimonial** |
