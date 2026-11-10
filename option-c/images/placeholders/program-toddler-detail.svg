@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <title>Program detail photo (1200 × 675): Toddlers at play</title>
+  <defs>
+    <pattern id="stripes" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="36" height="36" fill="#ece5d6"/>
+      <rect width="18" height="36" fill="#e4dccb"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#stripes)"/>
+  <rect x="14" y="14" width="1173" height="648" fill="none" stroke="#3c533c" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="20 14"/>
+  <rect x="253" y="120" width="694" height="360" rx="31" fill="#ffffff" fill-opacity="0.72"/>
+  <g transform="translate(544 156) scale(4.667)" fill="none" stroke="#3c533c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="3" width="20" height="18" rx="2"/>
+    <circle cx="8.5" cy="9" r="2"/>
+    <polyline points="21 16 15.5 10.5 5 21"/>
+  </g>
+  <text x="600" y="337" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="51" font-weight="700" fill="#3c533c">Program detail photo</text>
+  <text x="600" y="390" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="37" fill="#3c533c">1200 × 675</text>
+  <text x="600" y="438" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="31" font-style="italic" fill="#3c533c">Toddlers at play</text>
+</svg>

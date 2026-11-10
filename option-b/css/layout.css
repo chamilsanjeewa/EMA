@@ -114,6 +114,17 @@
   border-radius: var(--radius-lg);
 }
 
+.program-detail__age {
+  display: inline-block;
+  margin: var(--space-m) 0 0;
+  padding: 0.25em 0.85em;
+  border-radius: var(--radius-pill);
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+
 .program-detail__section {
   margin-top: var(--space-2xl);
 }
@@ -153,4 +164,10 @@ main {
 .region--highlighted {
   padding-block: var(--space-xl);
   border-bottom: 1px solid var(--color-border);
+}
+
+.program-detail__age {
+  padding: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

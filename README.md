@@ -22,7 +22,7 @@ All three options have the same pages, content, markup structure and component n
 6. Other things to demonstrate:
    - **Programs ▾** dropdown in the main menu (works with mouse and keyboard)
    - **Language switcher** (English / Español / Soomaali) in the top bar. It's demo only: it shows a short message, and the choice is remembered between pages.
-   - **FAQ accordion** (FAQ, Enrollment and Infant Care pages)
+   - **FAQ accordion** (FAQ, Enrollment and every program page)
    - **Gallery lightbox** (click any photo; use the arrow keys and Escape)
    - **Contact form validation**: submit it empty, then fill it in. Nothing is sent.
    - **Keyboard**: press Tab on any page. The first stop is the "Skip to main content" link, and every control has a visible focus ring.
@@ -48,7 +48,12 @@ index.html                    Meeting launcher (demo only)
 option-a/ | option-b/ | option-c/
   index.html                  Home
   programs.html               Programs overview
-  program-infant-care.html    Program detail (with sidebar)
+  program-infant-care.html    Program detail pages (with sidebar), one per program:
+  program-toddler.html          Toddler, Preschool, Pre-K & Kindergarten,
+  program-preschool.html        Summer Bridge, Gifted/Talented & STEM
+  program-pre-k-kindergarten.html
+  program-summer-bridge.html
+  program-gifted-talented-stem.html
   enrollment.html
   about.html                  History + staff
   gallery.html
@@ -87,7 +92,7 @@ Class names follow BEM (`.program-card__title`, `.hero--split`). Each component 
 | `page-header` | Inner-page title + lead text | | All inner pages |
 | `breadcrumb` | Breadcrumb trail | | All inner pages |
 | `section-heading` | Eyebrow + section title + intro | | Home, Programs, Enrollment, About, FAQ, Contact |
-| `feature-list` | Icon + title + text list (highlights, program extras, special classes) | | Home, Programs, Infant Care, About |
+| `feature-list` | Icon + title + text list (highlights, program extras, special classes) | | Home, Programs, program pages, About |
 | `media-text` | Image + text + check list + actions | | Home, Enrollment, About |
 | `program-card` | Program teaser (whole card is clickable) | | Home, Programs |
 | `testimonial` | Parent quote | | Home, About |
@@ -96,11 +101,11 @@ Class names follow BEM (`.program-card__title`, `.hero--split`). Each component 
 | `enrollment-steps` | Numbered "how to enroll" steps | | Enrollment |
 | `location-card` | One school: photo, "now enrolling" badge, address, phone, areas served, tour + directions buttons | | Home, Contact |
 | `gallery-grid` | Photo grid + `<dialog>` lightbox | ✓ | Home (6 photos), Gallery (12) |
-| `faq-accordion` | Accessible accordion | ✓ | Infant Care, Enrollment, FAQ |
+| `faq-accordion` | Accessible accordion | ✓ | Program pages, Enrollment, FAQ |
 | `contact-form` | Demo contact form with inline validation | ✓ | Contact |
-| `contact-info` | Hours + both schools (address, phone, email, directions) + social (`--compact` variant for the sidebar) | | Infant Care (sidebar), Contact |
+| `contact-info` | Hours + both schools (address, phone, email, directions) + social (`--compact` variant for the sidebar) | | Program pages (sidebar), Contact |
 | `map-placeholder` | Map image + caption + Google Maps link | | Contact |
-| `sidebar-nav` | Program list in the sidebar | | Infant Care |
+| `sidebar-nav` | Program list in the sidebar | | Program pages |
 | `social-links` | Instagram + Facebook icons | | All pages (footer), Contact |
 | `cta-banner` | "Apply Now / Schedule a tour" banner | | All pages (footer_top region) |
 | `footer` | Footer columns + bottom bar | | All pages |
@@ -122,7 +127,7 @@ Every page uses the same regions. Each region starts with a comment such as `<!-
   <div class="region--hero">              region: hero         (hero / page-header + breadcrumb)
   <div class="region--highlighted">       region: highlighted  (Home highlights; Drupal status messages)
   <div class="region--content">           region: content
-  <aside class="region--sidebar">         region: sidebar      (optional, Infant Care page only)
+  <aside class="region--sidebar">         region: sidebar      (optional, program pages only)
 </main>
 <div class="region--footer-top">          region: footer_top   (cta-banner)
 <footer class="region--footer">           region: footer
