@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Component: sidebar-nav. Link list in the sidebar (programs or recent news).
+ */
+#}
+{% set heading_id = heading_id ?: 'sidebar-nav-title' %}
+<nav class="sidebar-nav" aria-labelledby="{{ heading_id }}">
+  <h2 class="sidebar-nav__title" id="{{ heading_id }}">{{ title }}</h2>
+  <ul class="sidebar-nav__list">
+    {% for item in items %}
+      <li class="sidebar-nav__item"><a class="sidebar-nav__link" href="{{ item.url }}"{% if item.active %} aria-current="page"{% endif %}>{{ item.title }}{{ include('ema_base:icon', {name: 'chevron-right'}, with_context = false) }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>

@@ -1,0 +1,69 @@
+uuid: b6bff68c-beec-4f91-a641-f2f1fdab6cb4
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_listing
+field_name: field_listing
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: programs
+      label: 'Programs (cards)'
+    -
+      value: locations
+      label: 'Schools (location cards)'
+    -
+      value: testimonials
+      label: Testimonials
+    -
+      value: staff
+      label: Staff
+    -
+      value: faq_general
+      label: 'FAQ: general'
+    -
+      value: faq_enrollment
+      label: 'FAQ: enrollment'
+    -
+      value: faq_infant
+      label: 'FAQ: infant care'
+    -
+      value: contact
+      label: 'Contact form + school details'
+    -
+      value: map
+      label: Map
+    -
+      value: faq_toddler
+      label: 'FAQ: toddler program'
+    -
+      value: faq_preschool
+      label: 'FAQ: preschool'
+    -
+      value: faq_prek
+      label: 'FAQ: Pre-K & Kindergarten'
+    -
+      value: faq_summer
+      label: 'FAQ: Summer Bridge'
+    -
+      value: faq_other
+      label: 'FAQ: Gifted, Talented & STEM'
+    -
+      value: news_latest
+      label: 'News: latest 3 posts'
+    -
+      value: news
+      label: 'News: all posts with category filter'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

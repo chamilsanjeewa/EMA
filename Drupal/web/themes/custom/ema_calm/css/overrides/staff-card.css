@@ -1,0 +1,5 @@
+/* Option C: staff-card */
+
+.staff-card__photo {
+  border-radius: 50% 50% var(--radius-md) var(--radius-md);
+}

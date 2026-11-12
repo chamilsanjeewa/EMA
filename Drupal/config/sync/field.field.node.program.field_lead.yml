@@ -1,0 +1,19 @@
+uuid: 1a0f5e30-4fb0-4615-96e9-2657eeb7824f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lead
+    - node.type.program
+id: node.program.field_lead
+field_name: field_lead
+entity_type: node
+bundle: program
+label: 'Lead text (under the page title)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,6 @@
+{# Paragraph: one featured testimonial. #}
+{% if ema.quote %}
+  {% embed 'ema_base:section' with {background: ema.section.background, quote: ema.quote} only %}
+    {% block body %}<div class="testimonial-single">{{ include('ema_base:testimonial', quote, with_context = false) }}</div>{% endblock %}
+  {% endembed %}
+{% endif %}

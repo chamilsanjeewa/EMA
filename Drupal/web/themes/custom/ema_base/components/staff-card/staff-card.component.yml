@@ -1,0 +1,15 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Staff card'
+status: stable
+description: 'Staff photo (or placeholder), name, role and short bio.'
+props:
+  type: object
+  properties:
+    name:
+      type: string
+    role:
+      type: ['string', 'null']
+    bio:
+      type: ['string', 'null']
+    photo:
+      type: ['object', 'null']

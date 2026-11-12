@@ -1,0 +1,40 @@
+uuid: 7f36ab30-6afb-4484-be4e-26e5f7abc159
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.timeline_item.field_text
+    - field.field.paragraph.timeline_item.field_title
+    - field.field.paragraph.timeline_item.field_year
+    - paragraphs.paragraphs_type.timeline_item
+id: paragraph.timeline_item.default
+targetEntityType: paragraph
+bundle: timeline_item
+mode: default
+content:
+  field_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_year:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

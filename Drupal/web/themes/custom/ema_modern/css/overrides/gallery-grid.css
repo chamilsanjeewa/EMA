@@ -1,0 +1,9 @@
+/* Option B: gallery-grid */
+
+.gallery-grid__list {
+  gap: var(--space-s);
+}
+
+.gallery-grid__link {
+  border-radius: 0;
+}

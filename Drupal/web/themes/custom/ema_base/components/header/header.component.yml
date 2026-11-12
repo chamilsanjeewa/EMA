@@ -1,0 +1,14 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Header'
+status: stable
+description: 'Site header layout: utility bar, branding and menu.'
+props:
+  type: object
+  properties: {}
+slots:
+  utility:
+    title: 'Utility bar'
+  branding:
+    title: 'Branding (header region)'
+  menu:
+    title: 'Main menu (primary_menu region)'

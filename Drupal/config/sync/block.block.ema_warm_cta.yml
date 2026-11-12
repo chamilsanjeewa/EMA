@@ -1,0 +1,20 @@
+uuid: bb92e050-205b-4580-872a-f54f3c27c405
+langcode: en
+status: true
+dependencies:
+  module:
+    - ema_site
+  theme:
+    - ema_warm
+id: ema_warm_cta
+theme: ema_warm
+region: footer_top
+weight: 0
+provider: null
+plugin: ema_cta_banner
+settings:
+  id: ema_cta_banner
+  label: ''
+  label_display: '0'
+  provider: ema_site
+visibility: {  }

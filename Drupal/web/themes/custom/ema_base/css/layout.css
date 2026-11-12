@@ -1,0 +1,231 @@
+/**
+ * Layout: page regions, containers, sections and grids.
+ * Drupal: page.html.twig regions use these classes.
+ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-wrapper > main {
+  flex: 1;
+}
+
+/* Regions ------------------------------------------------------------ */
+.paragraph--highlights {
+  padding-block: var(--space-xl) 0;
+}
+
+.region--sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+/* Sections ----------------------------------------------------------- */
+.section {
+  padding-block: var(--section-pad);
+}
+
+.section--alt {
+  background: var(--color-surface-alt);
+}
+
+.section--flush {
+  padding-top: 0;
+}
+
+.section__actions {
+  margin: var(--space-xl) 0 0;
+  text-align: center;
+}
+
+/* Grids -------------------------------------------------------------- */
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--grid-min, 16rem)), 1fr));
+}
+
+.grid--3 {
+  /* At most 3 columns */
+  --grid-min: max(17rem, calc((100% - 2 * var(--grid-gap)) / 3));
+}
+
+.grid--2 {
+  /* At most 2 columns */
+  --grid-min: max(20rem, calc((100% - var(--grid-gap)) / 2));
+}
+
+.grid--4 {
+  /* At most 4 columns */
+  --grid-min: max(13rem, calc((100% - 3 * var(--grid-gap)) / 4));
+}
+
+/* Content layout with sidebar (program detail) ----------------------- */
+.layout--with-sidebar {
+  display: grid;
+  gap: var(--space-2xl);
+  padding-block: var(--section-pad);
+}
+
+@media (min-width: 60em) {
+  .layout--with-sidebar {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    align-items: start;
+  }
+
+  .region--sidebar {
+    position: sticky;
+    top: var(--space-m);
+  }
+}
+
+/* Simple page-level helpers ------------------------------------------ */
+.prose {
+  max-width: 44rem;
+}
+
+.prose h2 {
+  margin-top: var(--space-xl);
+  font-size: var(--step-3);
+}
+
+.prose ul {
+  padding-left: 1.25em;
+}
+
+.prose li + li {
+  margin-top: var(--space-2xs);
+}
+
+.program-detail__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.program-detail__age {
+  display: inline-block;
+  margin: var(--space-m) 0 0;
+  padding: 0.25em 0.85em;
+  border-radius: var(--radius-pill);
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+
+.program-detail__section {
+  margin-top: var(--space-2xl);
+}
+
+.program-detail__heading {
+  font-size: var(--step-3);
+  margin-bottom: var(--space-m);
+}
+
+.faq-wrap {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.testimonial-single {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+.contact-layout {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 60em) {
+  .contact-layout {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  }
+}
+
+/* News article ---------------------------------------------------------- */
+.news-article__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs) var(--space-s);
+  margin: 0 0 var(--space-m);
+  color: var(--color-text-muted);
+  font-size: var(--step--1);
+}
+
+.news-article__category {
+  padding: 0.25em 0.85em;
+  border-radius: var(--radius-pill);
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-weight: 700;
+}
+
+.news-article__detail + .news-article__detail::before {
+  content: "·";
+  margin-right: var(--space-s);
+}
+
+.news-article__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: var(--space-l);
+  border-radius: var(--radius-lg);
+}
+
+.news-article__pager {
+  display: grid;
+  gap: var(--space-s);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-l);
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 40em) {
+  .news-article__pager {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .news-article__pager-link--prev {
+    grid-column: 2;
+    text-align: right;
+  }
+}
+
+.news-article__pager-link {
+  display: block;
+  color: var(--color-heading);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.news-article__pager-link:hover {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+.news-article__pager-label {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: var(--step--1);
+  font-weight: 400;
+}
+
+.news-article__back {
+  margin: var(--space-xl) 0 0;
+}

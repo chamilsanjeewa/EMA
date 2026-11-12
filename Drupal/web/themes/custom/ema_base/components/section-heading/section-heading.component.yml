@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Section heading'
+status: stable
+description: 'Eyebrow, title and intro text for a section.'
+props:
+  type: object
+  properties:
+    heading_id:
+      type: ['string', 'null']
+    eyebrow:
+      type: ['string', 'null']
+    title:
+      type: string
+    text:
+      type: ['string', 'null']
+    center:
+      type: ['boolean', 'null']
+    heading_level:
+      type: ['integer', 'null']

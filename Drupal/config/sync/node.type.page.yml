@@ -1,0 +1,11 @@
+uuid: a8b4c32d-fba2-4484-87e9-9d72ca812d10
+langcode: en
+status: true
+dependencies: {  }
+name: 'Basic page'
+type: page
+description: 'Pages built from sections (paragraphs): Home, About, Programs, Enrollment, Gallery, FAQ, Contact.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

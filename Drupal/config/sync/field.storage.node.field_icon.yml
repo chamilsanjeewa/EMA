@@ -1,0 +1,105 @@
+uuid: 8c349498-8873-4dba-a63c-967c1a85fa49
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_icon
+field_name: field_icon
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: clock
+      label: clock
+    -
+      value: home
+      label: home
+    -
+      value: users
+      label: users
+    -
+      value: tag
+      label: tag
+    -
+      value: heart
+      label: heart
+    -
+      value: pin
+      label: pin
+    -
+      value: phone
+      label: phone
+    -
+      value: mail
+      label: mail
+    -
+      value: globe
+      label: globe
+    -
+      value: chevron-down
+      label: chevron-down
+    -
+      value: chevron-left
+      label: chevron-left
+    -
+      value: chevron-right
+      label: chevron-right
+    -
+      value: menu
+      label: menu
+    -
+      value: close
+      label: close
+    -
+      value: arrow-right
+      label: arrow-right
+    -
+      value: check
+      label: check
+    -
+      value: instagram
+      label: instagram
+    -
+      value: facebook
+      label: facebook
+    -
+      value: sun
+      label: sun
+    -
+      value: leaf
+      label: leaf
+    -
+      value: star
+      label: star
+    -
+      value: book
+      label: book
+    -
+      value: calendar
+      label: calendar
+    -
+      value: file
+      label: file
+    -
+      value: smile
+      label: smile
+    -
+      value: shield
+      label: shield
+    -
+      value: message
+      label: message
+    -
+      value: music
+      label: music
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

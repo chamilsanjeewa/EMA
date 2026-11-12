@@ -1,0 +1,21 @@
+uuid: 1e571a68-0bfa-4cec-aac0-91516c43bbab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background
+    - paragraphs.paragraphs_type.timeline
+  module:
+    - options
+id: paragraph.timeline.field_background
+field_name: field_background
+entity_type: paragraph
+bundle: timeline
+label: Background
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

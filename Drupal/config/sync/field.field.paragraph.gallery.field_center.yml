@@ -1,0 +1,21 @@
+uuid: 8f446fce-f6ca-4f5e-a543-7903476b8c56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_center
+    - paragraphs.paragraphs_type.gallery
+id: paragraph.gallery.field_center
+field_name: field_center
+entity_type: paragraph
+bundle: gallery
+label: 'Center the heading'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

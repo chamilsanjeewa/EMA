@@ -1,0 +1,8 @@
+{# Paragraph: media + text → ema_base:media-text inside a section. #}
+{% embed 'ema_base:section' with {background: ema.section.background, media: ema.media, body_text: content.field_body} only %}
+  {% block body %}
+    {% embed 'ema_base:media-text' with media|merge({body_text: body_text}) only %}
+      {% block body %}{{ body_text }}{% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

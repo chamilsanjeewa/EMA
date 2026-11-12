@@ -1,0 +1,15 @@
+uuid: 12261fd0-e0be-4a41-a30e-a06ad9002624
+langcode: en
+status: true
+dependencies: {  }
+name: ema_hero_arch
+label: 'Hero arch (800×1000)'
+effects:
+  c633674c-5383-4df4-a4fa-349fe3c33acb:
+    uuid: c633674c-5383-4df4-a4fa-349fe3c33acb
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 800
+      height: 1000
+      anchor: center-center

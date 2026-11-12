@@ -1,0 +1,9 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'History timeline'
+status: stable
+description: 'Year-by-year history.'
+props:
+  type: object
+  properties:
+    items:
+      type: ['array', 'null']

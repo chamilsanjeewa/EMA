@@ -1,0 +1,19 @@
+uuid: 6f099d0d-b0d7-4d50-972e-e1be697f8654
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_note
+    - node.type.location
+id: node.location.field_note
+field_name: field_note
+entity_type: node
+bundle: location
+label: Highlight
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

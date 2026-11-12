@@ -1,0 +1,23 @@
+/* Option A: news-card */
+
+.news-card {
+  border-radius: var(--radius-xl);
+}
+
+.news-card__image {
+  width: calc(100% - 1.5rem);
+  margin: 0.75rem 0.75rem 0;
+  border-radius: var(--radius-lg);
+}
+
+.grid > :nth-child(4n + 2) .news-card__category {
+  background: var(--color-pastel-2);
+}
+
+.grid > :nth-child(4n + 3) .news-card__category {
+  background: var(--color-pastel-3);
+}
+
+.grid > :nth-child(4n + 4) .news-card__category {
+  background: var(--color-pastel-1);
+}

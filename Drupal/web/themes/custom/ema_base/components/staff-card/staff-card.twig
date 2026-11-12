@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Component: staff-card. Staff photo (or placeholder), name, role and short bio.
+ */
+#}
+<article class="staff-card">
+  {% if photo %}<img class="staff-card__photo" src="{{ photo.src }}" width="{{ photo.width ?: 400 }}" height="{{ photo.height ?: 400 }}" alt="" loading="lazy">{% endif %}
+  <h3 class="staff-card__name">{{ name }}</h3>
+  {% if role %}<p class="staff-card__role">{{ role }}</p>{% endif %}
+  {% if bio %}<p class="staff-card__bio">{{ bio }}</p>{% endif %}
+</article>

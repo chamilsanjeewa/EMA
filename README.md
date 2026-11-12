@@ -37,7 +37,7 @@ All three options have the same pages, content, markup structure and component n
 - **Email:** only Amazing Beginnings shows an email (`ighkids@gmail.com`). Eagan's email is unknown.
 - **Photos:** staff photos and school building photos are labeled placeholders. All other photos are stock samples.
 
-**About the photos:** they are free stock photos (CC0, public domain, from StockSnap via Openverse), saved locally and cropped to each slot's exact size. They are only there to show the look. They are **not** photos of the school, so replace them with the school's own photos (with parent permission) before launch. Credits are in `images/CREDITS.md`. The labeled SVG versions in `images/placeholders/` show the exact size and purpose of every image slot. The map is still a placeholder.
+**About the photos:** they are free stock photos (CC0, public domain, from StockSnap via Openverse), saved locally and cropped to each slot's exact size. They are only there to show the look. They are **not** photos of the school, so replace them with the school's own photos (with parent permission) before launch. Credits are in `images/CREDITS.md`. The labeled SVG versions in `images/placeholders/` show the exact size and purpose of every image slot. The contact page embeds Google Maps for both schools. This is the only content loaded from another website, and it needs an internet connection; without one, each map still shows the address and an "Open in Google Maps" link.
 
 ---
 
@@ -60,7 +60,7 @@ option-a/ | option-b/ | option-c/
   faq.html
   news.html                   News / blog listing with category filter
   news-<slug>.html            One page per post (6 sample posts, with sidebar)
-  contact.html                Form, map placeholder, hours, address
+  contact.html                Form, Google Maps for both schools, hours, address
   css/
     tokens.css                All colors, fonts, spacing, radius, shadows. Rebrand here.
     themes.css                Demo only: the 5 color themes (token overrides per [data-theme])
@@ -68,7 +68,7 @@ option-a/ | option-b/ | option-c/
     layout.css                Regions, container, sections, grids, sidebar layout
     components/<name>.css     One file per component
   js/components/<name>.js     One file per interactive component
-  images/                     Sample photos (.jpg), map placeholder, favicon, CREDITS.md
+  images/                     Sample photos (.jpg), favicon, CREDITS.md
     placeholders/             Labeled SVGs showing each slot's size and purpose
 ```
 
@@ -108,7 +108,7 @@ Class names follow BEM (`.program-card__title`, `.hero--split`). Each component 
 | `faq-accordion` | Accessible accordion | ✓ | Program pages, Enrollment, FAQ |
 | `contact-form` | Demo contact form with inline validation | ✓ | Contact |
 | `contact-info` | Hours + both schools (address, phone, email, directions) + social (`--compact` variant for the sidebar) | | Program pages and news posts (sidebar), Contact |
-| `map-placeholder` | Map image + caption + Google Maps link | | Contact |
+| `location-map` | One Google Maps embed per school (keyless `maps.google.com/maps?q=…&output=embed`, lazy-loaded, titled iframe) + name, address and "Open in Google Maps" link | | Contact |
 | `sidebar-nav` | Link list in the sidebar (programs, or recent news) | | Program pages, news posts |
 | `social-links` | Instagram + Facebook icons | | All pages (footer), Contact |
 | `cta-banner` | "Apply Now / Schedule a tour" banner | | All pages (footer_top region) |
@@ -200,7 +200,7 @@ Component CSS/JS is **not** listed here. Each SDC loads its own files automatica
 | `gallery-grid` | Media (image) + View, or a Gallery paragraph → `ema:gallery-grid` |
 | `history-timeline`, `enrollment-steps`, `feature-list`, `media-text` | Paragraph types (or Layout Builder blocks) that render the matching SDC |
 | `contact-form` | **Webform** (styles stay the same; validation handled by Webform) |
-| `contact-info`, `map-placeholder`, `social-links` | Custom blocks (or site settings) placed in content / sidebar / footer |
+| `contact-info`, `location-map`, `social-links` | Custom blocks (or site settings) placed in content / sidebar / footer |
 | `cta-banner` | Custom block placed in `footer_top` |
 | `footer` | `region--footer.html.twig` → `ema:footer` with menus and blocks in slots |
 | `option-switcher`, `css/themes.css`, theme script in `<head>` | **Delete.** They're only for the meeting. Move the chosen palette into `tokens.css`. |

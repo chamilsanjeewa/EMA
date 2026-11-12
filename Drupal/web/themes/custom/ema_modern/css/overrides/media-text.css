@@ -1,0 +1,16 @@
+/* Option B: media-text */
+
+.media-text__eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.media-text__image {
+  border-radius: var(--radius-sm);
+}
+
+.media-text__list-item .icon {
+  padding: 0;
+}

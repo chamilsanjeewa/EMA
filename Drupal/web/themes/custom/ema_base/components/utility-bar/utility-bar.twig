@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Component: utility-bar. Top bar with hours, phone numbers and the language switcher.
+ */
+#}
+<div class="utility-bar">
+  <div class="utility-bar__inner container">
+    <ul class="utility-bar__list">
+      {% if hours %}<li class="utility-bar__item utility-bar__item--hours">{{ include('ema_base:icon', {name: 'clock'}, with_context = false) }}{{ hours }}</li>{% endif %}
+      {% for phone in phones %}
+        <li class="utility-bar__item"><a class="utility-bar__link" href="{{ phone.href }}">{{ include('ema_base:icon', {name: 'phone'}, with_context = false) }}<span class="utility-bar__text"><span class="utility-bar__label">{{ phone.label }}</span><span class="utility-bar__number"><span class="utility-bar__sep">: </span>{{ phone.number }}</span></span></a></li>
+      {% endfor %}
+    </ul>
+    {% block language %}{{ language }}{% endblock %}
+  </div>
+</div>

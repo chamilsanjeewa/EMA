@@ -1,0 +1,15 @@
+uuid: 3569984f-6264-4cd7-98db-38bc73efd382
+langcode: en
+status: true
+dependencies: {  }
+name: ema_hero_split
+label: 'Hero split (1000×800)'
+effects:
+  c2e69c33-8a40-4e43-811c-601d480168e4:
+    uuid: c2e69c33-8a40-4e43-811c-601d480168e4
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1000
+      height: 800
+      anchor: center-center

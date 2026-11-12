@@ -1,0 +1,58 @@
+uuid: 2fdbdaae-9ac6-4d52-9855-00593d9672a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.tour
+    - field.field.contact_message.tour.field_phone
+    - field.field.contact_message.tour.field_program
+    - field.field.contact_message.tour.field_request_type
+    - field.field.contact_message.tour.field_school
+  module:
+    - options
+    - telephone
+id: contact_message.tour.default
+targetEntityType: contact_message
+bundle: tour
+mode: default
+content:
+  field_phone:
+    type: telephone_link
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_program:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_request_type:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_school:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  message:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

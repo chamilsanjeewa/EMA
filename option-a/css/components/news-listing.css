@@ -26,11 +26,18 @@
   cursor: pointer;
 }
 
+a.news-listing__filter {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .news-listing__filter:hover {
   border-color: var(--color-primary-dark);
 }
 
-.news-listing__filter[aria-pressed="true"] {
+.news-listing__filter[aria-pressed="true"],
+.news-listing__filter[aria-current="true"] {
   border-color: var(--color-primary-dark);
   background: var(--color-primary-dark);
   color: var(--color-on-primary);
@@ -49,4 +56,8 @@
 
 .news-listing__item[hidden] {
   display: none;
+}
+
+.news-listing__empty {
+  text-align: center;
 }

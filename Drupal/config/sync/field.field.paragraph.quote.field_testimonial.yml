@@ -1,0 +1,23 @@
+uuid: c3fffbe0-32af-4f36-bc1b-245500faf2cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_testimonial
+    - paragraphs.paragraphs_type.quote
+id: paragraph.quote.field_testimonial
+field_name: field_testimonial
+entity_type: paragraph
+bundle: quote
+label: Testimonial
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      testimonial: testimonial
+field_type: entity_reference

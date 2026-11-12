@@ -1,0 +1,11 @@
+/* Option A: enrollment-steps */
+
+.enrollment-steps__item {
+  border-radius: var(--radius-xl);
+}
+
+.enrollment-steps__number {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: var(--step-3);
+}

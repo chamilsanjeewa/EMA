@@ -1,0 +1,23 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Contact info'
+status: stable
+description: 'Hours and both schools. Compact variant for the sidebar.'
+props:
+  type: object
+  properties:
+    compact:
+      type: ['boolean', 'null']
+    title:
+      type: string
+    heading_id:
+      type: ['string', 'null']
+    hours:
+      type: ['array', 'null']
+    locations:
+      type: ['array', 'null']
+    apply_url:
+      type: ['string', 'null']
+    apply_label:
+      type: ['string', 'null']
+    social:
+      type: ['array', 'null']

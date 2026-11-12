@@ -1,0 +1,9 @@
+uuid: af78d9f3-3e0b-4245-a75c-67825cc74bf6
+langcode: en
+status: true
+dependencies: {  }
+name: 'News category'
+vid: news_category
+description: 'Categories for news posts (filter buttons on the News page).'
+weight: 0
+new_revision: false

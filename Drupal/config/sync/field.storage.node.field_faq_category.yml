@@ -1,0 +1,45 @@
+uuid: 8817aaae-95a7-4521-8e0c-1b885c53cd3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_faq_category
+field_name: field_faq_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: general
+      label: General
+    -
+      value: enrollment
+      label: 'Enrollment and tuition'
+    -
+      value: infant
+      label: 'Infant care'
+    -
+      value: toddler
+      label: 'Toddler program'
+    -
+      value: preschool
+      label: Preschool
+    -
+      value: prek
+      label: 'Pre-K & Kindergarten'
+    -
+      value: summer
+      label: 'Summer Bridge'
+    -
+      value: other
+      label: 'Gifted, Talented & STEM'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

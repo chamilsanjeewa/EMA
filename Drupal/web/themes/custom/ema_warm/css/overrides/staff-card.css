@@ -1,0 +1,6 @@
+/* Option A: staff-card */
+
+.staff-card__photo {
+  border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
+  border: 6px solid var(--color-pastel-4);
+}

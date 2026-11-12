@@ -1,0 +1,18 @@
+/* Option B: global overrides (base + layout). */
+
+/* Option B: numbered sections and generous white space. */
+main {
+  counter-reset: section;
+}
+
+.paragraph--highlights {
+  padding-block: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.program-detail__age,
+.news-article__category {
+  padding: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

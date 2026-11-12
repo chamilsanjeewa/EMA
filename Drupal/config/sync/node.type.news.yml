@@ -1,0 +1,11 @@
+uuid: f01091ab-a19a-4a83-9ab9-111fc15ca7d9
+langcode: en
+status: true
+dependencies: {  }
+name: 'News post'
+type: news
+description: 'News, events and parent tips. Shown on the News page, the home page and in the "Recent news" sidebar.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

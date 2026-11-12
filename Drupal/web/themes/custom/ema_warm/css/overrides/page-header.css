@@ -1,0 +1,24 @@
+/* Option A: page-header */
+
+.page-header::before,
+.page-header::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.page-header::before {
+  top: -5rem;
+  right: -3rem;
+  width: 16rem;
+  height: 16rem;
+  background: var(--color-accent-soft);
+}
+
+.page-header::after {
+  right: 12rem;
+  bottom: -4rem;
+  width: 7rem;
+  height: 7rem;
+  background: var(--color-pastel-2);
+}

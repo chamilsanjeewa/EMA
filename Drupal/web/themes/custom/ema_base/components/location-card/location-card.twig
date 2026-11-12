@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Component: location-card. One school: photo, enrolling badge, address, phone and actions.
+ */
+#}
+{% set tag = 'h' ~ (heading_level ?: 3) %}
+<article class="location-card" aria-labelledby="{{ key }}-title">
+  {% if image %}
+    <img class="location-card__image" src="{{ image.src }}" width="{{ image.width }}" height="{{ image.height }}" alt="" loading="lazy">
+  {% elseif placeholder %}
+    <img class="location-card__image" src="{{ placeholder }}" width="800" height="450" alt="" loading="lazy">
+  {% endif %}
+  <div class="location-card__body">
+    <{{ tag }} class="location-card__title" id="{{ key }}-title">{{ name }}</{{ tag }}>
+    {% if enrolling %}<p class="location-card__badge">{{ enrolling }}</p>{% endif %}
+    <p class="location-card__address">{{ include('ema_base:icon', {name: 'pin'}, with_context = false) }}<span>{{ street }}, {{ city }}</span></p>
+    {% if phone %}<p class="location-card__phone">{{ include('ema_base:icon', {name: 'phone'}, with_context = false) }}<a href="{{ phone_href }}">{{ phone }}</a></p>{% endif %}
+    {% if note or serves %}<p class="location-card__text">{{ note }}{% if serves %} {{ 'Convenient to'|t }} {{ serves }}{% endif %}</p>{% endif %}
+    <div class="location-card__actions">
+      {{ include('ema_base:button', {label: 'Schedule a tour'|t, url: tour_url ?: '/contact-us', variant: 'primary', size: 'small'}, with_context = false) }}
+      {% if maps_url %}{{ include('ema_base:button', {label: 'Directions'|t, url: maps_url, variant: 'secondary', size: 'small'}, with_context = false) }}{% endif %}
+    </div>
+  </div>
+</article>

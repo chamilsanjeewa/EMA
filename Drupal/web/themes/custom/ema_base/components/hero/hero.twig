@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Component: hero. Home page hero. Variants: split (A), full (B), arch (C).
+ */
+#}
+{% set variant = variant ?: 'split' %}
+<section class="hero hero--{{ variant }}" aria-labelledby="hero-title">
+  {% if variant == 'full' %}
+    {% if image %}<div class="hero__media">
+      <img class="hero__image" src="{{ image.src }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}">
+    </div>{% endif %}
+    <div class="hero__inner container">
+      <div class="hero__content">
+      {% if eyebrow %}<p class="hero__eyebrow">{{ eyebrow }}</p>{% endif %}
+      <h1 class="hero__title" id="hero-title">{{ title }}</h1>
+      {% if text %}<p class="hero__text">{{ text }}</p>{% endif %}
+      {% if links %}
+        <div class="hero__actions">
+          {% for link in links %}{{ include('ema_base:button', {label: link.label, url: link.url, variant: loop.first ? 'primary' : 'secondary', size: 'large'}, with_context = false) }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    </div>
+  {% else %}
+    <div class="hero__inner container">
+      <div class="hero__content">
+      {% if eyebrow %}<p class="hero__eyebrow">{{ eyebrow }}</p>{% endif %}
+      <h1 class="hero__title" id="hero-title">{{ title }}</h1>
+      {% if text %}<p class="hero__text">{{ text }}</p>{% endif %}
+      {% if links %}
+        <div class="hero__actions">
+          {% for link in links %}{{ include('ema_base:button', {label: link.label, url: link.url, variant: loop.first ? 'primary' : 'secondary', size: 'large'}, with_context = false) }}{% endfor %}
+        </div>
+      {% endif %}
+    </div>
+      {% if image %}<div class="hero__media">
+      <img class="hero__image" src="{{ image.src }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}">
+    </div>{% endif %}
+    </div>
+  {% endif %}
+</section>

@@ -1,0 +1,23 @@
+uuid: ed17bf70-efa3-450f-8bb8-4ba77e60e204
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_url
+    - node.type.location
+  module:
+    - link
+id: node.location.field_map_url
+field_name: field_map_url
+entity_type: node
+bundle: location
+label: 'Google Maps link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

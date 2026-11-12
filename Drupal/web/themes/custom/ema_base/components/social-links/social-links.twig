@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Component: social-links. Social media icon links.
+ */
+#}
+{% if items %}
+<ul class="social-links{{ inverse ? ' social-links--inverse' }}">
+  {% for item in items %}
+    <li><a class="social-links__link" href="{{ item.url }}">{{ include('ema_base:icon', {name: item.icon}, with_context = false) }}<span class="visually-hidden">{{ item.label }}</span></a></li>
+  {% endfor %}
+</ul>
+{% endif %}

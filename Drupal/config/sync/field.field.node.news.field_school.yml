@@ -1,0 +1,21 @@
+uuid: 7ae9bc24-0644-41a3-80da-8e8c779b51c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_school
+    - node.type.news
+  module:
+    - options
+id: node.news.field_school
+field_name: field_school
+entity_type: node
+bundle: news
+label: School
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

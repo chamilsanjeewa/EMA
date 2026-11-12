@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Feature list'
+status: stable
+description: 'Icon, title and text items.'
+props:
+  type: object
+  properties:
+    items:
+      type: ['array', 'null']
+    modifier:
+      type: ['string', 'null']
+    heading_level:
+      type: ['integer', 'null']

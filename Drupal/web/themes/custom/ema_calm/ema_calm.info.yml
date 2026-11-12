@@ -1,0 +1,52 @@
+name: 'EMA C: Calm Montessori'
+type: theme
+description: 'Option C: natural, earthy colors with a wood and nature feel. Sub-theme of EMA Base.'
+core_version_requirement: ^11
+base theme: ema_base
+package: EMA
+screenshot: screenshot.png
+libraries:
+  - ema_calm/global
+# Option-specific styles are added on top of each shared component library.
+libraries-extend:
+  core/components.ema_base--button:
+    - ema_calm/button
+  core/components.ema_base--main-menu:
+    - ema_calm/main-menu
+  core/components.ema_base--hero:
+    - ema_calm/hero
+  core/components.ema_base--page-header:
+    - ema_calm/page-header
+  core/components.ema_base--section-heading:
+    - ema_calm/section-heading
+  core/components.ema_base--feature-list:
+    - ema_calm/feature-list
+  core/components.ema_base--media-text:
+    - ema_calm/media-text
+  core/components.ema_base--program-card:
+    - ema_calm/program-card
+  core/components.ema_base--testimonial:
+    - ema_calm/testimonial
+  core/components.ema_base--history-timeline:
+    - ema_calm/history-timeline
+  core/components.ema_base--staff-card:
+    - ema_calm/staff-card
+  core/components.ema_base--enrollment-steps:
+    - ema_calm/enrollment-steps
+  core/components.ema_base--location-card:
+    - ema_calm/location-card
+  core/components.ema_base--gallery-grid:
+    - ema_calm/gallery-grid
+  core/components.ema_base--faq-accordion:
+    - ema_calm/faq-accordion
+  core/components.ema_base--cta-banner:
+    - ema_calm/cta-banner
+regions:
+  header: 'Header (branding)'
+  primary_menu: 'Primary menu'
+  hero: 'Hero (page title)'
+  highlighted: 'Highlighted (messages, tabs)'
+  content: 'Content'
+  sidebar: 'Sidebar (optional)'
+  footer_top: 'Footer top (call to action)'
+  footer: 'Footer'

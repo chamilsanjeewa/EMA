@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Component: footer. Site footer: branding, menus, schools and bottom bar.
+ */
+#}
+<footer class="site-footer">
+  <div class="footer">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        {{ include('ema_base:site-branding', branding|merge({inverse: true}), with_context = false) }}
+        {% if about %}<p class="footer__about">{{ about }}</p>{% endif %}
+        {{ include('ema_base:social-links', {items: social, inverse: true}, with_context = false) }}
+      </div>
+      <nav class="footer__col" aria-labelledby="footer-explore-title">
+        <h2 class="footer__heading" id="footer-explore-title">{{ 'Explore'|t }}</h2>
+        <ul class="footer__list">
+          {% for link in explore %}<li><a class="footer__link" href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}
+        </ul>
+      </nav>
+      <nav class="footer__col" aria-labelledby="footer-programs-title">
+        <h2 class="footer__heading" id="footer-programs-title">{{ 'Programs'|t }}</h2>
+        <ul class="footer__list">
+          {% for link in programs %}<li><a class="footer__link" href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <h2 class="footer__heading">{{ 'Our schools'|t }}</h2>
+        {% for location in locations %}
+          <p class="footer__text footer__location"><strong class="footer__location-name">{{ location.name }}</strong><br>{{ location.street }}, {{ location.city }}<br><a class="footer__link" href="{{ location.phone_href }}">{{ location.phone }}</a></p>
+        {% endfor %}
+        {% if hours %}<p class="footer__text">{{ hours }}</p>{% endif %}
+      </div>
+    </div>
+    {% block extra %}{{ extra }}{% endblock %}
+    <div class="footer__bottom container">
+      <p class="footer__copyright">{{ copyright }}</p>
+      <ul class="footer__bottom-list">
+        {% for link in bottom_links %}<li><a class="footer__link" href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</footer>

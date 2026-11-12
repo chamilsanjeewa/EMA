@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Media and text'
+status: stable
+description: 'Image next to text, with a check list and actions.'
+props:
+  type: object
+  properties:
+    heading_id:
+      type: ['string', 'null']
+    eyebrow:
+      type: ['string', 'null']
+    title:
+      type: string
+    image:
+      type: ['object', 'null']
+    list:
+      type: ['array', 'null']
+    links:
+      type: ['array', 'null']
+    reverse:
+      type: ['boolean', 'null']
+slots:
+  body:
+    title: 'Rich text'

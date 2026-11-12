@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Page header'
+status: stable
+description: 'Inner page title with breadcrumb and lead text.'
+props:
+  type: object
+  properties:
+    title:
+      type: string
+    lead:
+      type: ['string', 'null']
+    breadcrumb:
+      type: ['array', 'null']

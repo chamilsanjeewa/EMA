@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * News post (content column; the sidebar region holds "Recent news" and
+ * contact info). Title and summary are shown by the page title block.
+ */
+#}
+<article{{ attributes.addClass('news-article') }} aria-labelledby="page-title">
+  {{ title_suffix }}
+  <p class="news-article__meta">
+    {% if ema.category %}<span class="news-article__category">{{ ema.category }}</span>{% endif %}
+    <span class="news-article__detail"><time datetime="{{ ema.date_iso }}">{{ ema.date }}</time></span>
+    {% if ema.school %}<span class="news-article__detail">{{ ema.school }}</span>{% endif %}
+  </p>
+  {% if ema.image %}
+    <img class="news-article__image" src="{{ ema.image.src }}" width="{{ ema.image.width }}" height="{{ ema.image.height }}" alt="{{ ema.image.alt }}">
+  {% endif %}
+  <div class="prose news-article__body">{{ content.body }}</div>
+  {% if ema.newer or ema.older %}
+    <nav class="news-article__pager" aria-label="{{ 'More news'|t }}">
+      {% if ema.newer %}<a class="news-article__pager-link news-article__pager-link--next" href="{{ ema.newer.url }}" rel="next"><span class="news-article__pager-label">{{ 'Newer post'|t }}</span>{{ ema.newer.title }}</a>{% endif %}
+      {% if ema.older %}<a class="news-article__pager-link news-article__pager-link--prev" href="{{ ema.older.url }}" rel="prev"><span class="news-article__pager-label">{{ 'Older post'|t }}</span>{{ ema.older.title }}</a>{% endif %}
+    </nav>
+  {% endif %}
+  <p class="news-article__back">{{ include('ema_base:button', {label: 'All news'|t, url: ema.news_url, variant: 'secondary'}, with_context = false) }}</p>
+</article>

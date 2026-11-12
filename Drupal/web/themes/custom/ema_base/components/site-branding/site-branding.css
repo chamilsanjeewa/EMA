@@ -1,0 +1,68 @@
+/**
+ * Component: site-branding (shared styles; option themes extend this library).
+ */
+.site-branding {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+.site-branding:hover {
+  color: var(--color-heading);
+}
+
+.site-branding__mark {
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.site-branding__mark-bg {
+  fill: var(--color-primary);
+}
+
+.site-branding__mark-fg {
+  fill: var(--color-on-primary);
+}
+
+.site-branding__mark-line {
+  stroke: var(--color-primary);
+}
+
+.site-branding__name {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: var(--font-weight-heading);
+  line-height: 1.15;
+}
+
+.site-branding__tagline {
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+@media (min-width: 30em) {
+  .site-branding__name {
+    font-size: 1.175rem;
+  }
+
+  .site-branding__tagline {
+    font-size: 0.875rem;
+  }
+}
+
+.site-branding--inverse,
+.site-branding--inverse:hover {
+  color: var(--color-footer-heading);
+}
+
+.site-branding--inverse .site-branding__tagline {
+  color: var(--color-footer-muted);
+}

@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="css/components/location-card.css">
   <link rel="stylesheet" href="css/components/contact-form.css">
   <link rel="stylesheet" href="css/components/contact-info.css">
-  <link rel="stylesheet" href="css/components/map-placeholder.css">
+  <link rel="stylesheet" href="css/components/location-map.css">
   <link rel="stylesheet" href="css/components/social-links.css">
   <link rel="stylesheet" href="css/components/cta-banner.css">
   <link rel="stylesheet" href="css/components/footer.css">
@@ -219,12 +219,30 @@
 </section>
 <section class="section section--flush" aria-labelledby="map-title">
   <div class="container">
-    <h2 class="visually-hidden" id="map-title">Map</h2>
-    <!-- component: map-placeholder -->
-<figure class="map-placeholder">
-  <img class="map-placeholder__image" src="images/map-placeholder.svg" width="1200" height="450" alt="Map placeholder showing our two schools in Eagan and Inver Grove Heights" loading="lazy">
-  <figcaption class="map-placeholder__caption"><span>Map placeholder: an interactive map of both schools will be embedded here.</span> <span><a href="https://www.google.com/maps/search/?api=1&amp;query=1970+Rahncliff+Court+Eagan+MN+55122">Eagan on Google Maps</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=3105+65th+St+East+Inver+Grove+Heights+MN+55076">Inver Grove Heights on Google Maps</a></span></figcaption>
-</figure>
+    <h2 class="visually-hidden" id="map-title">Maps of our schools</h2>
+    <!-- component: location-map -->
+<div class="location-map">
+  <figure class="location-map__item">
+    <div class="location-map__frame">
+      <iframe class="location-map__iframe" src="https://maps.google.com/maps?q=Eagan%20Montessori%20Academy%20South%2C%201970%20Rahncliff%20Court%2C%20Eagan%2C%20MN%2055122&amp;z=15&amp;output=embed" title="Google map: Eagan Montessori Academy South, 1970 Rahncliff Court, Eagan, MN 55122" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <figcaption class="location-map__caption">
+      <strong class="location-map__name">Eagan Montessori Academy South</strong>
+      <span class="location-map__address">1970 Rahncliff Court, Eagan, MN 55122</span>
+      <a class="location-map__link" href="https://www.google.com/maps/search/?api=1&amp;query=1970+Rahncliff+Court+Eagan+MN+55122">Open in Google Maps<span class="visually-hidden">: Eagan Montessori Academy South</span></a>
+    </figcaption>
+  </figure>
+  <figure class="location-map__item">
+    <div class="location-map__frame">
+      <iframe class="location-map__iframe" src="https://maps.google.com/maps?q=Amazing%20Beginnings%20Montessori%2C%203105%2065th%20St.%20East%2C%20Inver%20Grove%20Heights%2C%20MN%2055076&amp;z=15&amp;output=embed" title="Google map: Amazing Beginnings Montessori, 3105 65th St. East, Inver Grove Heights, MN 55076" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <figcaption class="location-map__caption">
+      <strong class="location-map__name">Amazing Beginnings Montessori</strong>
+      <span class="location-map__address">3105 65th St. East, Inver Grove Heights, MN 55076</span>
+      <a class="location-map__link" href="https://www.google.com/maps/search/?api=1&amp;query=3105+65th+St+East+Inver+Grove+Heights+MN+55076">Open in Google Maps<span class="visually-hidden">: Amazing Beginnings Montessori</span></a>
+    </figcaption>
+  </figure>
+</div>
   </div>
 </section>
 <section class="section section--alt" aria-labelledby="areas-title">

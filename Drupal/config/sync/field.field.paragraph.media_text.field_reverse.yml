@@ -1,0 +1,21 @@
+uuid: b6050f7d-83f3-4b73-9a16-31b9a2492a99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_reverse
+    - paragraphs.paragraphs_type.media_text
+id: paragraph.media_text.field_reverse
+field_name: field_reverse
+entity_type: paragraph
+bundle: media_text
+label: 'Image on the right'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

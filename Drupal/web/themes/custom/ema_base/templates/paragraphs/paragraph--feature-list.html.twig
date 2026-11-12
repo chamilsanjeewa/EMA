@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Paragraph: feature list. Styles: default (full section), compact,
+ * highlights (overlaps the hero in Option A).
+ */
+#}
+{% if ema.style == 'highlights' %}
+  <section class="paragraph--highlights container" aria-labelledby="{{ ema.section.section_id }}">
+    <h2 class="visually-hidden" id="{{ ema.section.section_id }}">{{ ema.section.title ?: 'Why families choose us'|t }}</h2>
+    {{ include('ema_base:feature-list', {items: ema.items, modifier: 'highlights'}, with_context = false) }}
+  </section>
+{% elseif ema.inline %}
+  <section class="program-detail__section" aria-labelledby="{{ ema.section.section_id }}">
+    <h2 class="program-detail__heading" id="{{ ema.section.section_id }}">{{ ema.section.title }}</h2>
+    {{ include('ema_base:feature-list', {items: ema.items, modifier: ema.style == 'compact' ? 'compact'}, with_context = false) }}
+  </section>
+{% else %}
+  {% embed 'ema_base:section' with ema.section|merge({items: ema.items, style: ema.style}) only %}
+    {% block body %}{{ include('ema_base:feature-list', {items: items, modifier: style == 'compact' ? 'compact'}, with_context = false) }}{% endblock %}
+  {% endembed %}
+{% endif %}

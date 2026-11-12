@@ -1,0 +1,21 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Program card'
+status: stable
+description: 'Program teaser. The whole card is clickable.'
+props:
+  type: object
+  properties:
+    card_id:
+      type: ['string', 'null']
+    title:
+      type: string
+    url:
+      type: string
+    age:
+      type: ['string', 'null']
+    icon:
+      type: ['string', 'null']
+    text:
+      type: ['string', 'null']
+    image:
+      type: ['object', 'null']

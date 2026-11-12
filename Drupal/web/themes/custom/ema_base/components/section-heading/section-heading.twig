@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Component: section-heading. Eyebrow, title and intro text for a section.
+ */
+#}
+{% set tag = 'h' ~ (heading_level ?: 2) %}
+<div class="section-heading{{ center ? ' section-heading--center' }}">
+  {% if eyebrow %}<p class="section-heading__eyebrow">{{ eyebrow }}</p>{% endif %}
+  <{{ tag }} class="section-heading__title"{% if heading_id %} id="{{ heading_id }}"{% endif %}>{{ title }}</{{ tag }}>
+  {% if text %}<p class="section-heading__text">{{ text }}</p>{% endif %}
+</div>

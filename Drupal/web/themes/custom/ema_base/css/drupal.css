@@ -1,0 +1,176 @@
+/**
+ * Drupal UI elements: local tasks (tabs), status messages and forms.
+ */
+
+/* Local tasks (View / Edit / ...) for logged-in editors */
+.ema-tabs {
+  padding-top: var(--space-s);
+}
+
+.ema-tabs ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ema-tabs a {
+  display: inline-block;
+  padding: 0.4em 0.9em;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-button);
+  background: var(--color-surface);
+  color: var(--color-heading);
+  font-size: var(--step--1);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ema-tabs a.is-active,
+.ema-tabs a:hover {
+  background: var(--color-heading);
+  color: var(--color-surface);
+}
+
+/* Status messages */
+.messages {
+  margin: var(--space-s) 0 0;
+  padding: var(--space-s) var(--space-m);
+  border-left: 6px solid var(--color-success-text);
+  border-radius: var(--radius-md);
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+  font-weight: 600;
+}
+
+.messages--error {
+  border-left-color: var(--color-error);
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.messages--warning {
+  border-left-color: #8a5a00;
+  background: #fff4d6;
+  color: #5c3c00;
+}
+
+.messages__list {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.messages h2 {
+  font-size: var(--step-0);
+}
+
+/* Contact form (Drupal form markup inside the contact-form component) */
+.contact-form__form {
+  display: grid;
+  gap: var(--space-m);
+}
+
+@media (min-width: 40em) {
+  .contact-form__form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-form__form > .form-type-textarea,
+  .contact-form__form > .field--name-message,
+  .contact-form__form > .form-actions,
+  .contact-form__form > div:has(textarea) {
+    grid-column: 1 / -1;
+  }
+}
+
+.contact-form__form .form-item {
+  margin: 0;
+}
+
+.contact-form__form label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-heading);
+  font-weight: 700;
+}
+
+.contact-form__form .form-required::after {
+  content: " (required)";
+  color: var(--color-text-muted);
+  font-size: var(--step--1);
+  font-weight: 400;
+}
+
+.contact-form__form input[type="text"],
+.contact-form__form input[type="email"],
+.contact-form__form input[type="tel"],
+.contact-form__form select,
+.contact-form__form textarea {
+  display: block;
+  width: 100%;
+  min-height: 2.875rem;
+  padding: 0.65rem 0.85rem;
+  border: 2px solid var(--color-input-border);
+  border-radius: var(--radius-input);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.contact-form__form textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.contact-form__form .error {
+  border-color: var(--color-error);
+}
+
+.contact-form__form .form-item__description,
+.contact-form__form .description {
+  margin-top: 0.35rem;
+  color: var(--color-text-muted);
+  font-size: var(--step--1);
+}
+
+.contact-form__form .form-actions {
+  margin: 0;
+}
+
+/* Pager (news listing) ------------------------------------------------- */
+.pager {
+  margin-top: var(--space-xl);
+}
+
+.pager__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pager__item a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0 0.75rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-heading);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pager__item a:hover {
+  background: var(--color-surface-alt);
+}
+
+.pager__item.is-active a {
+  background: var(--color-primary-dark);
+  color: var(--color-on-primary);
+}

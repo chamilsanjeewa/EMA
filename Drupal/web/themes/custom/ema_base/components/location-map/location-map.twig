@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Component: location-map. One Google Maps embed per school, with name, address and a link.
+ */
+#}
+<div class="location-map">
+  {% for item in items %}
+    <figure class="location-map__item">
+      <div class="location-map__frame">
+        <iframe class="location-map__iframe" src="{{ item.embed_url }}" title="{{ 'Google map'|t }}: {{ item.name }}, {{ item.street }}, {{ item.city }}" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <figcaption class="location-map__caption">
+        <strong class="location-map__name">{{ item.name }}</strong>
+        <span class="location-map__address">{{ item.street }}, {{ item.city }}</span>
+        {% if item.maps_url %}<a class="location-map__link" href="{{ item.maps_url }}">{{ 'Open in Google Maps'|t }}<span class="visually-hidden">: {{ item.name }}</span></a>{% endif %}
+      </figcaption>
+    </figure>
+  {% endfor %}
+</div>

@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Hero'
+status: stable
+description: 'Home page hero. Variants: split (A), full (B), arch (C).'
+props:
+  type: object
+  properties:
+    variant:
+      type: ['string', 'null']
+    eyebrow:
+      type: ['string', 'null']
+    title:
+      type: string
+    text:
+      type: ['string', 'null']
+    image:
+      type: ['object', 'null']
+    links:
+      type: ['array', 'null']

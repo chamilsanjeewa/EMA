@@ -1,0 +1,15 @@
+/* Option A: cta-banner */
+
+.cta-banner {
+  padding-block: var(--space-xl);
+  background: transparent;
+}
+
+.cta-banner__inner {
+  padding: var(--space-xl) clamp(1.5rem, 4vw, 3.5rem);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.14) 0 9rem, transparent 9.05rem),
+    radial-gradient(circle at 0% 100%, rgba(246, 195, 68, 0.28) 0 7rem, transparent 7.05rem),
+    var(--color-cta-bg);
+}

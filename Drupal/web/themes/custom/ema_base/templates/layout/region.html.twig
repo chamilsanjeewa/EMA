@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * EMA region wrapper with a "region:" comment for easy reading.
+ */
+#}
+{% if content %}
+  <!-- region: {{ region }} -->
+  {% set tag = region == 'sidebar' ? 'aside' : 'div' %}
+  <{{ tag }}{{ attributes.addClass('region', 'region--' ~ region|clean_class) }}{% if region == 'sidebar' %} aria-label="{{ 'Sidebar'|t }}"{% endif %}>
+    {{ content }}
+  </{{ tag }}>
+{% endif %}

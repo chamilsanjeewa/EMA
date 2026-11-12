@@ -1,0 +1,8 @@
+/* Option C: enrollment-steps */
+
+.enrollment-steps__number {
+  border: 1px solid var(--color-leaf);
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  font-size: var(--step-3);
+}

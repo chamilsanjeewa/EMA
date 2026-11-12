@@ -1,0 +1,7 @@
+{# Paragraph: photo gallery with lightbox. #}
+{% embed 'ema_base:section' with ema.section|merge({items: ema.items, links: ema.links, has_title: ema.section.title is not empty}) only %}
+  {% block body %}
+    {{ include('ema_base:gallery-grid', {items: items}, with_context = false) }}
+    {% for link in links %}<p class="section__actions">{{ include('ema_base:button', {label: link.label, url: link.url, variant: 'secondary', icon: 'arrow-right'}, with_context = false) }}</p>{% endfor %}
+  {% endblock %}
+{% endembed %}

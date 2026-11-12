@@ -1,0 +1,21 @@
+_core:
+  default_config_hash: loMzAsnvslncPTMIoq_3Fh8OBWSYhrhAkSG-oB6-0W8
+favicon:
+  mimetype: image/svg+xml
+  path: themes/custom/ema_warm/favicon.svg
+  use_default: false
+features:
+  favicon: true
+  logo: false
+  name: true
+  slogan: true
+logo:
+  use_default: true
+hero_variant: split
+hero_image_style: ema_hero_split
+brand_mark: heart
+apply_url: '#'
+apply_label: 'Apply Now'
+tour_url: /contact-us
+instagram_url: '#'
+facebook_url: '#'

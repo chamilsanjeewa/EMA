@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Component: program-card. Program teaser. The whole card is clickable.
+ */
+#}
+<article class="program-card"{% if card_id %} id="{{ card_id }}"{% endif %}>
+  {% if image %}<img class="program-card__image" src="{{ image.src }}" width="{{ image.width }}" height="{{ image.height }}" alt="" loading="lazy">{% endif %}
+  <div class="program-card__body">
+    <h3 class="program-card__title"><a class="program-card__link" href="{{ url }}">{{ title }}</a></h3>
+    {% if age %}<p class="program-card__age">{{ include('ema_base:icon', {name: icon ?: 'star'}, with_context = false) }}{{ age }}</p>{% endif %}
+    {% if text %}<p class="program-card__text">{{ text }}</p>{% endif %}
+    <span class="program-card__more" aria-hidden="true">{{ 'Learn more'|t }}{{ include('ema_base:icon', {name: 'arrow-right'}, with_context = false) }}</span>
+  </div>
+</article>

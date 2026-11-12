@@ -1,0 +1,9 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Location map'
+status: stable
+description: 'One Google Maps embed per school, with name, address and a link.'
+props:
+  type: object
+  properties:
+    items:
+      type: ['array', 'null']

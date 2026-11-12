@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Program detail page (content column; the sidebar region holds program nav
+ * and contact info).
+ */
+#}
+<article{{ attributes.addClass('program-detail') }}>
+  {{ title_suffix }}
+  {% if ema.image %}
+    <img class="program-detail__image" src="{{ ema.image.src }}" width="{{ ema.image.width }}" height="{{ ema.image.height }}" alt="{{ ema.image.alt }}">
+  {% endif %}
+  {% if ema.age %}<p class="program-detail__age">{{ ema.age }}</p>{% endif %}
+  <div class="prose">{{ content.body }}</div>
+  {{ content.field_sections }}
+</article>

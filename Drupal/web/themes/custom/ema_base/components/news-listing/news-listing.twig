@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Component: news-listing. All news posts with category filter links and a pager.
+ */
+#}
+<div class="news-listing">
+  {% if filters %}
+    <nav class="news-listing__filters" aria-label="{{ 'Filter news by category'|t }}">
+      {% for filter in filters %}
+        <a class="news-listing__filter" href="{{ filter.url }}"{% if filter.active %} aria-current="true"{% endif %}>{{ filter.label }}</a>
+      {% endfor %}
+    </nav>
+  {% endif %}
+  {% if items %}
+    <ul class="news-listing__list grid grid--3">
+      {% for item in items %}
+        <li class="news-listing__item">{{ include('ema_base:news-card', item, with_context = false) }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="news-listing__empty">{{ empty ?: 'No news posts yet.'|t }}</p>
+  {% endif %}
+  {% block pager %}{{ pager }}{% endblock %}
+</div>

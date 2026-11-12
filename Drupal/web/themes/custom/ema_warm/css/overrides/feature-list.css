@@ -1,0 +1,17 @@
+/* Option A: feature-list */
+
+.feature-list__item:nth-child(4n + 2) .feature-list__icon {
+  background: var(--color-pastel-2);
+}
+
+.feature-list__item:nth-child(4n + 3) .feature-list__icon {
+  background: var(--color-pastel-3);
+}
+
+.feature-list__item:nth-child(4n + 4) .feature-list__icon {
+  background: var(--color-pastel-1);
+}
+
+.feature-list--highlights .feature-list__item {
+  box-shadow: var(--shadow-md);
+}

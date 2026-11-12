@@ -1,0 +1,18 @@
+name: 'EMA Base'
+type: theme
+description: 'Shared base theme for Eagan Montessori Academy & Amazing Beginnings Montessori: SDC components, templates and preprocess. Use it through the ema_warm sub-theme.'
+core_version_requirement: ^11
+base theme: false
+package: EMA
+hidden: true
+libraries:
+  - ema_base/global
+regions:
+  header: 'Header (branding)'
+  primary_menu: 'Primary menu'
+  hero: 'Hero (page title)'
+  highlighted: 'Highlighted (messages, tabs)'
+  content: 'Content'
+  sidebar: 'Sidebar (optional)'
+  footer_top: 'Footer top (call to action)'
+  footer: 'Footer'

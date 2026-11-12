@@ -1,0 +1,19 @@
+uuid: 68ac02f5-90e1-49aa-a19b-8e70084dff3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_enrolling
+    - node.type.location
+id: node.location.field_enrolling
+field_name: field_enrolling
+entity_type: node
+bundle: location
+label: '"Now enrolling" note'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 0e768a2f-3e53-4592-ac2f-d3afe5bb8a2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.timeline_item
+id: paragraph.timeline_item.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: timeline_item
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

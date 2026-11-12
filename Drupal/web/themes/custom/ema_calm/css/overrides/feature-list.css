@@ -1,0 +1,18 @@
+/* Option C: feature-list */
+
+.feature-list__item {
+  padding-inline: var(--space-s);
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+
+.feature-list__icon {
+  border: 1px solid var(--color-leaf);
+  background: var(--color-surface);
+}
+
+.feature-list--compact .feature-list__item {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}

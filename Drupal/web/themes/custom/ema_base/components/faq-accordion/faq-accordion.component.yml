@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'FAQ accordion'
+status: stable
+description: 'Accessible accordion. Answers stay open without JavaScript.'
+props:
+  type: object
+  properties:
+    accordion_id:
+      type: string
+    items:
+      type: ['array', 'null']
+    heading_level:
+      type: ['integer', 'null']
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

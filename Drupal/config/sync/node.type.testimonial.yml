@@ -1,0 +1,11 @@
+uuid: 50491a97-8d28-4ae7-846f-100fe15bd811
+langcode: en
+status: true
+dependencies: {  }
+name: Testimonial
+type: testimonial
+description: 'A short parent quote.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

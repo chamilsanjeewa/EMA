@@ -1,0 +1,5 @@
+/* Option C: faq-accordion */
+
+.faq-accordion__heading {
+  font-family: var(--font-body);
+}

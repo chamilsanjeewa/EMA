@@ -1,0 +1,14 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Utility bar'
+status: stable
+description: 'Top bar with hours, phone numbers and the language switcher.'
+props:
+  type: object
+  properties:
+    hours:
+      type: ['string', 'null']
+    phones:
+      type: ['array', 'null']
+slots:
+  language:
+    title: 'Language switcher'

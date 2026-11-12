@@ -1,0 +1,11 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Social links'
+status: stable
+description: 'Social media icon links.'
+props:
+  type: object
+  properties:
+    items:
+      type: ['array', 'null']
+    inverse:
+      type: ['boolean', 'null']

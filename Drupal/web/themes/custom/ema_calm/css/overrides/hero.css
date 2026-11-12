@@ -1,0 +1,38 @@
+/* Option C: hero */
+
+.hero__eyebrow::before {
+  content: "";
+  flex: none;
+  width: 0.85em;
+  height: 0.85em;
+  border-radius: 0 100% 0 100%;
+  background: var(--color-leaf);
+}
+
+.hero--arch {
+  background:
+    radial-gradient(circle at 85% 40%, var(--color-icon-bg) 0 18rem, transparent 18.05rem),
+    var(--color-hero-bg);
+}
+
+.hero--arch .hero__media {
+  position: relative;
+}
+
+.hero--arch .hero__media::before {
+  content: "";
+  position: absolute;
+  inset: 1.25rem -1.25rem -1.25rem 1.25rem;
+  border: 2px solid var(--color-leaf);
+  border-radius: var(--radius-arch);
+}
+
+.hero--arch .hero__image {
+  position: relative;
+  border-radius: var(--radius-arch);
+  box-shadow: var(--shadow-md);
+}
+
+.hero__title {
+  font-weight: 500;
+}

@@ -1,0 +1,15 @@
+uuid: 23d9f2b0-f404-4907-81ab-933005c0e49f
+langcode: en
+status: true
+dependencies: {  }
+name: ema_card
+label: 'Card 4:3 (800×600)'
+effects:
+  f59629b3-7b5f-4661-b571-5df473e00d22:
+    uuid: f59629b3-7b5f-4661-b571-5df473e00d22
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 800
+      height: 600
+      anchor: center-center

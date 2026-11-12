@@ -1,0 +1,5 @@
+/* Option A: footer */
+
+.site-footer {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}

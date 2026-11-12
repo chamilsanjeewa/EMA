@@ -1,0 +1,28 @@
+uuid: 34ddd81a-0261-4b0b-9279-2c6b294fce58
+langcode: en
+status: true
+dependencies:
+  module:
+    - ema_site
+    - node
+  theme:
+    - ema_warm
+id: ema_warm_news_nav
+theme: ema_warm
+region: sidebar
+weight: 0
+provider: null
+plugin: ema_news_nav
+settings:
+  id: ema_news_nav
+  label: ''
+  label_display: '0'
+  provider: ema_site
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      news: news

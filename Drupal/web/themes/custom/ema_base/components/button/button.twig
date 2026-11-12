@@ -1,0 +1,8 @@
+{#
+/**
+ * @file
+ * Component: button. Link styled as a button.
+ */
+#}
+{% set classes = ['button', 'button--' ~ (variant ?: 'primary'), size ? 'button--' ~ size, extra_class]|filter(c => c) %}
+<a class="{{ classes|join(' ') }}" href="{{ url }}">{{ label }}{% if icon %}{{ include('ema_base:icon', {name: icon}, with_context = false) }}{% endif %}</a>

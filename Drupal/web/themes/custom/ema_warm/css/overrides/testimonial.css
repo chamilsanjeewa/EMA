@@ -1,0 +1,9 @@
+/* Option A: testimonial */
+
+.testimonial {
+  border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-sm);
+}
+
+.grid > .testimonial:nth-child(3n + 2) {
+  background: var(--color-pastel-4);
+}

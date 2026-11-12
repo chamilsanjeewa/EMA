@@ -1,0 +1,470 @@
+<?php
+
+/**
+ * @file
+ * Preprocess functions for the EMA base theme.
+ *
+ * Templates stay simple: each preprocess builds an `ema` array whose keys
+ * match the props of an SDC component in ./components.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+use Drupal\paragraphs\ParagraphInterface;
+
+/**
+ * Path (with base path) of an image in the active option theme.
+ */
+function _ema_base_theme_asset(string $file): string {
+  $theme = \Drupal::theme()->getActiveTheme();
+  foreach (array_merge([$theme->getName()], array_keys($theme->getBaseThemeExtensions())) as $name) {
+    $path = \Drupal::service('extension.list.theme')->getPath($name) . '/' . $file;
+    if (file_exists(DRUPAL_ROOT . '/' . $path)) {
+      return base_path() . $path;
+    }
+  }
+  return '';
+}
+
+/**
+ * Social links from theme settings.
+ */
+function _ema_base_social(): array {
+  $social = [];
+  foreach (['instagram' => 'Instagram', 'facebook' => 'Facebook'] as $key => $label) {
+    if ($url = theme_get_setting($key . '_url')) {
+      $social[] = ['label' => $label, 'url' => $url, 'icon' => $key];
+    }
+  }
+  return $social;
+}
+
+/**
+ * Converts a link field into [{label, url}] for buttons.
+ */
+function _ema_base_links($field): array {
+  $links = [];
+  foreach ($field as $item) {
+    $links[] = ['label' => (string) $item->title, 'url' => $item->getUrl()->toString()];
+  }
+  return $links;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function ema_base_preprocess_page(array &$variables): void {
+  $locations = function_exists('ema_site_locations') ? ema_site_locations() : [];
+  $languages = \Drupal::languageManager();
+  $current_langcode = $languages->getCurrentLanguage()->getId();
+  $native = ['en' => 'English', 'es' => 'Español', 'so' => 'Soomaali'];
+
+  // Language switcher links for the current page.
+  $language_links = [];
+  $route_match = \Drupal::routeMatch();
+  $switch_url = \Drupal::service('path.matcher')->isFrontPage() || !$route_match->getRouteObject()
+    ? Url::fromRoute('<front>')
+    : Url::fromRouteMatch($route_match);
+  $switch = $languages->getLanguageSwitchLinks('language_interface', $switch_url);
+  if ($switch && count($switch->links) > 1) {
+    foreach ($switch->links as $langcode => $link) {
+      $url = $link['url'];
+      $url->setOption('language', $link['language']);
+      $language_links[] = [
+        'label' => $native[$langcode] ?? (string) $link['title'],
+        'url' => $url->toString(),
+        'langcode' => $langcode,
+        'active' => $langcode === $current_langcode,
+      ];
+    }
+  }
+
+  $site = \Drupal::config('system.site');
+  $branding = [
+    'line1' => (string) $site->get('name'),
+    'line2' => (string) $site->get('slogan'),
+    'url' => Url::fromRoute('<front>')->toString(),
+    'mark' => theme_get_setting('brand_mark') ?: 'heart',
+  ];
+
+  // Footer "Explore" links: top level of the main menu.
+  $explore = [];
+  $tree = \Drupal::menuTree()->load('main', (new \Drupal\Core\Menu\MenuTreeParameters())->setMaxDepth(1)->onlyEnabledLinks());
+  uasort($tree, fn ($a, $b) => $a->link->getWeight() <=> $b->link->getWeight());
+  foreach ($tree as $element) {
+    if ($element->link->getUrlObject()->isRouted() && $element->link->getUrlObject()->getRouteName() === '<front>') {
+      continue;
+    }
+    $explore[] = ['title' => (string) $element->link->getTitle(), 'url' => $element->link->getUrlObject()->toString()];
+  }
+
+  $programs = function_exists('ema_site_programs') ? ema_site_programs() : [];
+  $hours = (string) t('Mon – Fri, 6:30am – 6pm');
+
+  $variables['ema'] = [
+    'utility' => [
+      'hours' => $hours,
+      'phones' => array_map(fn ($l) => ['label' => $l['short'], 'number' => $l['phone'], 'href' => $l['phone_href']], $locations),
+    ],
+    'language' => [
+      'current' => $native[$current_langcode] ?? strtoupper($current_langcode),
+      'links' => $language_links,
+    ],
+    'footer' => [
+      'branding' => $branding,
+      'about' => (string) t('Montessori education and child care for ages 6 weeks to 8 years in Eagan and Inver Grove Heights.'),
+      'social' => _ema_base_social(),
+      'explore' => $explore,
+      'programs' => array_map(fn ($p) => ['title' => $p['title'], 'url' => $p['url']], $programs),
+      'locations' => $locations,
+      'hours' => $hours . ', ' . t('year-round'),
+      'copyright' => '© ' . date('Y') . ' Eagan Montessori Academy South & Amazing Beginnings Montessori',
+      'bottom_links' => [
+        ['title' => (string) t('Privacy policy'), 'url' => '#'],
+        ['title' => (string) t('Accessibility'), 'url' => '#'],
+      ],
+    ],
+  ];
+
+  CacheableMetadata::createFromRenderArray($variables)
+    ->addCacheTags(['node_list', 'config:system.menu.main', 'config:system.site'])
+    ->addCacheContexts(['languages:language_interface', 'url.path', 'theme'])
+    ->applyTo($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block--system-branding-block.html.twig.
+ */
+function ema_base_preprocess_block__system_branding_block(array &$variables): void {
+  $variables['ema'] = [
+    'line1' => (string) ($variables['site_name'] ?? ''),
+    'line2' => (string) ($variables['site_slogan']['#markup'] ?? ''),
+    'url' => Url::fromRoute('<front>')->toString(),
+    'mark' => theme_get_setting('brand_mark') ?: 'heart',
+  ];
+  $variables['#cache']['contexts'][] = 'theme';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu--main.html.twig.
+ */
+function ema_base_preprocess_menu__main(array &$variables): void {
+  $current = Url::fromRoute('<current>')->toString();
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $news_post = $node instanceof NodeInterface && $node->bundle() === 'news';
+  $convert = function (array $items) use (&$convert, $current, $news_post): array {
+    $out = [];
+    foreach ($items as $item) {
+      $url = $item['url']->toString();
+      $out[] = [
+        'title' => (string) $item['title'],
+        'url' => $url,
+        'active' => $url === $current,
+        // News posts are not in the menu: keep "News" highlighted while reading one.
+        'in_trail' => !empty($item['in_active_trail']) || ($news_post && preg_match('#/news$#', $url)),
+        'below' => !empty($item['below']) ? $convert($item['below']) : [],
+      ];
+    }
+    return $out;
+  };
+  $variables['ema'] = [
+    'items' => $convert($variables['items'] ?? []),
+    'apply_url' => theme_get_setting('apply_url') ?: '#',
+    'apply_label' => theme_get_setting('apply_label') ?: (string) t('Apply Now'),
+  ];
+  $variables['#cache']['contexts'][] = 'url.path';
+  $variables['#cache']['contexts'][] = 'theme';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block--page-title-block.html.twig.
+ *
+ * Adds the lead text (node field_lead) and the breadcrumb.
+ */
+function ema_base_preprocess_block__page_title_block(array &$variables): void {
+  $route_match = \Drupal::routeMatch();
+  $node = $route_match->getParameter('node');
+  $title = \Drupal::service('title_resolver')->getTitle(\Drupal::request(), $route_match->getRouteObject());
+  if (is_array($title)) {
+    $title = \Drupal::service('renderer')->renderInIsolation($title);
+  }
+  $title = trim(strip_tags((string) $title));
+
+  $breadcrumb = \Drupal::service('breadcrumb')->build($route_match);
+  $links = [];
+  foreach ($breadcrumb->getLinks() as $link) {
+    $links[] = ['text' => strip_tags((string) (is_array($link->getText()) ? \Drupal::service('renderer')->renderInIsolation($link->getText()) : $link->getText())), 'url' => $link->getUrl()->toString()];
+  }
+  $links[] = ['text' => $title, 'url' => ''];
+
+  $variables['ema'] = [
+    'title' => $title,
+    'lead' => $node instanceof NodeInterface && $node->hasField('field_lead') ? (string) $node->get('field_lead')->value : '',
+    'breadcrumb' => count($links) > 1 ? $links : [],
+  ];
+  CacheableMetadata::createFromRenderArray($variables)
+    ->merge(CacheableMetadata::createFromObject($breadcrumb))
+    ->addCacheContexts(['route'])
+    ->addCacheTags($node instanceof NodeInterface ? $node->getCacheTags() : [])
+    ->applyTo($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function ema_base_preprocess_node(array &$variables): void {
+  $node = $variables['node'];
+  if ($node->bundle() === 'program' && $variables['view_mode'] === 'full' && function_exists('ema_site_image')) {
+    $variables['ema'] = [
+      'image' => ema_site_image($node->get('field_image')->first(), 'ema_wide'),
+      'age' => (string) $node->get('field_age_range')->value,
+    ];
+  }
+  if ($node->bundle() === 'news' && $variables['view_mode'] === 'full' && function_exists('ema_site_news_card')) {
+    $school = $node->get('field_school');
+    $variables['ema'] = [
+      'category' => ema_site_news_category($node),
+      'school' => $school->isEmpty() ? '' : (string) ($school->getSetting('allowed_values')[$school->value] ?? $school->value),
+      'image' => ema_site_image($node->get('field_image')->first(), 'ema_wide'),
+      'news_url' => Url::fromUri('internal:/news')->toString(),
+      'newer' => _ema_base_news_neighbor($node, '>'),
+      'older' => _ema_base_news_neighbor($node, '<'),
+    ] + ema_site_news_date($node);
+    $variables['#cache']['tags'][] = 'node_list';
+  }
+}
+
+/**
+ * The next newer ('>') or older ('<') published news post, as {title, url}.
+ */
+function _ema_base_news_neighbor(NodeInterface $node, string $op): ?array {
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  $ids = $storage->getQuery()
+    ->accessCheck(TRUE)
+    ->condition('type', 'news')
+    ->condition('status', NodeInterface::PUBLISHED)
+    ->condition('created', $node->getCreatedTime(), $op)
+    ->sort('created', $op === '>' ? 'ASC' : 'DESC')
+    ->range(0, 1)
+    ->execute();
+  if (!$ids) {
+    return NULL;
+  }
+  $card = ema_site_news_card($storage->load(reset($ids)));
+  return ['title' => $card['title'], 'url' => $card['url']];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for paragraph.html.twig.
+ *
+ * Builds `ema` props for the paragraph's component(s).
+ */
+function ema_base_preprocess_paragraph(array &$variables): void {
+  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+  $paragraph = $variables['paragraph'];
+  $get = fn (string $field) => $paragraph->hasField($field) ? $paragraph->get($field) : NULL;
+  $value = fn (string $field) => ($f = $get($field)) && !$f->isEmpty() ? $f->value : NULL;
+
+  $parent = $paragraph->getParentEntity();
+  $section = [
+    'section_id' => 'paragraph-' . $paragraph->id() . '-title',
+    'eyebrow' => $value('field_eyebrow'),
+    'title' => $value('field_title'),
+    'text' => $value('field_text'),
+    'center' => (bool) $value('field_center'),
+    'background' => $value('field_background') === 'alt' ? 'alt' : NULL,
+  ];
+  $ema = [
+    'section' => $section,
+    // Inside a program page the paragraph is rendered without a full-width section.
+    'inline' => $parent instanceof NodeInterface && $parent->bundle() === 'program',
+  ];
+
+  switch ($paragraph->bundle()) {
+    case 'hero':
+      $ema['hero'] = [
+        'variant' => theme_get_setting('hero_variant') ?: 'split',
+        'eyebrow' => $section['eyebrow'],
+        'title' => (string) $section['title'],
+        'text' => $section['text'],
+        'image' => ema_site_image($get('field_image')->first(), theme_get_setting('hero_image_style') ?: 'ema_hero_split'),
+        'links' => _ema_base_links($get('field_links')),
+      ];
+      $variables['#cache']['contexts'][] = 'theme';
+      break;
+
+    case 'feature_list':
+      $ema['style'] = $value('field_style') ?: 'default';
+      $ema['items'] = [];
+      foreach ($get('field_items')->referencedEntities() as $item) {
+        $ema['items'][] = [
+          'icon' => $item->get('field_icon')->value ?: 'star',
+          'title' => $item->get('field_title')->value,
+          'text' => $item->get('field_text')->value,
+        ];
+      }
+      break;
+
+    case 'media_text':
+      $ema['media'] = [
+        'heading_id' => $section['section_id'],
+        'eyebrow' => $section['eyebrow'],
+        'title' => (string) $section['title'],
+        'image' => ema_site_image($get('field_image')->first(), 'ema_card'),
+        'list' => array_column($get('field_list_items')->getValue(), 'value'),
+        'links' => array_map(fn ($l) => $l + ['variant' => 'secondary'], _ema_base_links($get('field_links'))),
+        'reverse' => (bool) $value('field_reverse'),
+      ];
+      break;
+
+    case 'steps':
+      $ema['items'] = [];
+      foreach ($get('field_items')->referencedEntities() as $item) {
+        $link = _ema_base_links($item->get('field_links'));
+        $ema['items'][] = ['title' => $item->get('field_title')->value, 'text' => $item->get('field_text')->value, 'link' => $link[0] ?? NULL];
+      }
+      break;
+
+    case 'timeline':
+      $ema['items'] = [];
+      foreach ($get('field_items')->referencedEntities() as $item) {
+        $ema['items'][] = ['year' => $item->get('field_year')->value, 'title' => $item->get('field_title')->value, 'text' => $item->get('field_text')->value];
+      }
+      break;
+
+    case 'gallery':
+      $ema['items'] = [];
+      foreach ($get('field_gallery') as $item) {
+        $ema['items'][] = ema_site_image($item, 'ema_card');
+      }
+      $ema['links'] = _ema_base_links($get('field_links'));
+      break;
+
+    case 'quote':
+      $node = $get('field_testimonial')->entity;
+      $ema['quote'] = $node ? ['quote' => $node->get('field_quote')->value, 'name' => $node->label(), 'role' => $node->get('field_role')->value] : NULL;
+      if ($node) {
+        $variables['#cache']['tags'] = array_merge($variables['#cache']['tags'] ?? [], $node->getCacheTags());
+      }
+      break;
+
+    case 'listing':
+      _ema_base_preprocess_listing($paragraph, $ema, $variables);
+      break;
+  }
+
+  $variables['ema'] = $ema;
+}
+
+/**
+ * Data for the "listing" paragraph (programs, schools, staff, FAQ, ...).
+ */
+function _ema_base_preprocess_listing(ParagraphInterface $paragraph, array &$ema, array &$variables): void {
+  $type = $paragraph->get('field_listing')->value;
+  $ema['type'] = $type;
+  $ema['links'] = _ema_base_links($paragraph->get('field_links'));
+  $variables['#cache']['tags'][] = 'node_list';
+  $variables['#cache']['contexts'][] = 'theme';
+
+  switch ($type) {
+    case 'programs':
+      $ema['items'] = ema_site_programs();
+      break;
+
+    case 'locations':
+      $placeholder = _ema_base_theme_asset('images/placeholders/school-building.svg');
+      $ema['items'] = array_map(fn ($l) => $l + ['placeholder' => $placeholder, 'tour_url' => theme_get_setting('tour_url') ?: '/contact-us'], ema_site_locations());
+      break;
+
+    case 'testimonials':
+      $ema['items'] = ema_site_testimonials();
+      break;
+
+    case 'staff':
+      $placeholder = _ema_base_theme_asset('images/placeholders/staff.svg');
+      $ema['items'] = array_map(fn ($s) => ['photo' => $s['photo'] ?: ['src' => $placeholder, 'width' => 400, 'height' => 400]] + $s, ema_site_staff());
+      break;
+
+    case 'faq_general':
+    case 'faq_enrollment':
+    case 'faq_infant':
+    case 'faq_toddler':
+    case 'faq_preschool':
+    case 'faq_prek':
+    case 'faq_summer':
+    case 'faq_other':
+      $ema['accordion_id'] = $paragraph->id();
+      $ema['items'] = ema_site_faqs(substr($type, 4));
+      break;
+
+    case 'news_latest':
+      $ema['items'] = array_values(array_map('ema_site_news_card', ema_site_news_nodes(3)));
+      break;
+
+    case 'news':
+      // Category filter links (?category=events) and a pager.
+      $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('news_category', 0, 1, TRUE);
+      $request = \Drupal::request();
+      $active = (string) $request->query->get('category', '');
+      $page_url = Url::fromRoute('<current>');
+      $filters = [['label' => (string) t('All news'), 'url' => $page_url->toString(), 'active' => $active === '']];
+      $category = NULL;
+      foreach ($terms as $term) {
+        $term = \Drupal::service('entity.repository')->getTranslationFromContext($term);
+        $key = _ema_base_slug((string) $term->getUntranslated()->label());
+        if ($key === $active) {
+          $category = (int) $term->id();
+        }
+        $filters[] = [
+          'label' => $term->label(),
+          'url' => Url::fromRoute('<current>', [], ['query' => ['category' => $key]])->toString(),
+          'active' => $key === $active,
+        ];
+      }
+      $ema['filters'] = $filters;
+      $ema['items'] = array_values(array_map('ema_site_news_card', ema_site_news_nodes(12, $category, TRUE)));
+      $ema['pager'] = ['#type' => 'pager'];
+      $variables['#cache']['contexts'][] = 'url.query_args:category';
+      $variables['#cache']['contexts'][] = 'url.query_args.pagers';
+      $variables['#cache']['tags'][] = 'taxonomy_term_list';
+      break;
+
+    case 'map':
+      $ema['items'] = ema_site_locations();
+      break;
+
+    case 'contact':
+      $message = \Drupal::entityTypeManager()->getStorage('contact_message')->create(['contact_form' => 'tour']);
+      $ema['form'] = \Drupal::service('entity.form_builder')->getForm($message);
+      $ema['info'] = [
+        'title' => (string) t('Our two schools'),
+        'heading_id' => 'contact-info-title',
+        'hours' => [(string) t('Monday – Friday: 6:30am – 6:00pm'), (string) t('Open 12 months a year')],
+        'locations' => ema_site_locations(),
+        'social' => _ema_base_social(),
+      ];
+      break;
+  }
+}
+
+/**
+ * Lowercase URL key from a label ("In the classroom" → "in-the-classroom").
+ */
+function _ema_base_slug(string $label): string {
+  $label = \Drupal::service('transliteration')->transliterate($label, 'en');
+  return trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($label)), '-');
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for block templates.
+ *
+ * Blocks from ema_site render their own components: no wrapper markup.
+ */
+function ema_base_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
+  if (str_starts_with($variables['elements']['#plugin_id'] ?? '', 'ema_')) {
+    $suggestions[] = 'block__bare';
+  }
+}

@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Sidebar navigation'
+status: stable
+description: 'Link list in the sidebar (programs or recent news).'
+props:
+  type: object
+  properties:
+    title:
+      type: string
+    heading_id:
+      type: ['string', 'null']
+    items:
+      type: ['array', 'null']

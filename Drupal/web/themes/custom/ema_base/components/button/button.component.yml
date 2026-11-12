@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Button'
+status: stable
+description: 'Link styled as a button.'
+props:
+  type: object
+  properties:
+    label:
+      type: string
+    url:
+      type: string
+    variant:
+      type: ['string', 'null']
+    size:
+      type: ['string', 'null']
+    icon:
+      type: ['string', 'null']
+    extra_class:
+      type: ['string', 'null']

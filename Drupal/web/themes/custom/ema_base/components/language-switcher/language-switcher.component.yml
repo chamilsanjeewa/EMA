@@ -1,0 +1,15 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Language switcher'
+status: stable
+description: 'Dropdown of language links.'
+props:
+  type: object
+  properties:
+    current:
+      type: ['string', 'null']
+    links:
+      type: ['array', 'null']
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

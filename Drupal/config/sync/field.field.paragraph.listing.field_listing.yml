@@ -1,0 +1,21 @@
+uuid: 99b0ca1a-0cd0-4e8d-ad07-d2d449828ec1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_listing
+    - paragraphs.paragraphs_type.listing
+  module:
+    - options
+id: paragraph.listing.field_listing
+field_name: field_listing
+entity_type: paragraph
+bundle: listing
+label: Show
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

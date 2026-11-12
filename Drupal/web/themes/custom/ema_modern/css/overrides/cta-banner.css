@@ -1,0 +1,9 @@
+/* Option B: cta-banner */
+
+.cta-banner {
+  padding-block: var(--space-3xl);
+}
+
+.cta-banner__title {
+  font-size: var(--step-5);
+}

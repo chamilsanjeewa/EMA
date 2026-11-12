@@ -1,0 +1,20 @@
+uuid: 5d43a8b3-dc4a-473a-b02c-ef1362d05521
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ema_warm
+id: ema_warm_messages
+theme: ema_warm
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: ''
+  label_display: '0'
+  provider: system
+visibility: {  }

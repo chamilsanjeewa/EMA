@@ -1,0 +1,30 @@
+/* Option B: program-card */
+
+.program-card,
+.program-card:hover {
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.program-card__image {
+  border-radius: var(--radius-sm);
+}
+
+.program-card__body {
+  padding: var(--space-m) 0 0;
+}
+
+.program-card__age {
+  padding: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.program-card:hover .program-card__link {
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-underline-offset: 0.2em;
+}

@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Component: gallery-grid. Photo grid with a native dialog lightbox.
+ */
+#}
+<div class="gallery-grid" data-component="gallery-grid">
+  <ul class="gallery-grid__list">
+    {% for item in items %}
+      <li class="gallery-grid__item">
+        <figure class="gallery-grid__figure">
+          <a class="gallery-grid__link" href="{{ item.full }}" data-caption="{{ item.caption }}" aria-haspopup="dialog">
+            <img class="gallery-grid__image" src="{{ item.src }}" width="{{ item.width }}" height="{{ item.height }}" alt="{{ item.alt }}" loading="lazy">
+          </a>
+          {% if item.caption %}<figcaption class="gallery-grid__caption">{{ item.caption }}</figcaption>{% endif %}
+        </figure>
+      </li>
+    {% endfor %}
+  </ul>
+  <dialog class="gallery-grid__dialog" aria-label="{{ 'Photo viewer'|t }}">
+    <div class="gallery-grid__dialog-inner">
+      <button type="button" class="gallery-grid__control gallery-grid__close">{{ include('ema_base:icon', {name: 'close'}, with_context = false) }}<span class="visually-hidden">{{ 'Close photo viewer'|t }}</span></button>
+      <button type="button" class="gallery-grid__control gallery-grid__prev">{{ include('ema_base:icon', {name: 'chevron-left'}, with_context = false) }}<span class="visually-hidden">{{ 'Previous photo'|t }}</span></button>
+      <figure class="gallery-grid__viewer">
+        <img class="gallery-grid__viewer-image" src="{{ items|first.full }}" alt="">
+        <figcaption class="gallery-grid__viewer-caption"></figcaption>
+      </figure>
+      <button type="button" class="gallery-grid__control gallery-grid__next">{{ include('ema_base:icon', {name: 'chevron-right'}, with_context = false) }}<span class="visually-hidden">{{ 'Next photo'|t }}</span></button>
+      <p class="gallery-grid__counter" aria-live="polite"></p>
+    </div>
+  </dialog>
+</div>

@@ -1,0 +1,3 @@
+ema_warm.settings:
+  type: ema_base.settings
+  label: 'Warm & Friendly settings'

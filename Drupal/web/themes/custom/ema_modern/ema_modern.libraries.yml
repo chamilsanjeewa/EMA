@@ -1,0 +1,118 @@
+# Design tokens + option-wide overrides. Change brand colors in css/tokens.css.
+global:
+  version: VERSION
+  css:
+    base:
+      css/tokens.css: { weight: -10 }
+    theme:
+      css/overrides/global.css: {}
+
+# DEMO ONLY: color palettes for the option switcher ([data-theme] token overrides).
+palettes:
+  version: VERSION
+  css:
+    theme:
+      css/themes.css: {}
+
+button:
+  version: VERSION
+  css:
+    component:
+      css/overrides/button.css: {}
+
+main-menu:
+  version: VERSION
+  css:
+    component:
+      css/overrides/main-menu.css: {}
+
+hero:
+  version: VERSION
+  css:
+    component:
+      css/overrides/hero.css: {}
+
+page-header:
+  version: VERSION
+  css:
+    component:
+      css/overrides/page-header.css: {}
+
+section-heading:
+  version: VERSION
+  css:
+    component:
+      css/overrides/section-heading.css: {}
+
+feature-list:
+  version: VERSION
+  css:
+    component:
+      css/overrides/feature-list.css: {}
+
+media-text:
+  version: VERSION
+  css:
+    component:
+      css/overrides/media-text.css: {}
+
+program-card:
+  version: VERSION
+  css:
+    component:
+      css/overrides/program-card.css: {}
+
+testimonial:
+  version: VERSION
+  css:
+    component:
+      css/overrides/testimonial.css: {}
+
+history-timeline:
+  version: VERSION
+  css:
+    component:
+      css/overrides/history-timeline.css: {}
+
+staff-card:
+  version: VERSION
+  css:
+    component:
+      css/overrides/staff-card.css: {}
+
+enrollment-steps:
+  version: VERSION
+  css:
+    component:
+      css/overrides/enrollment-steps.css: {}
+
+location-card:
+  version: VERSION
+  css:
+    component:
+      css/overrides/location-card.css: {}
+
+gallery-grid:
+  version: VERSION
+  css:
+    component:
+      css/overrides/gallery-grid.css: {}
+
+faq-accordion:
+  version: VERSION
+  css:
+    component:
+      css/overrides/faq-accordion.css: {}
+
+cta-banner:
+  version: VERSION
+  css:
+    component:
+      css/overrides/cta-banner.css: {}
+
+contact-info:
+  version: VERSION
+  css:
+    component:
+      css/overrides/contact-info.css: {}
+

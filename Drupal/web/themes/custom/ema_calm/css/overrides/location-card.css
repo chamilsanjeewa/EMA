@@ -1,0 +1,17 @@
+/* Option C: location-card */
+
+.location-card {
+  padding: var(--space-s) var(--space-s) 0;
+}
+
+.location-card__image {
+  border-radius: 50% 50% var(--radius-sm) var(--radius-sm) / 30% 30% var(--radius-sm) var(--radius-sm);
+}
+
+.location-card__body {
+  padding-inline: var(--space-2xs);
+}
+
+.location-card__title {
+  font-weight: 500;
+}

@@ -1,0 +1,10 @@
+{#
+/**
+ * @file
+ * Basic page: a stack of paragraph sections (the title is in the page-header).
+ */
+#}
+<article{{ attributes.addClass('node', 'node--page') }}>
+  {{ title_suffix }}
+  {{ content.field_sections }}
+</article>

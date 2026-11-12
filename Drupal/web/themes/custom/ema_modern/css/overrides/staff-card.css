@@ -1,0 +1,14 @@
+/* Option B: staff-card */
+
+.staff-card {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+}
+
+.staff-card__photo {
+  width: 100%;
+  margin: 0 0 var(--space-s);
+  border-radius: var(--radius-sm);
+}

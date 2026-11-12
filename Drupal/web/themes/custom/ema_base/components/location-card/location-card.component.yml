@@ -1,0 +1,35 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Location card'
+status: stable
+description: 'One school: photo, enrolling badge, address, phone and actions.'
+props:
+  type: object
+  properties:
+    key:
+      type: ['string', 'null']
+    name:
+      type: string
+    street:
+      type: ['string', 'null']
+    city:
+      type: ['string', 'null']
+    phone:
+      type: ['string', 'null']
+    phone_href:
+      type: ['string', 'null']
+    maps_url:
+      type: ['string', 'null']
+    enrolling:
+      type: ['string', 'null']
+    note:
+      type: ['string', 'null']
+    serves:
+      type: ['string', 'null']
+    image:
+      type: ['object', 'null']
+    placeholder:
+      type: ['string', 'null']
+    tour_url:
+      type: ['string', 'null']
+    heading_level:
+      type: ['integer', 'null']

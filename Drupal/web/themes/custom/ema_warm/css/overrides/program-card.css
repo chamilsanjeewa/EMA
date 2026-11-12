@@ -1,0 +1,23 @@
+/* Option A: program-card */
+
+.program-card {
+  border-radius: var(--radius-xl);
+}
+
+.program-card__image {
+  width: calc(100% - 1.5rem);
+  margin: 0.75rem 0.75rem 0;
+  border-radius: var(--radius-lg);
+}
+
+.grid > .program-card:nth-child(4n + 2) .program-card__age {
+  background: var(--color-pastel-2);
+}
+
+.grid > .program-card:nth-child(4n + 3) .program-card__age {
+  background: var(--color-pastel-3);
+}
+
+.grid > .program-card:nth-child(4n + 4) .program-card__age {
+  background: var(--color-pastel-1);
+}

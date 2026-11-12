@@ -1,0 +1,11 @@
+uuid: 2eb787f2-8802-440a-b8f8-ddff5e2b696d
+langcode: en
+status: true
+dependencies: {  }
+name: Program
+type: program
+description: 'A program (Infant Childcare, Toddler, ...). Shown as cards and as a detail page with a sidebar.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

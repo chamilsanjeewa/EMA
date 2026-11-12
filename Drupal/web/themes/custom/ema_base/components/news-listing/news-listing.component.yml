@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'News listing'
+status: stable
+description: 'All news posts with category filter links and a pager.'
+props:
+  type: object
+  properties:
+    filters:
+      type: ['array', 'null']
+    items:
+      type: ['array', 'null']
+    empty:
+      type: ['string', 'null']
+slots:
+  pager:
+    title: 'Pager'

@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Component: faq-accordion. Accessible accordion. Answers stay open without JavaScript.
+ */
+#}
+{% set tag = 'h' ~ (heading_level ?: 3) %}
+<div class="faq-accordion" data-component="faq-accordion">
+  {% for item in items %}
+    {% set id = 'faq-' ~ accordion_id ~ '-' ~ loop.index %}
+    <div class="faq-accordion__item">
+      <{{ tag }} class="faq-accordion__heading">
+        <button type="button" class="faq-accordion__trigger" id="{{ id }}-trigger" aria-expanded="false" aria-controls="{{ id }}-panel">
+          <span class="faq-accordion__question">{{ item.question }}</span>
+          <span class="faq-accordion__icon">{{ include('ema_base:icon', {name: 'chevron-down'}, with_context = false) }}</span>
+        </button>
+      </{{ tag }}>
+      <div class="faq-accordion__panel" id="{{ id }}-panel">
+        <div class="faq-accordion__answer"><p>{{ item.answer }}</p></div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

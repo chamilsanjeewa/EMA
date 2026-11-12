@@ -1,0 +1,62 @@
+/**
+ * Component: news-listing (shared styles; option themes extend this library).
+ */
+.news-listing__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+}
+
+.news-listing__filters[hidden] {
+  display: none;
+}
+
+.news-listing__filter {
+  min-height: 2.75rem;
+  padding: 0.5rem 1.1rem;
+  border: 2px solid var(--color-input-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-heading);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+a.news-listing__filter {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.news-listing__filter:hover {
+  border-color: var(--color-primary-dark);
+}
+
+.news-listing__filter[aria-pressed="true"],
+.news-listing__filter[aria-current="true"] {
+  border-color: var(--color-primary-dark);
+  background: var(--color-primary-dark);
+  color: var(--color-on-primary);
+}
+
+.news-listing__filter:focus-visible {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+}
+
+.news-listing__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.news-listing__item[hidden] {
+  display: none;
+}
+
+.news-listing__empty {
+  text-align: center;
+}

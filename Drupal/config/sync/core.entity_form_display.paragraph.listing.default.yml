@@ -1,0 +1,74 @@
+uuid: 93bc25af-f593-4f36-984d-e8630f1fdf17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.listing.field_background
+    - field.field.paragraph.listing.field_center
+    - field.field.paragraph.listing.field_eyebrow
+    - field.field.paragraph.listing.field_links
+    - field.field.paragraph.listing.field_listing
+    - field.field.paragraph.listing.field_text
+    - field.field.paragraph.listing.field_title
+    - paragraphs.paragraphs_type.listing
+  module:
+    - link
+id: paragraph.listing.default
+targetEntityType: paragraph
+bundle: listing
+mode: default
+content:
+  field_background:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_center:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_eyebrow:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_links:
+    type: link_default
+    weight: 6
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_listing:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_text:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

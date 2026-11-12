@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Component: history-timeline. Year-by-year history.
+ */
+#}
+<ol class="history-timeline">
+  {% for item in items %}
+    <li class="history-timeline__item">
+      <h3 class="history-timeline__title"><span class="history-timeline__year">{{ item.year }}</span> {{ item.title }}</h3>
+      {% if item.text %}<p class="history-timeline__text">{{ item.text }}</p>{% endif %}
+    </li>
+  {% endfor %}
+</ol>

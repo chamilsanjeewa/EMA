@@ -1,0 +1,16 @@
+name: 'EMA Site'
+type: module
+description: 'Content model helpers, blocks and starter content for Eagan Montessori Academy & Amazing Beginnings Montessori.'
+core_version_requirement: ^11
+package: EMA
+dependencies:
+  - drupal:node
+  - drupal:image
+  - drupal:link
+  - drupal:options
+  - drupal:telephone
+  - drupal:contact
+  - drupal:language
+  - drupal:path
+  - drupal:menu_link_content
+  - paragraphs:paragraphs

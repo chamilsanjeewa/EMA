@@ -1,0 +1,24 @@
+uuid: ae98d888-072f-4b70-a8d5-62b948f05b02
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ema_warm
+id: ema_warm_page_title
+theme: ema_warm
+region: hero
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: ''
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

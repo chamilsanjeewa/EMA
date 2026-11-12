@@ -1,0 +1,43 @@
+/* Option A: hero */
+
+.hero__eyebrow {
+  padding: 0.4em 1em;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero--split {
+  background:
+    radial-gradient(circle at 6% 12%, var(--color-accent-soft) 0 8rem, transparent 8.05rem),
+    radial-gradient(circle at 96% 96%, var(--color-pastel-2) 0 12rem, transparent 12.05rem),
+    var(--color-hero-bg);
+}
+
+.hero--split .hero__inner {
+  padding-bottom: calc(var(--space-2xl) + 4.5rem);
+}
+
+@media (min-width: 56em) {
+  .hero--split .hero__inner {
+    padding-bottom: calc(var(--space-3xl) + 4.5rem);
+  }
+}
+
+.hero--split .hero__media {
+  position: relative;
+}
+
+.hero--split .hero__media::before {
+  content: "";
+  position: absolute;
+  inset: -4% -3% 5% 6%;
+  border-radius: 58% 42% 55% 45% / 50% 55% 45% 50%;
+  background: var(--color-accent);
+}
+
+.hero--split .hero__image {
+  position: relative;
+  border-radius: 42% 58% 45% 55% / 55% 45% 55% 45%;
+  box-shadow: var(--shadow-md);
+}

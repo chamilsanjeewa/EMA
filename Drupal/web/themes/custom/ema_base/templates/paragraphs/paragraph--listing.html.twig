@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Paragraph: listing of content (programs, schools, testimonials, staff, FAQ),
+ * the contact form or the map.
+ */
+#}
+{% set type = ema.type %}
+{% set body %}
+  {% if type == 'programs' %}
+    <div class="grid grid--3">
+      {% for item in ema.items %}{{ include('ema_base:program-card', item|merge({card_id: null}), with_context = false) }}{% endfor %}
+    </div>
+  {% elseif type == 'locations' %}
+    <div class="grid grid--2">
+      {% for item in ema.items %}{{ include('ema_base:location-card', item, with_context = false) }}{% endfor %}
+    </div>
+  {% elseif type == 'testimonials' %}
+    <div class="grid grid--3">
+      {% for item in ema.items %}{{ include('ema_base:testimonial', item, with_context = false) }}{% endfor %}
+    </div>
+  {% elseif type == 'staff' %}
+    <div class="grid grid--3">
+      {% for item in ema.items %}{{ include('ema_base:staff-card', item, with_context = false) }}{% endfor %}
+    </div>
+  {% elseif type starts with 'faq_' %}
+    <div class="faq-wrap">{{ include('ema_base:faq-accordion', {accordion_id: ema.accordion_id, items: ema.items}, with_context = false) }}</div>
+  {% elseif type == 'news_latest' %}
+    <div class="grid grid--3">
+      {% for item in ema.items %}{{ include('ema_base:news-card', item, with_context = false) }}{% endfor %}
+    </div>
+  {% elseif type == 'news' %}
+    {% embed 'ema_base:news-listing' with {filters: ema.filters, items: ema.items, pager: ema.pager} only %}
+      {% block pager %}{{ pager }}{% endblock %}
+    {% endembed %}
+  {% elseif type == 'map' %}
+    <h2 class="visually-hidden">{{ 'Maps of our schools'|t }}</h2>
+    {{ include('ema_base:location-map', {items: ema.items}, with_context = false) }}
+  {% elseif type == 'contact' %}
+    <div class="contact-layout">
+      {% embed 'ema_base:contact-form' with {title: 'Contact us & book a tour'|t, intro: 'Choose a school and tell us the days and times that work for you. We will contact you to confirm.'|t, drupal_form: ema.form} only %}
+        {% block form %}{{ drupal_form }}{% endblock %}
+      {% endembed %}
+      {{ include('ema_base:contact-info', ema.info, with_context = false) }}
+    </div>
+  {% endif %}
+  {% for link in ema.links %}
+    <p class="section__actions">{{ include('ema_base:button', {label: link.label, url: link.url, variant: 'secondary', icon: 'arrow-right'}, with_context = false) }}</p>
+  {% endfor %}
+{% endset %}
+
+{% if ema.inline %}
+  <section class="program-detail__section"{% if ema.section.title %} aria-labelledby="{{ ema.section.section_id }}"{% endif %}>
+    {% if ema.section.title %}<h2 class="program-detail__heading" id="{{ ema.section.section_id }}">{{ ema.section.title }}</h2>{% endif %}
+    {{ body }}
+  </section>
+{% else %}
+  {% embed 'ema_base:section' with ema.section|merge({listing_body: body, modifier: type == 'map' ? 'section--flush'}) only %}
+    {% block body %}{{ listing_body }}{% endblock %}
+  {% endembed %}
+{% endif %}

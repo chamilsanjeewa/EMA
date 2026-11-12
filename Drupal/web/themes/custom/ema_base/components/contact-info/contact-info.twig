@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Component: contact-info. Hours and both schools. Compact variant for the sidebar.
+ */
+#}
+<div class="contact-info{{ compact ? ' contact-info--compact' }}">
+  <h2 class="contact-info__title"{% if heading_id %} id="{{ heading_id }}"{% endif %}>{{ title }}</h2>
+  <dl class="contact-info__list">
+    {% if hours %}
+      <div class="contact-info__row">
+        <dt class="contact-info__label"><span class="contact-info__icon">{{ include('ema_base:icon', {name: 'clock'}, with_context = false) }}</span>{{ 'Hours'|t }}</dt>
+        <dd class="contact-info__value">{% for line in hours %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</dd>
+      </div>
+    {% endif %}
+    {% for location in locations %}
+      <div class="contact-info__row">
+        <dt class="contact-info__label"><span class="contact-info__icon">{{ include('ema_base:icon', {name: 'pin'}, with_context = false) }}</span>{{ location.name }}</dt>
+        <dd class="contact-info__value">
+          <address>{{ location.street }}<br>{{ location.city }}</address>
+          <a href="{{ location.phone_href }}">{{ location.phone }}</a>
+          {% if location.email and not compact %}<br><a href="mailto:{{ location.email }}">{{ location.email }}</a>{% endif %}
+          {% if location.maps_url %}<br><a href="{{ location.maps_url }}">{{ 'Get directions'|t }}<span class="visually-hidden"> {{ 'to'|t }} {{ location.name }}</span></a>{% endif %}
+        </dd>
+      </div>
+    {% endfor %}
+  </dl>
+  {% if apply_url %}<div class="contact-info__actions">{{ include('ema_base:button', {label: apply_label ?: 'Apply Now'|t, url: apply_url, extra_class: 'button--block'}, with_context = false) }}</div>{% endif %}
+  {% if social %}
+    <p class="contact-info__social-label">{{ 'Follow us'|t }}</p>
+    {{ include('ema_base:social-links', {items: social}, with_context = false) }}
+  {% endif %}
+</div>

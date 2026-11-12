@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Component: enrollment-steps. Numbered steps with optional actions.
+ */
+#}
+<ol class="enrollment-steps">
+  {% for item in items %}
+    <li class="enrollment-steps__item">
+      <span class="enrollment-steps__number" aria-hidden="true">{{ loop.index }}</span>
+      <h3 class="enrollment-steps__title">{{ item.title }}</h3>
+      {% if item.text %}<p class="enrollment-steps__text">{{ item.text }}</p>{% endif %}
+      {% if item.link %}<p class="enrollment-steps__action">{{ include('ema_base:button', {label: item.link.label, url: item.link.url, variant: loop.index == 2 ? 'primary' : 'secondary', size: 'small'}, with_context = false) }}</p>{% endif %}
+    </li>
+  {% endfor %}
+</ol>

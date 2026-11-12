@@ -1,0 +1,19 @@
+uuid: 3d11ccbe-97cc-464e-93d3-e547a5c2a5f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short
+    - node.type.location
+id: node.location.field_short
+field_name: field_short
+entity_type: node
+bundle: location
+label: 'Short name (city)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

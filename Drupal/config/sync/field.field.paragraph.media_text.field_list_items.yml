@@ -1,0 +1,19 @@
+uuid: bdbf5e1b-4ee1-4f8b-9241-02cb31cec9fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_items
+    - paragraphs.paragraphs_type.media_text
+id: paragraph.media_text.field_list_items
+field_name: field_list_items
+entity_type: paragraph
+bundle: media_text
+label: 'Check list'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

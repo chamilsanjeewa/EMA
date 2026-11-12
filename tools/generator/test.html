@@ -1,0 +1,50 @@
+<!doctype html><html><body><pre id="out">running</pre>
+<script>
+const out=[]; const ok=(n,c)=>out.push((c?'PASS ':'FAIL ')+n);
+function load(src,w){return new Promise(r=>{const f=document.createElement('iframe');f.width=w;f.height=900;f.src=src;f.onload=()=>r(f);document.body.appendChild(f);});}
+const key=(el,k)=>el.dispatchEvent(new KeyboardEvent('keydown',{key:k,bubbles:true}));
+(async()=>{
+ for (const o of ['a','b','c']) {
+  let f=await load('file:///Volumes/Chamil-SSD/projects/EMA/option-'+o+'/faq.html',390); let d=f.contentDocument, w=f.contentWindow;
+  const errs=[]; w.addEventListener('error',e=>errs.push(e.message));
+  const t=d.querySelector('.main-menu__toggle'); t.click();
+  ok(o+' mobile menu opens', t.getAttribute('aria-expanded')==='true' && w.getComputedStyle(d.querySelector('.main-menu__panel')).display!=='none');
+  const sb=d.querySelector('.main-menu__submenu-toggle'); sb.click(); ok(o+' submenu opens', !d.getElementById('main-menu-submenu-programs').hidden);
+  key(sb,'Escape'); ok(o+' Esc closes submenu', d.getElementById('main-menu-submenu-programs').hidden);
+  sb.focus(); key(sb,'Escape'); ok(o+' Esc closes menu + focus', !d.querySelector('.main-menu').classList.contains('is-open') && d.activeElement===t);
+  const tr=[...d.querySelectorAll('.faq-accordion__trigger')]; const p=d.getElementById(tr[0].getAttribute('aria-controls'));
+  ok(o+' faq starts closed', p.hidden); tr[0].click(); ok(o+' faq opens', !p.hidden && tr[0].getAttribute('aria-expanded')==='true');
+  tr[0].focus(); key(tr[0],'ArrowDown'); ok(o+' faq ArrowDown', d.activeElement===tr[1]); key(tr[1],'End'); ok(o+' faq End', d.activeElement===tr[6]);
+  const ls=d.querySelector('.language-switcher__toggle'); ls.click(); ok(o+' lang opens', d.querySelector('.language-switcher').classList.contains('is-open'));
+  d.querySelector('[lang=es].language-switcher__link').click(); ok(o+' lang selects', d.querySelector('.language-switcher__current').textContent==='Español' && d.querySelector('.language-switcher__status').textContent.length>0);
+  d.querySelector('[lang=en].language-switcher__link').click();
+  f=await load('file:///Volumes/Chamil-SSD/projects/EMA/option-'+o+'/gallery.html',1300); d=f.contentDocument;
+  d.querySelectorAll('.gallery-grid__link')[2].click(); const dl=d.querySelector('.gallery-grid__dialog');
+  ok(o+' lightbox opens', dl.open && d.querySelector('.gallery-grid__viewer-caption').textContent==='Story time');
+  key(dl,'ArrowRight'); ok(o+' lightbox next', d.querySelector('.gallery-grid__counter').textContent==='Photo 4 of 12');
+  dl.close(); const tgt=d.querySelectorAll('.gallery-grid__link')[3]; for(let i=0;i<20&&d.activeElement!==tgt;i++) await new Promise(r=>setTimeout(r,50)); out.push('  info '+o+' active='+(d.activeElement.className||d.activeElement.tagName)+' '+[...d.querySelectorAll('.gallery-grid__link')].indexOf(d.activeElement)); ok(o+' focus returns', d.activeElement===d.querySelectorAll('.gallery-grid__link')[3]);
+  f=await load('file:///Volumes/Chamil-SSD/projects/EMA/option-'+o+'/contact.html',1300); d=f.contentDocument;
+  d.querySelector('.contact-form button[type=submit]').click();
+  ok(o+' form errors', d.getElementById('cf-name').getAttribute('aria-invalid')==='true' && d.activeElement.id==='cf-name' && d.getElementById('cf-name-error').textContent==='Please enter your name.');
+  d.getElementById('cf-name').value='A'; d.getElementById('cf-email').value='bad'; d.getElementById('cf-message').value='hi';
+  d.querySelector('.contact-form button[type=submit]').click(); ok(o+' email error', d.activeElement.id==='cf-email'); ok(o+' school required', d.getElementById('cf-location').getAttribute('aria-invalid')==='true' && d.getElementById('cf-location-error').textContent==='Please choose a school.');
+  d.getElementById('cf-email').value='a@b.co'; d.getElementById('cf-location').selectedIndex=1; d.querySelector('.contact-form button[type=submit]').click();
+  ok(o+' form success', d.querySelector('.contact-form__status').textContent.startsWith('Thank you'));
+  const sw=d.querySelector('[data-theme-value=plum]'); sw.click();
+  ok(o+' theme applies', d.documentElement.getAttribute('data-theme')==='plum' && sw.getAttribute('aria-pressed')==='true' && d.querySelectorAll('.option-switcher__swatch[aria-pressed=true]').length===1);
+  ok(o+' theme recolors', f.contentWindow.getComputedStyle(d.documentElement).getPropertyValue('--color-primary').trim()==='#6d3f8c');
+  sw.ownerDocument.documentElement.removeAttribute('data-theme'); try{f.contentWindow.localStorage.removeItem('ema-demo-theme')}catch(e){}
+  ok(o+' no JS errors', errs.length===0);
+  f=await load('file:///Volumes/Chamil-SSD/projects/EMA/option-'+o+'/news.html',1300); d=f.contentDocument;
+  const nf=d.querySelector('.news-listing__filters'); ok(o+' news filter shown', !nf.hidden);
+  d.querySelector('[data-filter=events]').click();
+  const vis=[...d.querySelectorAll('.news-listing__item')].filter(i=>!i.hidden);
+  ok(o+' news filter events', vis.length===2 && vis.every(i=>i.dataset.category==='events') && d.querySelector('[data-filter=events]').getAttribute('aria-pressed')==='true');
+  ok(o+' news status', d.querySelector('.news-listing__status').textContent==='Showing 2 posts in Events.');
+  d.querySelector('[data-filter=all]').click(); ok(o+' news filter all', [...d.querySelectorAll('.news-listing__item')].every(i=>!i.hidden));
+  f=await load('file:///Volumes/Chamil-SSD/projects/EMA/option-'+o+'/news-first-day-tips.html',1300); d=f.contentDocument;
+  ok(o+' post active trail', d.querySelector('.main-menu__item.is-active-trail > a[href="news.html"]')!==null && d.querySelector('.sidebar-nav__link[aria-current=page]').textContent.trim()==='Five tips for a happy first day');
+ }
+ document.getElementById('out').textContent=out.join('\n');
+})().catch(e=>document.getElementById('out').textContent='ERR '+e.stack);
+</script></body></html>

@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Section'
+status: stable
+description: 'Full-width page section with optional heading. Used by paragraphs.'
+props:
+  type: object
+  properties:
+    section_id:
+      type: ['string', 'null']
+    eyebrow:
+      type: ['string', 'null']
+    title:
+      type: ['string', 'null']
+    text:
+      type: ['string', 'null']
+    center:
+      type: ['boolean', 'null']
+    background:
+      type: ['string', 'null']
+    modifier:
+      type: ['string', 'null']
+slots:
+  body:
+    title: 'Section content'

@@ -1,0 +1,23 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'News card'
+status: stable
+description: 'News post teaser: photo, category, date and summary. The whole card is clickable.'
+props:
+  type: object
+  properties:
+    title:
+      type: string
+    url:
+      type: string
+    image:
+      type: ['object', 'null']
+    category:
+      type: ['string', 'null']
+    date:
+      type: ['string', 'null']
+    date_iso:
+      type: ['string', 'null']
+    summary:
+      type: ['string', 'null']
+    heading_level:
+      type: ['integer', 'null']

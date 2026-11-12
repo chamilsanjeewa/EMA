@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * EMA page layout. Regions: header, primary_menu, hero, highlighted, content,
+ * sidebar (optional), footer_top, footer.
+ */
+#}
+<div class="page-wrapper">
+
+  <!-- region: header + primary_menu -->
+  {% embed 'ema_base:header' with {utility_props: ema.utility, lang_props: ema.language, branding: page.header, menu: page.primary_menu} only %}
+    {% block utility %}
+      {% embed 'ema_base:utility-bar' with utility_props|merge({lang_props: lang_props}) only %}
+        {% block language %}{{ include('ema_base:language-switcher', lang_props, with_context = false) }}{% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+
+  <main id="main-content" tabindex="-1">
+    {{ page.hero }}
+    {{ page.highlighted }}
+    {% if page.sidebar %}
+      <div class="layout layout--with-sidebar container">
+        {{ page.content }}
+        {{ page.sidebar }}
+      </div>
+    {% else %}
+      {{ page.content }}
+    {% endif %}
+  </main>
+
+  {{ page.footer_top }}
+
+  <!-- region: footer -->
+  {{ include('ema_base:footer', ema.footer|merge({extra: page.footer}), with_context = false) }}
+
+</div>

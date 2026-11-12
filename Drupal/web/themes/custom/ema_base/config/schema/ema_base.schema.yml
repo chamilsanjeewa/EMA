@@ -1,0 +1,28 @@
+ema_base.settings:
+  type: theme_settings
+  label: 'EMA theme settings'
+  mapping:
+    hero_variant:
+      type: string
+      label: 'Hero variant'
+    hero_image_style:
+      type: string
+      label: 'Hero image style'
+    brand_mark:
+      type: string
+      label: 'Brand mark'
+    apply_url:
+      type: string
+      label: 'Apply Now URL'
+    apply_label:
+      type: string
+      label: 'Apply Now label'
+    tour_url:
+      type: string
+      label: 'Tour URL'
+    instagram_url:
+      type: string
+      label: 'Instagram URL'
+    facebook_url:
+      type: string
+      label: 'Facebook URL'

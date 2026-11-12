@@ -1,0 +1,30 @@
+/* Option B: news-card */
+
+.news-card,
+.news-card:hover {
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.news-card__image {
+  border-radius: var(--radius-sm);
+}
+
+.news-card__body {
+  padding: var(--space-m) 0 0;
+}
+
+.news-card__category {
+  padding: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.news-card:hover .news-card__link {
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-underline-offset: 0.2em;
+}

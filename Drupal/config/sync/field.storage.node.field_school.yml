@@ -1,0 +1,30 @@
+uuid: 51878d7b-6352-4552-aba3-5dc3b2b9e1be
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_school
+field_name: field_school
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: both
+      label: 'Both schools'
+    -
+      value: emas
+      label: 'Eagan Montessori Academy South'
+    -
+      value: ab
+      label: 'Amazing Beginnings Montessori'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

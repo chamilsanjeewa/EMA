@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Component: language-switcher. Dropdown of language links.
+ */
+#}
+{% if links %}
+<div class="language-switcher" data-component="language-switcher">
+  <button type="button" class="language-switcher__toggle" aria-expanded="false" aria-controls="language-switcher-list">
+    {{ include('ema_base:icon', {name: 'globe'}, with_context = false) }}<span class="visually-hidden">{{ 'Language:'|t }}</span> <span class="language-switcher__current">{{ current }}</span>{{ include('ema_base:icon', {name: 'chevron-down'}, with_context = false) }}
+  </button>
+  <ul class="language-switcher__list" id="language-switcher-list">
+    {% for link in links %}
+      <li class="language-switcher__item"><a class="language-switcher__link" href="{{ link.url }}" lang="{{ link.langcode }}" hreflang="{{ link.langcode }}"{% if link.active %} aria-current="true"{% endif %}>{{ link.label }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

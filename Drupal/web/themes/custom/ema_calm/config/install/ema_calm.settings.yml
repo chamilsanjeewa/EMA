@@ -1,0 +1,21 @@
+hero_variant: arch
+hero_image_style: ema_hero_arch
+brand_mark: leaf
+apply_url: '#'
+apply_label: 'Apply Now'
+tour_url: /contact-us
+instagram_url: '#'
+facebook_url: '#'
+demo_switcher: true
+default_palette: sage
+favicon:
+  use_default: false
+  path: themes/custom/ema_calm/favicon.svg
+  mimetype: image/svg+xml
+logo:
+  use_default: true
+features:
+  favicon: true
+  logo: false
+  name: true
+  slogan: true

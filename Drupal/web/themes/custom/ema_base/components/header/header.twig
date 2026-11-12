@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Component: header. Site header layout: utility bar, branding and menu.
+ */
+#}
+<header class="site-header">
+  {% block utility %}{{ utility }}{% endblock %}
+  <div class="site-header__inner container">
+    {% block branding %}{{ branding }}{% endblock %}
+    {% block menu %}{{ menu }}{% endblock %}
+  </div>
+</header>

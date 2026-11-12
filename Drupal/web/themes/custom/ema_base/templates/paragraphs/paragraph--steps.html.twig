@@ -1,0 +1,4 @@
+{# Paragraph: enrollment steps. #}
+{% embed 'ema_base:section' with ema.section|merge({items: ema.items}) only %}
+  {% block body %}{{ include('ema_base:enrollment-steps', {items: items}, with_context = false) }}{% endblock %}
+{% endembed %}

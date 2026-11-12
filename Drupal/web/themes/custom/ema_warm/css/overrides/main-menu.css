@@ -1,0 +1,17 @@
+/* Option A: main-menu */
+
+@media (min-width: 70em) {
+  .main-menu__link {
+    border-radius: var(--radius-pill);
+  }
+
+  .main-menu__link:hover {
+    background: var(--color-surface-alt);
+  }
+
+  .main-menu__link[aria-current="page"],
+  .main-menu__item.is-active-trail > .main-menu__parent .main-menu__link,
+  .main-menu__item.is-active-trail > .main-menu__link {
+    background: var(--color-surface-alt);
+  }
+}

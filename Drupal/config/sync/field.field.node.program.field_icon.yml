@@ -1,0 +1,21 @@
+uuid: 1859af5d-a6a8-4da4-8b35-208c1eb368a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_icon
+    - node.type.program
+  module:
+    - options
+id: node.program.field_icon
+field_name: field_icon
+entity_type: node
+bundle: program
+label: Icon
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

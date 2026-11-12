@@ -1,0 +1,14 @@
+/* Option C: section-heading */
+
+.section-heading__eyebrow::before {
+  content: "";
+  flex: none;
+  width: 0.85em;
+  height: 0.85em;
+  border-radius: 0 100% 0 100%;
+  background: var(--color-leaf);
+}
+
+.section-heading__title {
+  font-weight: 500;
+}

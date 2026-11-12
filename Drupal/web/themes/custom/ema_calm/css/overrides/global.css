@@ -1,0 +1,18 @@
+/* Option C: global overrides (base + layout). */
+
+/* Option C: soft paper texture. */
+body {
+  background-image: radial-gradient(rgba(59, 47, 37, 0.045) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+.section--alt {
+  background-color: var(--color-surface-alt);
+  background-image: radial-gradient(rgba(59, 47, 37, 0.05) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+.program-detail__image,
+.news-article__image {
+  border-radius: 12rem 12rem var(--radius-md) var(--radius-md) / 8rem 8rem var(--radius-md) var(--radius-md);
+}

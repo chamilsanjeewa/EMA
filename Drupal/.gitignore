@@ -1,0 +1,21 @@
+# Installed by Composer (restore with: ddev composer install)
+/vendor/
+/recipes/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+
+# Site-specific files and secrets
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/*/settings.php
+/web/sites/*/settings.local.php
+/web/sites/*/settings.ddev.php
+/web/sites/*/services.local.yml
+
+# Database dumps and OS files
+*.sql
+*.sql.gz
+.DS_Store

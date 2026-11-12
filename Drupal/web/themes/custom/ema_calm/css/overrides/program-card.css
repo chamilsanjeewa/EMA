@@ -1,0 +1,18 @@
+/* Option C: program-card */
+
+.program-card {
+  padding: var(--space-s) var(--space-s) 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.program-card:hover {
+  box-shadow: var(--shadow-sm), var(--shadow-md);
+}
+
+.program-card__image {
+  border-radius: 50% 50% var(--radius-sm) var(--radius-sm) / 38% 38% var(--radius-sm) var(--radius-sm);
+}
+
+.program-card__body {
+  padding-inline: var(--space-2xs);
+}

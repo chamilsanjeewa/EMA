@@ -1,0 +1,21 @@
+uuid: 94d3b5c4-5771-4dfe-bbcd-e5fee27af223
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.tour
+    - field.storage.contact_message.field_request_type
+  module:
+    - options
+id: contact_message.tour.field_request_type
+field_name: field_request_type
+entity_type: contact_message
+bundle: tour
+label: 'Tour or question?'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

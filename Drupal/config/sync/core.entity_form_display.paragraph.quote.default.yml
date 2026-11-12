@@ -1,0 +1,28 @@
+uuid: daff8a87-c6d3-4f42-b49e-281dff50dc1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quote.field_background
+    - field.field.paragraph.quote.field_testimonial
+    - paragraphs.paragraphs_type.quote
+id: paragraph.quote.default
+targetEntityType: paragraph
+bundle: quote
+mode: default
+content:
+  field_background:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_testimonial:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

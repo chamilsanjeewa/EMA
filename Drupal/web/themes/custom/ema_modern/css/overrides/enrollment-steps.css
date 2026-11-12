@@ -1,0 +1,19 @@
+/* Option B: enrollment-steps */
+
+.enrollment-steps__item {
+  padding: var(--space-m) 0 0;
+  border-top: 2px solid var(--color-heading);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.enrollment-steps__number {
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--color-primary-dark);
+  font-size: var(--step-5);
+  line-height: 1;
+}

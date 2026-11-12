@@ -1,0 +1,11 @@
+uuid: 8d904e37-b087-407e-b1ff-94ee3f91e586
+langcode: en
+status: true
+dependencies: {  }
+name: 'Staff member'
+type: staff
+description: 'Leaders and teachers shown on the About page.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

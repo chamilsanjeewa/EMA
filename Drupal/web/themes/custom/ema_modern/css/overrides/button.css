@@ -1,0 +1,9 @@
+/* Option B: button */
+
+.button--secondary {
+  border-width: 1px;
+}
+
+.button--secondary:hover {
+  background: var(--color-heading);
+}

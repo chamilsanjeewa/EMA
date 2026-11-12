@@ -1,0 +1,116 @@
+/**
+ * Component: language-switcher (shared styles; option themes extend this library).
+ */
+.language-switcher {
+  position: relative;
+}
+
+.language-switcher__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-height: 2.25rem;
+  padding: 0.25em 0.7em;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-button);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.language-switcher__toggle:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.language-switcher__toggle .icon {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.language-switcher__toggle[aria-expanded="true"] .icon--chevron-down {
+  transform: rotate(180deg);
+}
+
+/* Without JavaScript the links show inline. */
+.language-switcher__list {
+  display: flex;
+  gap: 0.75em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.no-js .language-switcher__toggle {
+  display: none;
+}
+
+.language-switcher__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  color: inherit;
+}
+
+.js .language-switcher__list {
+  --color-focus: var(--color-focus-light);
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 80;
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  min-width: 11rem;
+  padding: var(--space-2xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.js .language-switcher.is-open .language-switcher__list {
+  display: flex;
+}
+
+.js .language-switcher__link {
+  padding: 0.55em 0.75em;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.js .language-switcher__link:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-heading);
+}
+
+.language-switcher__link[aria-current="true"] {
+  font-weight: 700;
+}
+
+.js .language-switcher__link[aria-current="true"]::after {
+  content: "✓";
+  content: "✓" / "";
+  color: var(--color-primary-dark);
+}
+
+.language-switcher__status {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 81;
+  width: max-content;
+  max-width: min(18rem, 80vw);
+  margin: 0;
+  padding: 0.6em 0.85em;
+  border-radius: var(--radius-sm);
+  background: var(--color-heading);
+  color: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  font-size: var(--step--1);
+}
+
+.language-switcher__status:empty {
+  display: none;
+}

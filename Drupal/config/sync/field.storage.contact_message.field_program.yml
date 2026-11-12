@@ -1,0 +1,42 @@
+uuid: 008fc107-4bdb-4fb5-aed1-a7ed00d81108
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_program
+field_name: field_program
+entity_type: contact_message
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Infant Childcare'
+      label: 'Infant Childcare'
+    -
+      value: 'Toddler Program'
+      label: 'Toddler Program'
+    -
+      value: 'Preschool Montessori'
+      label: 'Preschool Montessori'
+    -
+      value: 'Pre-K & Kindergarten'
+      label: 'Pre-K & Kindergarten'
+    -
+      value: 'Summer Bridge'
+      label: 'Summer Bridge'
+    -
+      value: 'Gifted, Talented & STEM'
+      label: 'Gifted, Talented & STEM'
+    -
+      value: 'Not sure yet'
+      label: 'Not sure yet'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

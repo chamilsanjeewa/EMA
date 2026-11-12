@@ -1,0 +1,10 @@
+uuid: 9ecafc71-11b7-4466-a77e-528f83258076
+langcode: en
+status: true
+dependencies: {  }
+id: listing
+label: 'Listing (programs, schools, FAQ, form...)'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

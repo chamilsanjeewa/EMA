@@ -1,0 +1,11 @@
+uuid: b6342614-2c27-4c30-b84b-5b54f5e22b33
+langcode: en
+status: true
+dependencies: {  }
+name: 'School location'
+type: location
+description: 'One of the two schools.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

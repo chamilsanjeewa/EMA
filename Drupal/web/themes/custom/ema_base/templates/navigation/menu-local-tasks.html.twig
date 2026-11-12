@@ -1,0 +1,6 @@
+{% if primary or secondary %}
+  <nav class="ema-tabs container" aria-label="{{ 'Page tabs'|t }}">
+    {% if primary %}<ul>{{ primary }}</ul>{% endif %}
+    {% if secondary %}<ul>{{ secondary }}</ul>{% endif %}
+  </nav>
+{% endif %}

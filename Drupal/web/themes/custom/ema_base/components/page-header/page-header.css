@@ -1,0 +1,25 @@
+/**
+ * Component: page-header (shared styles; option themes extend this library).
+ */
+.page-header {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-xl) var(--space-2xl);
+  background: var(--color-page-header-bg);
+}
+
+.page-header__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header__title {
+  margin: var(--space-m) 0 var(--space-s);
+  font-size: var(--step-5);
+}
+
+.page-header__lead {
+  max-width: 42rem;
+  margin: 0;
+  font-size: var(--step-1);
+}

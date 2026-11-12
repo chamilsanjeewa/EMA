@@ -1,0 +1,13 @@
+/* Option A: media-text */
+
+.media-text__eyebrow {
+  padding: 0.4em 1em;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.media-text__image {
+  border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
+  box-shadow: var(--shadow-md);
+}

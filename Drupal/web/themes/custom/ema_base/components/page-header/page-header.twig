@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Component: page-header. Inner page title with breadcrumb and lead text.
+ */
+#}
+<section class="page-header" aria-labelledby="page-title">
+  <div class="page-header__inner container">
+    {{ include('ema_base:breadcrumb', {links: breadcrumb}, with_context = false) }}
+    <h1 class="page-header__title" id="page-title">{{ title }}</h1>
+    {% if lead %}<p class="page-header__lead">{{ lead }}</p>{% endif %}
+  </div>
+</section>

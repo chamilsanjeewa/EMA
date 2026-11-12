@@ -1,0 +1,29 @@
+uuid: 48287e39-ed5b-4a80-8940-6dffc608d7c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - ema_site
+    - node
+  theme:
+    - ema_warm
+id: ema_warm_contact_info
+theme: ema_warm
+region: sidebar
+weight: 1
+provider: null
+plugin: ema_contact_info
+settings:
+  id: ema_contact_info
+  label: ''
+  label_display: '0'
+  provider: ema_site
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      program: program
+      news: news

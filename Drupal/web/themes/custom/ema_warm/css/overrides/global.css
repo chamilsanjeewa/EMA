@@ -1,0 +1,19 @@
+/* Option A: global overrides (base + layout). */
+
+/* Option A: rounded "card" sections and overlapping highlights. */
+.section--alt {
+  margin-inline: clamp(0rem, 2vw, 1.5rem);
+  border-radius: var(--radius-xl);
+}
+
+.paragraph--highlights {
+  position: relative;
+  z-index: 2;
+  margin-top: -4.5rem;
+  padding-top: 0;
+}
+
+.program-detail__image,
+.news-article__image {
+  border-radius: var(--radius-xl);
+}

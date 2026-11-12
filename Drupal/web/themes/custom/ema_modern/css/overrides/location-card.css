@@ -1,0 +1,25 @@
+/* Option B: location-card */
+
+.location-card {
+  border-top: 2px solid var(--color-heading);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.location-card__image {
+  margin-top: var(--space-m);
+  border-radius: var(--radius-sm);
+}
+
+.location-card__body {
+  padding-inline: 0;
+}
+
+.location-card__badge {
+  padding: 0;
+  background: none;
+  color: var(--color-eyebrow);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'CTA banner'
+status: stable
+description: 'Apply / tour banner (footer_top region).'
+props:
+  type: object
+  properties:
+    title:
+      type: string
+    text:
+      type: ['string', 'null']
+    apply_url:
+      type: ['string', 'null']
+    apply_label:
+      type: ['string', 'null']
+    tour_url:
+      type: ['string', 'null']

@@ -1,0 +1,20 @@
+uuid: 05c5fb21-1776-453e-bf29-0013ccc55281
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ema_warm
+id: ema_warm_content
+theme: ema_warm
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: ''
+  label_display: '0'
+  provider: system
+visibility: {  }

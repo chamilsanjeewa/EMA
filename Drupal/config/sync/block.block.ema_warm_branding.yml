@@ -1,0 +1,23 @@
+uuid: 60123a83-271e-4f78-8432-53ba6b0698e8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ema_warm
+id: ema_warm_branding
+theme: ema_warm
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: ''
+  label_display: '0'
+  provider: system
+  use_site_logo: false
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

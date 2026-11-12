@@ -1,0 +1,54 @@
+name: 'EMA Warm'
+type: theme
+description: 'The site theme: soft colors, rounded shapes and a playful, welcoming feel (Rose palette). Sub-theme of EMA Base.'
+core_version_requirement: ^11
+base theme: ema_base
+package: EMA
+screenshot: screenshot.png
+libraries:
+  - ema_warm/global
+# Option-specific styles are added on top of each shared component library.
+libraries-extend:
+  core/components.ema_base--button:
+    - ema_warm/button
+  core/components.ema_base--main-menu:
+    - ema_warm/main-menu
+  core/components.ema_base--hero:
+    - ema_warm/hero
+  core/components.ema_base--page-header:
+    - ema_warm/page-header
+  core/components.ema_base--section-heading:
+    - ema_warm/section-heading
+  core/components.ema_base--feature-list:
+    - ema_warm/feature-list
+  core/components.ema_base--media-text:
+    - ema_warm/media-text
+  core/components.ema_base--program-card:
+    - ema_warm/program-card
+  core/components.ema_base--news-card:
+    - ema_warm/news-card
+  core/components.ema_base--testimonial:
+    - ema_warm/testimonial
+  core/components.ema_base--staff-card:
+    - ema_warm/staff-card
+  core/components.ema_base--enrollment-steps:
+    - ema_warm/enrollment-steps
+  core/components.ema_base--location-card:
+    - ema_warm/location-card
+  core/components.ema_base--gallery-grid:
+    - ema_warm/gallery-grid
+  core/components.ema_base--faq-accordion:
+    - ema_warm/faq-accordion
+  core/components.ema_base--cta-banner:
+    - ema_warm/cta-banner
+  core/components.ema_base--footer:
+    - ema_warm/footer
+regions:
+  header: 'Header (branding)'
+  primary_menu: 'Primary menu'
+  hero: 'Hero (page title)'
+  highlighted: 'Highlighted (messages, tabs)'
+  content: 'Content'
+  sidebar: 'Sidebar (optional)'
+  footer_top: 'Footer top (call to action)'
+  footer: 'Footer'

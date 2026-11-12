@@ -1,0 +1,15 @@
+uuid: 986b47eb-ae6d-4580-8b2c-c046f0e45252
+langcode: en
+status: true
+dependencies: {  }
+name: ema_square
+label: 'Square (400×400)'
+effects:
+  47875ca4-dd1e-4318-b7d7-d280f412523c:
+    uuid: 47875ca4-dd1e-4318-b7d7-d280f412523c
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 400
+      height: 400
+      anchor: center-center

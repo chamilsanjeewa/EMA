@@ -1,0 +1,9 @@
+{#
+/**
+ * @file
+ * Blocks that render a full component (ema_site blocks, menu, branding, title):
+ * no wrapper markup, only contextual links for editors.
+ */
+#}
+{{ title_prefix }}{{ title_suffix }}
+{% block content %}{{ content }}{% endblock %}

@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Gallery grid'
+status: stable
+description: 'Photo grid with a native dialog lightbox.'
+props:
+  type: object
+  properties:
+    items:
+      type: ['array', 'null']
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

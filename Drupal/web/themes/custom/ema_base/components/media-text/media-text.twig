@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Component: media-text. Image next to text, with a check list and actions.
+ */
+#}
+<div class="media-text{{ reverse ? ' media-text--reverse' }}">
+  {% if image %}
+    <div class="media-text__media">
+      <img class="media-text__image" src="{{ image.src }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}" loading="lazy">
+    </div>
+  {% endif %}
+  <div class="media-text__content">
+    {% if eyebrow %}<p class="media-text__eyebrow">{{ eyebrow }}</p>{% endif %}
+    <h2 class="media-text__title"{% if heading_id %} id="{{ heading_id }}"{% endif %}>{{ title }}</h2>
+    <div class="media-text__body">{% block body %}{{ body }}{% endblock %}</div>
+    {% if list %}
+      <ul class="media-text__list">
+        {% for line in list %}<li class="media-text__list-item">{{ include('ema_base:icon', {name: 'check'}, with_context = false) }}{{ line }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+    {% if links %}
+      <div class="media-text__actions">
+        {% for link in links %}{{ include('ema_base:button', {label: link.label, url: link.url, variant: link.variant ?: 'secondary'}, with_context = false) }}{% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>

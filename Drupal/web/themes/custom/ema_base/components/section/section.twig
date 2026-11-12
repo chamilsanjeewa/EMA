@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Component: section. Full-width page section with optional heading. Used by paragraphs.
+ */
+#}
+<section class="section{{ background == 'alt' ? ' section--alt' }}{{ modifier ? ' ' ~ modifier }}"{% if title and section_id %} aria-labelledby="{{ section_id }}"{% endif %}>
+  <div class="container">
+    {% if title %}{{ include('ema_base:section-heading', {heading_id: section_id, eyebrow: eyebrow, title: title, text: text, center: center}, with_context = false) }}{% endif %}
+    {% block body %}{{ body }}{% endblock %}
+  </div>
+</section>

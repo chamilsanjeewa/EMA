@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Component: main-menu. Main navigation with mobile toggle, dropdowns and the Apply button.
+ */
+#}
+<nav class="main-menu" aria-label="{{ 'Main'|t }}" data-component="main-menu">
+  <button type="button" class="main-menu__toggle" aria-expanded="false" aria-controls="main-menu-panel">
+    <span class="main-menu__toggle-icon main-menu__toggle-icon--open">{{ include('ema_base:icon', {name: 'menu'}, with_context = false) }}</span><span class="main-menu__toggle-icon main-menu__toggle-icon--close">{{ include('ema_base:icon', {name: 'close'}, with_context = false) }}</span>
+    <span class="main-menu__toggle-label">{{ 'Menu'|t }}</span>
+  </button>
+  <div class="main-menu__panel" id="main-menu-panel">
+    <ul class="main-menu__list">
+      {% for item in items %}
+        {% if item.below %}
+          <li class="main-menu__item main-menu__item--has-children{{ item.in_trail ? ' is-active-trail' }}">
+            <div class="main-menu__parent">
+              <a class="main-menu__link" href="{{ item.url }}"{% if item.active %} aria-current="page"{% endif %}>{{ item.title }}</a>
+              <button type="button" class="main-menu__submenu-toggle" aria-expanded="false" aria-controls="main-menu-submenu-{{ loop.index }}">
+                <span class="visually-hidden">{{ item.title }} {{ 'submenu'|t }}</span>{{ include('ema_base:icon', {name: 'chevron-down'}, with_context = false) }}
+              </button>
+            </div>
+            <ul class="main-menu__submenu" id="main-menu-submenu-{{ loop.index }}">
+              {% for child in item.below %}
+                <li class="main-menu__subitem"><a class="main-menu__sublink" href="{{ child.url }}"{% if child.active %} aria-current="page"{% endif %}>{{ child.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li class="main-menu__item{{ item.in_trail and not item.active ? ' is-active-trail' }}"><a class="main-menu__link" href="{{ item.url }}"{% if item.active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% if apply_url %}{{ include('ema_base:button', {label: apply_label ?: 'Apply Now'|t, url: apply_url, extra_class: 'main-menu__cta'}, with_context = false) }}{% endif %}
+  </div>
+</nav>

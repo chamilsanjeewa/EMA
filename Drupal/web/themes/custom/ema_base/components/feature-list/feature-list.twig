@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Component: feature-list. Icon, title and text items.
+ */
+#}
+{% set tag = 'h' ~ (heading_level ?: 3) %}
+<ul class="feature-list{{ modifier ? ' feature-list--' ~ modifier }}">
+  {% for item in items %}
+    <li class="feature-list__item">
+      <span class="feature-list__icon">{{ include('ema_base:icon', {name: item.icon}, with_context = false) }}</span>
+      <{{ tag }} class="feature-list__title">{{ item.title }}</{{ tag }}>
+      {% if item.text %}<p class="feature-list__text">{{ item.text }}</p>{% endif %}
+    </li>
+  {% endfor %}
+</ul>

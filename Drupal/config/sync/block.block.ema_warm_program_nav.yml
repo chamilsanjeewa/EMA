@@ -1,0 +1,28 @@
+uuid: 6fe47c27-05b7-47a8-a0d3-01d32f2c0b4c
+langcode: en
+status: true
+dependencies:
+  module:
+    - ema_site
+    - node
+  theme:
+    - ema_warm
+id: ema_warm_program_nav
+theme: ema_warm
+region: sidebar
+weight: 0
+provider: null
+plugin: ema_program_nav
+settings:
+  id: ema_program_nav
+  label: ''
+  label_display: '0'
+  provider: ema_site
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      program: program

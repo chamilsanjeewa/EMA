@@ -1,0 +1,46 @@
+/* Option B: hero */
+
+.hero__eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.hero__title {
+  max-width: 14ch;
+}
+
+@media (min-width: 56em) {
+  .hero--full .hero__inner {
+    padding-block: var(--space-2xl) var(--space-3xl);
+  }
+
+  .hero--full .hero__content {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: var(--space-2xl);
+    align-items: end;
+  }
+
+  .hero--full .hero__eyebrow {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .hero--full .hero__title {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    margin: 0;
+  }
+
+  .hero--full .hero__text {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .hero--full .hero__actions {
+    grid-column: 2;
+    grid-row: 3;
+  }
+}

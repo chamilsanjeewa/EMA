@@ -1,0 +1,14 @@
+/* Option A: faq-accordion */
+
+.faq-accordion {
+  border: 0;
+}
+
+.faq-accordion__item {
+  margin-bottom: var(--space-xs);
+  padding-inline: var(--space-s);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}

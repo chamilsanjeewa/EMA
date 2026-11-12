@@ -1,0 +1,12 @@
+uuid: 54ba76d2-2277-4219-8a6e-14cee7cbbcbb
+langcode: en
+status: true
+dependencies: {  }
+id: tour
+label: 'Contact us & tour'
+recipients:
+  - admin@example.com
+reply: ''
+weight: 0
+message: 'Thank you! We will contact you soon to confirm.'
+redirect: /contact-us

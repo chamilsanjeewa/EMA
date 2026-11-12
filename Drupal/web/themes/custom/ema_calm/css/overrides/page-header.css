@@ -1,0 +1,30 @@
+/* Option C: page-header */
+
+.page-header {
+  background-image: radial-gradient(rgba(59, 47, 37, 0.05) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+.page-header::after {
+  content: "";
+  position: absolute;
+  display: none;
+  right: max(2rem, 8vw);
+  bottom: -2px;
+  width: 11rem;
+  height: 14rem;
+  border: 2px solid var(--color-leaf);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  opacity: 0.8;
+}
+
+@media (min-width: 56em) {
+  .page-header::after {
+    display: block;
+  }
+}
+
+.page-header__title {
+  font-weight: 500;
+}

@@ -1,0 +1,15 @@
+/* Option B: contact-info */
+
+.contact-info {
+  background: var(--color-surface-alt);
+  box-shadow: none;
+}
+
+.contact-info__icon {
+  width: auto;
+  justify-content: flex-start;
+}
+
+.contact-info__value {
+  padding-left: calc(1.1rem + 0.75em);
+}

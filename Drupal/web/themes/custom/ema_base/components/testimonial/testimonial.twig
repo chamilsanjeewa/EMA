@@ -1,0 +1,10 @@
+{#
+/**
+ * @file
+ * Component: testimonial. Parent quote.
+ */
+#}
+<figure class="testimonial">
+  <blockquote class="testimonial__quote"><p>{{ quote }}</p></blockquote>
+  <figcaption class="testimonial__author"><span class="testimonial__name">{{ name }}</span> {% if role %}<span class="testimonial__role">{{ role }}</span>{% endif %}</figcaption>
+</figure>

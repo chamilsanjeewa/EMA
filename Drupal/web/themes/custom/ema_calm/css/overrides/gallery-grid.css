@@ -1,0 +1,9 @@
+/* Option C: gallery-grid */
+
+.gallery-grid__link {
+  border-radius: var(--radius-sm);
+}
+
+.gallery-grid__item:nth-child(3n + 2) .gallery-grid__link {
+  border-radius: 50% 50% var(--radius-sm) var(--radius-sm) / 40% 40% var(--radius-sm) var(--radius-sm);
+}

@@ -1,0 +1,28 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Footer'
+status: stable
+description: 'Site footer: branding, menus, schools and bottom bar.'
+props:
+  type: object
+  properties:
+    branding:
+      type: ['object', 'null']
+    about:
+      type: ['string', 'null']
+    social:
+      type: ['array', 'null']
+    explore:
+      type: ['array', 'null']
+    programs:
+      type: ['array', 'null']
+    locations:
+      type: ['array', 'null']
+    hours:
+      type: ['string', 'null']
+    copyright:
+      type: ['string', 'null']
+    bottom_links:
+      type: ['array', 'null']
+slots:
+  extra:
+    title: 'Footer region blocks'

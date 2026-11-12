@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Component: contact-form. Card around the Drupal contact form ("tour").
+ */
+#}
+<div class="contact-form">
+  <h2 class="contact-form__title" id="contact-form-title">{{ title }}</h2>
+  {% if intro %}<p class="contact-form__intro">{{ intro }}</p>{% endif %}
+  {% block form %}{{ form }}{% endblock %}
+</div>

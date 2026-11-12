@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Component: cta-banner. Apply / tour banner (footer_top region).
+ */
+#}
+<section class="cta-banner" aria-labelledby="cta-banner-title">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <div class="cta-banner__content">
+        <h2 class="cta-banner__title" id="cta-banner-title">{{ title }}</h2>
+        {% if text %}<p class="cta-banner__text">{{ text }}</p>{% endif %}
+      </div>
+      <div class="cta-banner__actions">
+        {% if apply_url %}{{ include('ema_base:button', {label: apply_label ?: 'Apply Now'|t, url: apply_url, variant: 'inverse', size: 'large'}, with_context = false) }}{% endif %}
+        {{ include('ema_base:button', {label: 'Schedule a tour'|t, url: tour_url ?: '/contact-us', variant: 'ghost-inverse', size: 'large'}, with_context = false) }}
+      </div>
+    </div>
+  </div>
+</section>

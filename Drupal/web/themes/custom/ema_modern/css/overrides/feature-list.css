@@ -1,0 +1,15 @@
+/* Option B: feature-list */
+
+.feature-list__item {
+  padding: var(--space-m) 0 0;
+  border-top: 2px solid var(--color-heading);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.feature-list__icon {
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+}

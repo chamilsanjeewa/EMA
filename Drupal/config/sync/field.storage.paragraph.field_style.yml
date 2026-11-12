@@ -1,0 +1,30 @@
+uuid: 22a56a4c-a913-46f7-8d54-e7374fb3c351
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_style
+field_name: field_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: default
+      label: Default
+    -
+      value: compact
+      label: Compact
+    -
+      value: highlights
+      label: 'Highlights (below the hero)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

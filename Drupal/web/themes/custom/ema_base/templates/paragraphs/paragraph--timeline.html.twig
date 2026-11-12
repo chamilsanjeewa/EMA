@@ -1,0 +1,4 @@
+{# Paragraph: history timeline. #}
+{% embed 'ema_base:section' with ema.section|merge({items: ema.items}) only %}
+  {% block body %}{{ include('ema_base:history-timeline', {items: items}, with_context = false) }}{% endblock %}
+{% endembed %}

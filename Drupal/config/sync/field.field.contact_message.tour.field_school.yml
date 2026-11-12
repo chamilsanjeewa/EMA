@@ -1,0 +1,21 @@
+uuid: 8b7d8774-07c0-416a-81ba-04a0aad755d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.tour
+    - field.storage.contact_message.field_school
+  module:
+    - options
+id: contact_message.tour.field_school
+field_name: field_school
+entity_type: contact_message
+bundle: tour
+label: School
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

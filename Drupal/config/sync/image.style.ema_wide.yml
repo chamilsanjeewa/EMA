@@ -1,0 +1,15 @@
+uuid: 5fb45b80-414b-4459-b2bc-1ad25e6fbc2d
+langcode: en
+status: true
+dependencies: {  }
+name: ema_wide
+label: 'Wide 16:9 (1200×675)'
+effects:
+  1e53417d-d6bd-4a4f-9634-850cade18395:
+    uuid: 1e53417d-d6bd-4a4f-9634-850cade18395
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 1200
+      height: 675
+      anchor: center-center

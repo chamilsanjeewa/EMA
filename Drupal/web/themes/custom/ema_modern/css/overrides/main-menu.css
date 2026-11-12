@@ -1,0 +1,13 @@
+/* Option B: main-menu */
+
+@media (min-width: 70em) {
+  .main-menu__link[aria-current="page"],
+  .main-menu__item.is-active-trail > .main-menu__parent .main-menu__link,
+  .main-menu__item.is-active-trail > .main-menu__link {
+    color: var(--color-heading);
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.5em;
+  }
+}

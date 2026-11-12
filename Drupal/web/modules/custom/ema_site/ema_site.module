@@ -1,0 +1,269 @@
+<?php
+
+/**
+ * @file
+ * Data helpers and form tweaks for the EMA site.
+ *
+ * The helpers turn content (location, program, staff, testimonial, FAQ and
+ * news nodes) into plain arrays that match the props of the ema_base components.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\contact\MessageInterface;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Loads published nodes of a bundle, in creation order.
+ *
+ * @return \Drupal\node\NodeInterface[]
+ *   The nodes.
+ */
+function ema_site_nodes(string $bundle, array $conditions = []): array {
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  $query = $storage->getQuery()
+    ->accessCheck(TRUE)
+    ->condition('type', $bundle)
+    ->condition('status', NodeInterface::PUBLISHED)
+    ->sort('nid');
+  foreach ($conditions as $field => $value) {
+    $query->condition($field, $value);
+  }
+  return $storage->loadMultiple($query->execute());
+}
+
+/**
+ * Builds image props (src, full, alt, width, height, caption) for a field item.
+ *
+ * @param \Drupal\image\Plugin\Field\FieldType\ImageItem|null $item
+ *   The image field item.
+ * @param string|null $style
+ *   An image style ID, or NULL for the original file.
+ */
+function ema_site_image($item, ?string $style = NULL): ?array {
+  if (!$item || !$item->entity) {
+    return NULL;
+  }
+  $uri = $item->entity->getFileUri();
+  $generator = \Drupal::service('file_url_generator');
+  $dimensions = ['width' => $item->width, 'height' => $item->height];
+  $src = $generator->generateString($uri);
+  if ($style && ($image_style = ImageStyle::load($style))) {
+    $src = $image_style->buildUrl($uri);
+    $image_style->transformDimensions($dimensions, $uri);
+  }
+  return [
+    'src' => $src,
+    'full' => $generator->generateString($uri),
+    'alt' => (string) ($item->alt ?? ''),
+    'width' => (int) ($dimensions['width'] ?? 0),
+    'height' => (int) ($dimensions['height'] ?? 0),
+    'caption' => (string) ($item->title ?? ''),
+  ];
+}
+
+/**
+ * Location props for location-card, contact-info, footer and utility bar.
+ */
+function ema_site_locations(): array {
+  $locations = [];
+  foreach (ema_site_nodes('location') as $node) {
+    $locations[] = [
+      'key' => 'location-' . $node->id(),
+      'name' => $node->label(),
+      'short' => $node->get('field_short')->value,
+      'street' => $node->get('field_street')->value,
+      'city' => $node->get('field_city')->value,
+      'phone' => $node->get('field_phone')->value,
+      'phone_href' => 'tel:' . preg_replace('/[^0-9+]/', '', '+1' . $node->get('field_phone')->value),
+      'email' => $node->get('field_email')->value,
+      'maps_url' => $node->get('field_map_url')->isEmpty() ? '' : Url::fromUri($node->get('field_map_url')->uri)->toString(),
+      // Google Maps embed (no API key needed): school name + address.
+      'embed_url' => 'https://maps.google.com/maps?' . http_build_query([
+        'q' => $node->label() . ', ' . $node->get('field_street')->value . ', ' . $node->get('field_city')->value,
+        'z' => 15,
+        'output' => 'embed',
+      ], '', '&', PHP_QUERY_RFC3986),
+      'enrolling' => $node->get('field_enrolling')->value,
+      'note' => $node->get('field_note')->value,
+      'serves' => $node->get('field_serves')->value,
+      'image' => ema_site_image($node->get('field_image')->first(), 'ema_wide'),
+    ];
+  }
+  return $locations;
+}
+
+/**
+ * Program props for program-card and sidebar-nav.
+ */
+function ema_site_programs(): array {
+  $current = \Drupal::routeMatch()->getParameter('node');
+  $programs = [];
+  foreach (ema_site_nodes('program') as $node) {
+    $programs[] = [
+      'card_id' => 'program-' . $node->id(),
+      'title' => $node->label(),
+      'url' => $node->toUrl()->toString(),
+      'age' => $node->get('field_age_range')->value,
+      'icon' => $node->get('field_icon')->value ?: 'star',
+      'text' => $node->get('field_summary')->value,
+      'image' => ema_site_image($node->get('field_image')->first(), 'ema_card'),
+      'active' => $current instanceof NodeInterface && $current->id() === $node->id(),
+    ];
+  }
+  return $programs;
+}
+
+/**
+ * Testimonial props.
+ */
+function ema_site_testimonials(): array {
+  return array_values(array_map(fn (NodeInterface $node) => [
+    'quote' => $node->get('field_quote')->value,
+    'name' => $node->label(),
+    'role' => $node->get('field_role')->value,
+  ], ema_site_nodes('testimonial')));
+}
+
+/**
+ * Staff props. Photo is NULL when no photo was uploaded (theme shows a placeholder).
+ */
+function ema_site_staff(): array {
+  return array_values(array_map(fn (NodeInterface $node) => [
+    'name' => $node->label(),
+    'role' => $node->get('field_role')->value,
+    'bio' => $node->get('field_bio')->value,
+    'photo' => ema_site_image($node->get('field_image')->first(), 'ema_square'),
+  ], ema_site_nodes('staff')));
+}
+
+/**
+ * FAQ items for one category.
+ */
+function ema_site_faqs(string $category): array {
+  return array_values(array_map(fn (NodeInterface $node) => [
+    'question' => $node->label(),
+    'answer' => trim(strip_tags((string) $node->get('body')->value)),
+  ], ema_site_nodes('faq', ['field_faq_category' => $category])));
+}
+
+/**
+ * Date format used on news cards and posts ("October 20, 2026").
+ */
+function ema_site_news_date(NodeInterface $node): array {
+  $formatter = \Drupal::service('date.formatter');
+  return [
+    'date' => $formatter->format($node->getCreatedTime(), 'custom', 'F j, Y'),
+    'date_iso' => $formatter->format($node->getCreatedTime(), 'custom', 'Y-m-d'),
+  ];
+}
+
+/**
+ * Category label of a news post.
+ */
+function ema_site_news_category(NodeInterface $node): string {
+  $term = $node->hasField('field_news_category') ? $node->get('field_news_category')->entity : NULL;
+  return $term ? (string) \Drupal::service('entity.repository')->getTranslationFromContext($term)->label() : '';
+}
+
+/**
+ * Loads published news posts, newest first.
+ *
+ * @param int $limit
+ *   Number of posts (per page when $pager is TRUE).
+ * @param int|null $category
+ *   A news_category term ID to filter by.
+ * @param bool $pager
+ *   Whether to use a pager.
+ *
+ * @return \Drupal\node\NodeInterface[]
+ *   The posts.
+ */
+function ema_site_news_nodes(int $limit = 12, ?int $category = NULL, bool $pager = FALSE): array {
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  $query = $storage->getQuery()
+    ->accessCheck(TRUE)
+    ->condition('type', 'news')
+    ->condition('status', NodeInterface::PUBLISHED)
+    ->sort('created', 'DESC')
+    ->sort('nid', 'DESC');
+  if ($category) {
+    $query->condition('field_news_category', $category);
+  }
+  $pager ? $query->pager($limit) : $query->range(0, $limit);
+  return $storage->loadMultiple($query->execute());
+}
+
+/**
+ * News card props (ema_base:news-card).
+ */
+function ema_site_news_card(NodeInterface $node): array {
+  $node = \Drupal::service('entity.repository')->getTranslationFromContext($node);
+  return [
+    'title' => $node->label(),
+    'url' => $node->toUrl()->toString(),
+    'image' => ema_site_image($node->get('field_image')->first(), 'ema_card'),
+    'category' => ema_site_news_category($node),
+    'summary' => (string) $node->get('field_lead')->value,
+  ] + ema_site_news_date($node);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave() for nodes.
+ *
+ * News posts get a /news/<title> URL when the editor leaves the alias empty.
+ */
+function ema_site_node_presave(EntityInterface $node): void {
+  if ($node->bundle() !== 'news' || !$node->hasField('path') || !empty($node->get('path')->alias)) {
+    return;
+  }
+  $slug = \Drupal::service('transliteration')->transliterate($node->label(), 'en');
+  $slug = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($slug)), '-');
+  if ($slug === '') {
+    return;
+  }
+  $alias = '/news/' . $slug;
+  $repository = \Drupal::service('path_alias.repository');
+  $source = $node->isNew() ? NULL : '/node/' . $node->id();
+  for ($i = 2; ($existing = $repository->lookupByAlias($alias, 'und')) && $existing['path'] !== $source; $i++) {
+    $alias = '/news/' . $slug . '-' . $i;
+  }
+  $node->get('path')->alias = $alias;
+  $node->get('path')->langcode = 'und';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the "tour" contact form.
+ */
+function ema_site_form_contact_message_tour_form_alter(array &$form, FormStateInterface $form_state): void {
+  // Keep the form short: no subject, no "send me a copy", no preview.
+  $form['subject']['#access'] = FALSE;
+  $form['copy']['#access'] = FALSE;
+  $form['actions']['preview']['#access'] = FALSE;
+  $form['actions']['submit']['#value'] = t('Send message');
+  $form['actions']['submit']['#attributes']['class'][] = 'button';
+  $form['actions']['submit']['#attributes']['class'][] = 'button--primary';
+  // Core adds "contact-form"; the theme's contact-form component already
+  // provides that card, so swap it for the inner-form class.
+  $form['#attributes']['class'] = array_values(array_diff($form['#attributes']['class'] ?? [], ['contact-form']));
+  $form['#attributes']['class'][] = 'contact-form__form';
+  foreach (['field_school' => t('Choose a school'), 'field_request_type' => t('Choose one'), 'field_program' => t('Choose a program')] as $name => $empty) {
+    if (isset($form[$name]['widget'])) {
+      $form[$name]['widget']['#empty_option'] = $empty;
+    }
+  }
+  $form['#entity_builders'][] = 'ema_site_contact_message_builder';
+}
+
+/**
+ * Entity builder: fills the hidden subject from the chosen school.
+ */
+function ema_site_contact_message_builder(string $entity_type, MessageInterface $message, array &$form, FormStateInterface $form_state): void {
+  $type = $message->get('field_request_type')->value === 'question' ? 'Question' : 'Tour request';
+  $school = $message->get('field_school')->value ?? '';
+  $message->setSubject(trim($type . ': ' . $school, ': '));
+}

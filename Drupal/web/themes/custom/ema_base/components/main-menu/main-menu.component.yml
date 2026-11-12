@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: 'Main menu'
+status: stable
+description: 'Main navigation with mobile toggle, dropdowns and the Apply button.'
+props:
+  type: object
+  properties:
+    items:
+      type: ['array', 'null']
+    apply_url:
+      type: ['string', 'null']
+    apply_label:
+      type: ['string', 'null']
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

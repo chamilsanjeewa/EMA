@@ -1,0 +1,12 @@
+/* Option C: history-timeline */
+
+.history-timeline::before {
+  background: var(--color-leaf);
+  width: 2px;
+}
+
+.history-timeline__item::before {
+  border: 0;
+  border-radius: 0 100% 0 100%;
+  background: var(--color-primary);
+}
